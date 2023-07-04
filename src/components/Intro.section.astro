@@ -1,0 +1,48 @@
+---
+// import Text from "../components/react/text"
+// import Card from '../components/react/card'
+// import { Link } from "../components/react/link"
+import LocationIcon from "./icons/LocationIcon.astro"
+import Card from "./Card.astro";
+import DynamicText from './DynamicText.astro'
+import Link from "./Link.astro";
+---
+<section id="intro" class="flex flex-col gap-2">
+    <Card className="w-fit">
+        <div class="text-xl md:text-3xl font-bold">
+            <h1>I'm <DynamicText variant='gradient'>Franco Maciel.</DynamicText></h1>
+            <DynamicText className='text-lg md:text-2xl' variant='gradient'>Full Stack Developer</DynamicText>
+        </div>
+    </Card>
+
+    <Card tag="p" className="w-fit text-ellipsis [overflow-wrap:break-word]">
+      <!-- <p>
+        Focused on improvement, targeting to create high quality and useful products for users. I like fullstack development to collaborate in most of the development of projects, thinking about improving the user experience.
+      </p> -->
+      <!-- <p class="flex flex-wrap"> -->
+        Focused on create high quality web products and solutions.
+      <!-- </p> -->
+    </Card>
+      <Card className="w-fit">
+        <div class="flex gap-1 items-center">
+          <LocationIcon className="inline" />
+          <p class="align-middle">
+            From <DynamicText variant='gradient' className="font-bold">Argentina</DynamicText>
+          </p>
+        </div>
+      </Card>
+    <div class="flex flex-wrap gap-2">
+      <Link variant='button' props={{ href: '#techstack' }} >
+        <DynamicText variant='gradient'>Techstack</DynamicText>
+      </Link>
+      <Link variant='button' props={{ href: '#proyects' }} >
+        <DynamicText variant='gradient'>Proyects</DynamicText>
+      </Link>
+      <Link variant='button' props={{ href: '#contact' }} >
+        <DynamicText variant='gradient'>Contact</DynamicText>
+      </Link>
+      <Link variant='button' props={{ download: 'Maciel-Franco-CV.pdf', href: 'https://drive.google.com/file/d/18Tq-5DXhSQh2QiOE1kPh6q_RUUHOF0jz/view?usp=share_link', target: '_blank' }}>
+        <DynamicText variant='gradient' className="font-bold">Download CV</DynamicText>
+      </Link>
+    </div>
+  </section>

@@ -1,0 +1,50 @@
+---
+import DynamicText from './DynamicText.astro'
+
+interface Props {
+    technologies: string[]
+}
+const { technologies } = Astro.props as Props
+---
+
+<ul id="container" class="flex gap-4 my-4 flex-wrap">
+    {technologies.map((name) => (
+        <li class="px-3 py-1 cursor-default hover:tracking-wide hover:scale-110 duration-100">
+            <DynamicText variant="gradient">
+              {name}
+            </DynamicText>
+        </li>
+      ))
+    }
+</ul>
+
+<script>
+  const $icons = document.querySelectorAll('#container li') as unknown as HTMLElement[]
+
+  const $menuBD = document.querySelector('#menu-backdrop') as unknown as HTMLDivElement
+  
+  $icons?.forEach((item) => {
+      if (item instanceof HTMLElement) {
+          item.addEventListener('mouseenter', ({ target }: { target: any }) =>{
+
+              const { top, left, height, width } = target?.getBoundingClientRect()
+            //   console.log({ top, left, height, width })
+              if ($menuBD instanceof HTMLDivElement) {
+                  $menuBD.style.setProperty("--left", `${left}px`)
+                  $menuBD.style.setProperty("--top", `${top}px`)
+                  $menuBD.style.setProperty("--height", `${height}px`)
+                  $menuBD.style.setProperty("--width", `${width}px`)
+                  $menuBD.style.opacity = '1'
+                  $menuBD.style.display = 'block'
+              }
+          })
+          item.addEventListener('mouseleave', ({ target }) =>{
+              if ($menuBD instanceof HTMLElement) {
+                  $menuBD.style.opacity = '0'
+                  $menuBD.style.flex = 'none'
+              }
+          })
+      }
+  })
+
+</script>

@@ -1,0 +1,37 @@
+---
+import Card from "./Card.astro";
+import DynamicText from "./DynamicText.astro";
+import Link from "./Link.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import MailIcon from "./icons/MailIcon.astro";
+import FormContact from "./svelte/FormContact.svelte";
+
+
+
+const mail = 'damianmaciel0@gmail.com'
+---
+
+<section id="contact">
+    <Card className="my-4 inline-block">
+        <DynamicText tag="h2" variant='gradient'>Contact.</DynamicText>
+    </Card>
+    <div>
+        <DynamicText>You can find me in:</DynamicText>
+        <div class="my-4 flex flex-wrap gap-4">
+            <Link variant='button' props={{ href: 'https://github.com/FrM-bot', target: '_blank', title: '' }} className="gap-2">
+                <DynamicText variant='gradient'>Github</DynamicText>
+                <GithubIcon />
+            </Link>
+            <Link variant='button' props={{ href: 'https://www.linkedin.com/in/franco-maciel', target: '_blank' }} className="gap-2">
+                <DynamicText variant='gradient'>Linkedin</DynamicText>
+                <LinkedinIcon />
+            </Link>
+            <Link variant='button' props={{ href: `mailto:${mail}?subject=Your proyect&body=Messaage`, target: '_blank' }} className="gap-2">
+                <DynamicText variant='gradient'>damianmaciel0@gmail.com</DynamicText>
+                <MailIcon /> 
+            </Link>
+        </div>
+    </div>
+    <FormContact client:visible />
+</section>

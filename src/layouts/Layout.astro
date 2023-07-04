@@ -1,0 +1,34 @@
+---
+export interface Props {
+	title: string
+	name: string
+	content: string
+}
+
+const { title, name, content } = Astro.props as Props
+---
+
+<!DOCTYPE html>
+<html lang='en' class='scroll-smooth'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='description' content='Astro description' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name={name} content={content} />
+		<link rel="stylesheet" href="/styles/main.css" />
+		<title>{title}</title>
+	</head>
+	<body class="bg-custom-white text-black/80 dark:bg-custom-dark dark:text-white">
+		<slot />
+	</body>
+</html>
+
+<script>
+    import { setDarkTheme } from '../utils/darkmode'
+    addEventListener('DOMContentLoaded', () => {
+		const darkModeValue = window.localStorage.getItem("darkmode") === 'true'
+		setDarkTheme(darkModeValue)
+    })
+</script>
+

@@ -1,0 +1,20 @@
+---
+import { classNamesJoin } from '../utils/classNamesJoin'
+
+const Variants = {
+	gradient: 'bg-clip-text text-[#fff0] bg-gradient-to-l from-secondary to-primary',
+	default: 'after:absolute after:bg-gradient-to-l after:from-secondary after:to-primary after:w-full after:h-px after:duration-300 after:bottom-0 after:left-0 relative after:rounded-md after:shadow-lg py-1 px-2 w-fit whitespace-nowrap'
+}
+export interface Props {
+	tag?: 'div' | 'span' | 'h1' | 'h2'
+	variant?: keyof typeof Variants
+	className?: string
+}
+
+const { tag, variant, className = '' } = Astro.props as Props
+const Element = tag ?? 'span'
+const classVariant = classNamesJoin(className, Variants[variant ?? 'default'])
+---
+<Element class={classVariant}>
+	<slot />
+</Element>

@@ -1,0 +1,39 @@
+---
+import DarkModeButton from "./svelte/DarkModeButton.svelte";
+import DynamicText from "./DynamicText.astro"
+
+---
+
+
+
+<header class="sticky z-[5] max-w-4xl mx-auto lg:top-4 top-0 backdrop-blur-sm">
+    
+    <div class="w-full flex items-center justify-between lg:rounded-md bg-gradient-to-r dark:bg-gradient-to-r from-white to-white via-white/50 dark:from-custom-dark-v2 dark:to-custom-dark-v2 dark:via-custom-dark-v2/50 py-2 px-3 lg:border border-primary dark:border-secondary after:bg-gradient-to-l after:from-transparent dark:after:via-secondary after:via-primary after:to-transparent after:w-full after:absolute after:h-[1px] after:duration-300 after:top-full after:left-0 relative after:rounded-md after:shadow-xl">
+
+        <!-- <h1 class="text-gradient">FrM-bot</h1> -->
+        <a href="#intro">
+            <h1>
+                <DynamicText className='text-3xl font-semibold' variant='gradient'>FrM-bot</DynamicText>
+            </h1>
+        </a>
+        
+        <nav>
+            <ul class="flex items-center gap-2">
+                <li class="h-fit">
+                    <a href='#proyects'>
+                        <DynamicText className="hover:tracking-wider duration-200" variant="gradient">
+                            Proyects
+                        </DynamicText>
+                    </a>
+                </li>
+                <li class="h-fit border-l pl-1 dark:border-l-secondary border-l-primary">
+                    <DarkModeButton client:only />
+                </li>
+                <!-- <li class="flex items-center">
+                    <Switch client:load />
+                </li> -->
+            </ul>
+        </nav>
+    </div>
+    
+</header>

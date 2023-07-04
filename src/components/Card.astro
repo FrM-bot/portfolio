@@ -1,0 +1,21 @@
+---
+import { classNamesJoin } from '../utils/classNamesJoin'
+const Variants = {
+		default: 'rounded-md border py-[0.3em] px-[0.6em] shadow-lg shadow-black/10 dark:border-custom-dark-2 dark:bg-custom-dark dark:border-custom-dark-v2',
+		gradient: 'border py-[0.3em] px-[0.6em] rounded shadow-lg shadow-secondary/10 border-transparent dark:[background:linear-gradient(to_right,rgb(var(--custom-dark)),rgb(var(--custom-dark)))_padding-box,linear-gradient(to_right,rgb(var(--secondary)),rgb(var(--primary)))_border-box] [background:linear-gradient(to_right,#fff,#fff)_padding-box,linear-gradient(to_right,rgb(var(--secondary)),rgb(var(--primary)))_border-box]'
+	}
+
+export interface Props {
+  tag?: 'div' | 'a' | 'article' | 'p'
+  variant?: keyof typeof Variants
+  className?: string
+  props?: any
+}
+
+const { variant, className = '', tag } = Astro.props as Props
+const classVariant = classNamesJoin(className, Variants[variant ?? 'default'])
+const Element = tag ?? 'div'
+---
+<Element class={classVariant}>
+	<slot />
+</Element>

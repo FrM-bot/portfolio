@@ -1,0 +1,36 @@
+{
+    "languages": [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "C#"
+    ],
+    "frameworks": [
+        "Next.js",
+        "Tailwind",
+        "Astro",
+        "Express",
+        "Vitest",
+        "SvelteKit",
+        "Playwright"
+    ],
+    "libreries": [
+        "React",
+        "Redux"
+    ],
+    "orms": [
+        "Prisma",
+        "Mongoose",
+        "Sequalize"
+    ],
+    "dbs": [
+        "PostgreSQL",
+        "MongoDB"
+    ],
+    "other": [
+        "Docker",
+        "Git",
+        "VS code",
+        "Github Actions"
+    ]
+}
