@@ -14,7 +14,7 @@
         "SvelteKit",
         "Playwright"
     ],
-    "libreries": [
+    "libraries": [
         "React",
         "Redux"
     ],

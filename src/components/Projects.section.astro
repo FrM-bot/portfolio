@@ -2,41 +2,41 @@
 import DynamicText from "./DynamicText.astro"
 import Card from "./Card.astro"
 import { setDateFormat } from "../utils/useDateFormat";
-import Work from "../../public/proyects.json"
+import Work from "../../public/projects.json"
 import Link from "./Link.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 
 ---
 
 
-<section class='my-4' id='proyects'>
+<section class='my-4' id='projects'>
     <Card className='my-4 inline-block'>
-        <DynamicText tag="h2" variant='gradient'>Proyects.</DynamicText>
+        <DynamicText tag="h2" variant='gradient'>Projects.</DynamicText>
     </Card>
     <div class='grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-1'>
       {
-        Work?.map((proyect: any) => (
+        Work?.map((project: any) => (
           <article class="p-3 rounded border-y border-y-transparent hover:shadow-lg dark:shadow-black/30 duration-200 delay-100">
             <div class='flex flex-col justify-between gap-1 w-full h-fit'>
               <time class='text-xs'>
-                {setDateFormat({ date: proyect.date })}
+                {setDateFormat({ date: project.date })}
               </time>
-              <a href={proyect.proyectURL} target="_blank" class="rounded-md overflow-hidden border-[3px] border-slate-100 dark:border-custom-dark-v2 shadow-lg duration-300">
+              <a href={project.projectURL} target="_blank" class="rounded-md overflow-hidden border-[3px] border-slate-100 dark:border-custom-dark-v2 shadow-lg duration-300">
                 <picture class="rounded flex overflow-hidden">
-                  <img loading='lazy' class="hover:scale-105 duration-200 w-full" src={proyect.imageUrl} alt={proyect.title} />
+                  <img loading='lazy' class="hover:scale-105 duration-200 w-full" src={project.imageUrl} alt={project.title} />
                 </picture>
               </a>
-              <Link props={{ href: proyect.proyectURL, target: "_blank" }}>
-                {proyect.title}
+              <Link props={{ href: project.projectURL, target: "_blank" }}>
+                {project.title}
               </Link>
   
               <div class='flex gap-4 flex-wrap items-center'>
-                {proyect.technologies.map((technologie: string) => (
-                  <DynamicText variant='gradient'>{technologie}</DynamicText>
+                {project.technologies.map((technology: string) => (
+                  <DynamicText variant='gradient'>{technology}</DynamicText>
                 ))}
               </div>
                 <Link
-                  props={{ href: proyect.github, target: "_blank" }}
+                  props={{ href: project.github, target: "_blank" }}
                 >
                   <GithubIcon width={35} height={35} />
                 </Link>
