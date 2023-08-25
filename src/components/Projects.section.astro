@@ -16,7 +16,7 @@ import GithubIcon from "./icons/GithubIcon.astro";
     <div class='grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-1'>
       {
         Work?.map((project: any) => (
-          <article class="p-3 rounded border-y border-y-transparent hover:shadow-lg dark:shadow-black/30 duration-200 delay-100">
+          <article class="p-3 rounded border-x border-x-transparent hover:shadow-lg dark:shadow-black/30 duration-200 hover:border-x-primary dark:hover:border-x-secondary">
             <div class='flex flex-col justify-between gap-1 w-full h-fit'>
               <time class='text-xs'>
                 {setDateFormat({ date: project.date })}
@@ -36,6 +36,7 @@ import GithubIcon from "./icons/GithubIcon.astro";
                 ))}
               </div>
                 <Link
+                  variant='button'
                   props={{ href: project.github, target: "_blank" }}
                 >
                   <GithubIcon width={35} height={35} />
