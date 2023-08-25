@@ -40,14 +40,11 @@
     },
     {
         "imageUrl": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_360/v1678378654/portfolio/jv47uvtl1bhlklypophp.png",
-        "title": "Anime App",
-        "proyectURL": "https://anime-app-eight.vercel.app",
+        "title": "Wiki anime",
+        "proyectURL": "https://wiki-anime-frm-bot.vercel.app",
         "technologies": [
-            "Next js",
-            "SWR",
+            "SvelteKit",
             "Tailwind",
-            "Vitest",
-            "Playwright",
             "TypeScript"
         ],
         "date": "2022-09-21",
