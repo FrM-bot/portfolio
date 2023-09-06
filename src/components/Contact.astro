@@ -1,0 +1,22 @@
+---
+import presentation from "@/data/presentation"
+
+import Link from "@/components/Link.astro"
+import SocialLinks from "./SocialLinks.astro"
+---
+
+<article class='flex flex-col gap-6'>
+  <header class='flex w-full flex-row justify-between gap-2'>
+    <h3
+      class='text-lg text-neutral-100 underline decoration-dashed underline-offset-8'
+    >
+      Cantact
+    </h3>
+  </header>
+  <p class="flex gap-1">
+    Email me at <Link variant="text" href={`mailto:${presentation.mail}`}>
+      {presentation.mail}<Link>or via my social links.</Link>
+      <SocialLinks />
+    </Link>
+  </p>
+</article>

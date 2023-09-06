@@ -1,0 +1,21 @@
+---
+import removeTrailingSlash from "@/utils/removeTrailingSlash";
+import presentation from "@/data/presentation"
+import Link from "./Link.astro";
+---
+
+<header class="z-40 flex w-full items-center justify-between">
+  <Link variant="text" href={`mailto:${presentation.mail}`}
+    >{presentation.mail}</Link
+  >
+
+  <nav role="navigation">
+    <ul role="list" class="flex flex-row gap-2">
+      <li>
+        <Link variant="text" href='/assets/CV_MACIEL_FRANCO.pdf' target='_blank'>
+          Download CV
+        </Link>
+      </li>
+    </ul>
+  </nav>
+</header>

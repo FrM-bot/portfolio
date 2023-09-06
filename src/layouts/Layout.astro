@@ -1,0 +1,34 @@
+---
+import Header from "../components/Header.astro"
+import SEOTags from "@/components/seo/SEOTags.astro"
+import type { HeadTags } from "@/utils/types/HeadTags"
+
+import "@fontsource/open-sans"
+import "@/styles/tailwind.css"
+import "@/styles/fonts.css"
+
+export type Props = HeadTags
+
+const headTags = Astro.props
+---
+
+<!doct html>
+<html lang="en">
+  <SEOTags {...headTags} />
+
+  <body
+    class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-zinc-900 tracking-wide sm:px-10 px-4 py-8 text-sm text-neutral-900 dark:text-neutral-400 md:gap-20 md:py-16"
+  >
+    <Header />
+    <slot />
+    <style is:global>
+      html {
+        font-family: 'Inter';
+      }
+    ::selection {
+      background-color: white;
+      color: rgba(var(--secondary) / 0.9);
+    }
+    </style>
+  </body>
+</html>

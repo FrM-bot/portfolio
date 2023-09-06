@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    --primary: 45 212 191;
+    --secondary: 219 39 119;
+    --tertiary: 30 32 35;
+    --dark-v1: 15 15 15;
+    --dark-v2: 20 20 20;
+    --white: 255 255 255;
+  }
+}
