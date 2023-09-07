@@ -12,7 +12,7 @@ import Link from "./Link.astro"
     presentation.profile && (
       <div class="flex flex-col gap-3 h-full items-center">
         <picture class='w-1/2 self-center rounded-full overflow-hidden border-b-2 border-neutral-700 hover:border-neutral-400 duration-200 shadow-lg hover:shadow-white/5'>
-          <img src={presentation.profile} />
+          <img width="160" height="160" src={presentation.profile} alt="githubProfile" />
         </picture>
         <Link href='mailto:damianmaciel0@gmail.com' variant='gradient' class='w-fit font-semibold text-lg'>
           Let's talk
