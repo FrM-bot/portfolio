@@ -13,10 +13,9 @@ import SocialLinks from "./SocialLinks.astro"
       Cantact
     </h3>
   </header>
-  <p class="flex gap-1">
-    Email me at<Link variant="text" href={`mailto:${presentation.mail}`}>
+  <p>
+    Email me at<Link class="mx-1" variant="text" href={`mailto:${presentation.mail}`}>
       {presentation.mail}</Link>or via my social links.
       <SocialLinks />
-    
   </p>
 </article>
