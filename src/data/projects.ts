@@ -26,7 +26,7 @@ const projects: Project[] = [
   {
     image:
       "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378738/portfolio/k5qsgqzrdf3efuknkd2f.png",
-    title: "Wallet.",
+    title: "Wallet",
     link: "https://henry-pf-client.vercel.app",
     techs: [
       "React",
