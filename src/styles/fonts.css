@@ -1,5 +1,5 @@
 @font-face {
   font-family: "Quicksand";
-  src: url("/assets/fonts/Quicksand/Quicksand.otf") format("otf");
+  src: url("/assets/fonts/Quicksand/Quicksand.otf") format("opentype");
   font-display: swap;
 }
