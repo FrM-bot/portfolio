@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+				sans: ['Quicksand', ...defaultTheme.fontFamily.sans]
       },
       colors: {
         primary: 'rgba(var(--primary) / <alpha-value>)',

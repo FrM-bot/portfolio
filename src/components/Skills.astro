@@ -14,9 +14,9 @@ import { skills } from "@/data/skills"
   <section
     class='flex flex-wrap gap-4 sm:flex-row dark:text-light'
   >
-  <div class=''>
+  <div class='flex flex-col gap-2'>
     <h3 class="text-base text-white/90">Languages.</h3>
-    <ul class='mt-3 text-sm'>
+    <ul class='text-sm'>
       {
         skills.languages.map((skill) => (
           <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
@@ -26,9 +26,9 @@ import { skills } from "@/data/skills"
       }
     </ul>
   </div>
-  <div class=''>
+  <div class='flex flex-col gap-2'>
     <h3 class="text-base text-white/90">Libraries.</h3>
-    <ul class='mt-3 text-sm'>
+    <ul class='text-sm'>
       {
         skills.libraries.map((skill) => (
           <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
@@ -38,9 +38,9 @@ import { skills } from "@/data/skills"
       }
     </ul>
   </div>
-  <div class=''>
+  <div class='flex flex-col gap-2'>
     <h3 class="text-base text-white/90">Frameworks.</h3>
-    <ul class='mt-3 text-sm'>
+    <ul class='text-sm'>
       {
         skills.frameworks.map((skill) => (
           <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
@@ -50,9 +50,9 @@ import { skills } from "@/data/skills"
       }
     </ul>
   </div>
-  <div class=''>
+  <div class='flex flex-col gap-2'>
     <h3 class="text-base text-white/90">Database.</h3>
-    <ul class='mt-3 text-sm'>
+    <ul class='text-sm'>
       {
         skills.dbs.map((skill) => (
           <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
