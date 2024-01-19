@@ -7,10 +7,10 @@ type Props = HeadTags;
 
 const { title, description, noindex, og } = Astro.props;
 
-const DEFAULT_TITLE_PAGE = "Portfolio - Franco Maciel";
+const DEFAULT_TITLE_PAGE = "Franco Maciel's portfolio - Programmer and Web developer"
 const DEFAULT_DESCRIPTION_PAGE =
-  "Maciel Franco, a creative fullstack developer with over 2 years experience.";
-const DEFAULT_URL_SITE = SITE_URL;
+  "Maciel Franco, a creative fullstack developer with over 2 years experience."
+const DEFAULT_URL_SITE = SITE_URL
 
 const openGraph = {
   title: title || og?.title || DEFAULT_TITLE_PAGE,

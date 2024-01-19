@@ -4,6 +4,8 @@ export type Project = {
   link: string
   github: string
   image: string
+  highlight?: boolean
+  description?: string
 }
 
 const projects: Project[] = [
@@ -46,6 +48,8 @@ const projects: Project[] = [
     link: "https://wiki-anime-frm-bot.vercel.app",
     techs: ["SvelteKit", "Tailwind", "TypeScript"],
     github: "https://github.com/FrM-bot/anime-app",
+    highlight: true,
+    description: 'Wiki where you can find enormous sort of data of your favorites anime and manga.'
   },
   {
     image:
@@ -54,6 +58,7 @@ const projects: Project[] = [
     link: "https://music-downloader.onrender.com",
     techs: ["React", "Tailwind", "Esbuild"],
     github: "https://github.com/FrM-bot/music-downloader",
+    description: 'Add where you can download audio .mp3 from youtube with the url.'
   },
   {
     image:
@@ -92,7 +97,8 @@ const projects: Project[] = [
     link: "https://svelte-cloudinary-app-guif.vercel.app",
     techs: ["SvelteKit", "Tailwind", "TypeScript"],
     github: "https://github.com/FrM-bot/svelte-cloudinary-app",
-  },
+    description: 'Simple image editor where you can apply various type of filters and optimizations.'
+  }
 ]
 
 export default projects

@@ -10,9 +10,9 @@ import ProjectCard from "./ProjectCard.astro";
       Projects ({projects.length})
     </h3>
   </header>
-  {projects.length === 0 && <p>Oops, I must work^^^^^</p>}
+  {projects.length === 0 && <p>Oops, I must work^_^</p>}
 
-  <section class='flex gap-4 flex-wrap'>
+  <section class='grid sm:grid-cols-3 gap-4 md:auto-rows-[190px] auto-rows-[250px]'>
     {
       projects.length !== 0 &&
         projects.map((project) => <ProjectCard {...project} />)
