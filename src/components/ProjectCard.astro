@@ -1,42 +1,50 @@
 ---
 import type { Project } from "@/data/projects"
-import GithubIcon from "./icons/GithubIcon.astro"
-import LinkIcon from "./icons/LinkIcon.astro"
+import GithubIcon from "./icons/Github.astro"
+import LinkIcon from "./icons/Link.astro"
 import Link from "./Link.astro"
 
 type Props = Project
 
-const { title, techs, link, github, image } = Astro.props
+const { title, techs, link, github, image, highlight, description } = Astro.props
 
 const formatTechs = (values: string[]) =>
   values.toString().replaceAll(",", " • ")
 ---
-<article class='relative group flex w-full flex-col justify-between overflow-hidden hover:translate-x-1 gap-3 bg-gradient-to-r from-neutral-600/10 dark:from-neutral-700/10 hover:from-neutral-700/30 to-transparent border-l border-neutral-700 p-4 transition-all duration-200 hover:border-neutral-400 md:flex-row md:items-center'>
-    <div class='flex flex-col gap-4 md:flex-row md:items-center'>
-      <Link variant="text" class="text-left flex truncate" href={link}>
+<article class:list={[ highlight && 'md:[grid-row-start:span_2] [grid-row-start:span_1] sm:[grid-column-start:span_2]' ]} class='relative hover:shadow-lg rounded-xl group overflow-hidden hover:translate-x-1 gap-3 bg-gradient-to-b from-neutral-600/10 dark:from-neutral-700/10 hover:from-neutral-700/30 dark:to-neutral-800/10 border-t border-neutral-700 p-3 transition-all duration-200 hover:border-neutral-400 md:flex-row md:items-center'>
+    <div class='flex justify-between gap-4 md:flex-row items-center mb-2'>
+      <Link variant="text" class="text-left flex group-hover:opacity-0 group-hover:translate-y-4 duration-200 overflow-clip text-ellipsis" href={link}>
         {title}
       </Link>
-      <p class="dark:text-white/60 group-hover:opacity-0 group-hover:translate-y-4 duration-200">{formatTechs(techs)}</p>
-    </div>
-    <div class='flex gap-2 top-2 right-3 group-hover:text-white'>
-      <a
-        href={link}
-        target='_blank'
-        rel='noreferrer'
-        aria-label="Github link"
-        class='backdrop-blur-sm p-2 bg-zinc-800/20 hover:shadow-lg dark:ondtext-white/70 grid place-content-center hover:text-fuchsia-500 rounded-full duration-200'
-      >
-        <GithubIcon />
-      </a>
-      <a
+      <div class='flex gap-2 top-2 right-3 group-hover:text-white'>
+        <a
         href={github}
         target='_blank'
         rel='noreferrer'
-        aria-label="Project link"
-        class='backdrop-blur-sm p-2 bg-zinc-800/20 hover:shadow-lg dark:ondtext-white/70 grid place-content-center hover:text-cyan-500 rounded-full duration-200'
-      >
-        <LinkIcon />
-      </a>
+        aria-label="Github link"
+        class='backdrop-blur-sm md:p-2 p-1 bg-zinc-800/20 hover:shadow-lg dark:ondtext-white/70 grid place-content-center hover:text-fuchsia-500 rounded-full duration-200'
+        >
+          <GithubIcon width={19} height={19} />
+        </a>
+        <a
+          href={link}
+          target='_blank'
+          rel='noreferrer'
+          aria-label="Project link"
+          class='backdrop-blur-sm md:p-2 p-1 bg-zinc-800/20 hover:shadow-lg dark:ondtext-white/70 grid place-content-center hover:text-cyan-500 rounded-full duration-200'
+          >
+          <LinkIcon width={19} height={19} />
+        </a>
+      </div>
     </div>
-    <div style=`background-image: url(${image});background-repeat: no-repeat;background-clip: content-box;background-size: cover;background-position: center;` class="top-0 left-0 w-full h-0 absolute -z-[1] group-hover:h-full duration-200 blur-[2px] group-hover:blur-none [box-shadow:inset_0px_0px_56px_26px_rgba(0,0,0,.4)] dark:[box-shadow:inset_0px_0px_56px_26px_rgba(0,0,0,.6)]" />
-</article>
+    <div>
+      {
+        description &&
+        <p class="group-hover:opacity-0 group-hover:translate-y-4 duration-200 text-xs line-clamp-4 mb-2">
+          {description}
+        </p>
+      }
+      <p class="dark:text-white/60 group-hover:opacity-0 group-hover:translate-y-4 duration-200 text-xs">{formatTechs(techs)}</p>
+    </div>
+    <div style=`background-image: url(${image});background-repeat: no-repeat;background-clip: content-box;background-size: cover;background-position: center;` class="top-0 rounded-xl left-0 w-full h-1 absolute -z-[1] group-hover:h-full duration-200 blur-[2px] group-hover:blur-none [box-shadow:inset_0px_0px_56px_26px_rgba(0,0,0,.4)] dark:[box-shadow:inset_0px_0px_56px_26px_rgba(0,0,0,.6)]" />
+</articlec>

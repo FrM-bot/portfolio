@@ -1,10 +1,11 @@
 ---
-import Header from "../components/Header.astro"
-import SEOTags from "@/components/seo/SEOTags.astro"
-import type { HeadTags } from "@/utils/types/HeadTags"
-
 import "@/styles/tailwind.css"
 import "@/styles/fonts.css"
+import "@/styles/global.css"
+
+import Header from "@/components/Header.astro"
+import SEOTags from "@/components/seo/SEOTags.astro"
+import type { HeadTags } from "@/utils/types/HeadTags"
 
 export type Props = HeadTags
 
@@ -16,18 +17,15 @@ const headTags = Astro.props
   <SEOTags {...headTags} />
 
   <body
-    class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-zinc-900 tracking-wide sm:px-10 px-4 py-8 text-sm text-neutral-900 dark:text-neutral-400 md:gap-20 md:py-16"
+    class="bg-zinc-900 tracking-wide text-neutral-900 dark:text-neutral-400 text-sm"
   >
-    <Header />
-    <slot />
-    <style is:global>
-      html {
-        font-family: Quicksand, sans-serif;
-      }
-    ::selection {
-      background-color: white;
-      color: rgba(var(--secondary) / 0.9);
-    }
-    </style>
+    <div class="h-full inset-0 w-full">
+      <div class="absolute h-full w-full -z-[1] bg-[radial-gradient(rgb(35_35_35)_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+    </div>
+
+    <div class="max-w-[872px] mx-auto sm:px-10 px-4 py-8 md:py-16 flex flex-col gap-9 md:gap-20">
+      <Header />
+      <slot />
+    </div>
   </body>
 </html>

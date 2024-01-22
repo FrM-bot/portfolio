@@ -16,7 +16,7 @@ const presentation: Presentation = {
   title: "Maciel Franco",
   profile: "https://avatars.githubusercontent.com/u/82059717?v=4",
   description:
-    "*Fullstack developer* with over *2 years* of web experience, focused on create high quality web products and solutions. I am currently working with *Next.JS*, *Astro*, *SveltKit* and *TypeSript*.",
+    "*Fullstack developer* with over *2 years* of web experience, focused on create high quality web products and solutions with great user experience. I am currently working with *Next.JS*, *Astro*, *SveltKit* and *TypeSript*.",
   socials: [
     {
       label: "Linkedin",

@@ -3,16 +3,23 @@ import presentation from "@/data/presentation"
 import SocialLinks from "./SocialLinks.astro"
 import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag"
 import Link from "./Link.astro"
+//   <span class="absolute z-[1] grid place-content-center -right-10 top-2 h-3 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-primary py-[10px] pl-5 pr-2">
+//   <span class="absolute items-center justify-center flex h-3 w-3 top-1 left-1">
+//     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+//     <span class="relative inline-flex rounded-full h-3 w-3 bg-primary" />
+// </span>    
+//    Available
+//   </span>
 ---
 
 <article
-  class='flex flex-col gap-8 md:flex-row-reverse md:justify-end md:gap-12'
+  class='flex flex-col gap-8 md:flex-row-reverse md:justify-end lg:gap-16'
 >
   {
     presentation.profile && (
       <div class="flex flex-col gap-3 h-full items-center">
-        <picture class='w-1/2 self-center rounded-full overflow-hidden border-b-2 border-neutral-700 hover:border-neutral-400 duration-200 shadow-lg hover:shadow-white/5'>
-          <img width="380" height="380" src={presentation.profile} alt="githubProfile" />
+        <picture class='self-center rounded-full border-b-2 border-primary duration-200 shadow-lg shadow-primary/5 relative'>
+          <img class="rounded-full" width="180" height="180" src={presentation.profile} alt="githubProfile" />
         </picture>
         <Link href='mailto:damianmaciel0@gmail.com' variant='gradient' class='w-fit font-semibold text-lg'>
           Let's talk
@@ -25,7 +32,7 @@ import Link from "./Link.astro"
     <div class='flex flex-col'>
       <p>Hi, I’m</p>
       <h1
-        class='text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold text-transparent w-fit'
+        class='text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold text-transparent w-fit relative'
       >
         {presentation.title}
       </h1>
