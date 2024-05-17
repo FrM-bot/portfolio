@@ -1,6 +1,12 @@
 ---
-import Link from "./Link.astro"
-import presentation from "@/data/presentation"
+import { getI18n } from '@/i18n'
+import Link from './ui/Link.astro'
+
+const { currentLocale } = Astro
+
+const i18n = getI18n({ lang: currentLocale })
+
+const presentation = i18n.Presentation
 ---
 
 <ul role='list' class='flex flex-row gap-1 text-base'>
@@ -8,7 +14,7 @@ import presentation from "@/data/presentation"
     presentation.socials.map((social, index) => (
       <>
         <li>
-          <Link variant="text" href={social.link}>{social.label}</Link>
+          <Link variant="text" href={social.link} target='_blank' referer='noreferrer'>{social.label}</Link>
         </li>
 
         {presentation.socials.length - 1 !== index && <li>|</li>}

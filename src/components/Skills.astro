@@ -1,5 +1,13 @@
 ---
-import { skills } from "@/data/skills"
+import { skills } from '@/data/skills'
+import { getI18n } from '@/i18n'
+
+const { currentLocale } = Astro
+
+const i18n = getI18n({ lang: currentLocale })
+
+const title = i18n.Translations.sections.title.Skills
+const skillTtitles = i18n.Skills
 ---
 
 <article class='flex flex-col gap-6'>
@@ -7,7 +15,7 @@ import { skills } from "@/data/skills"
     <h3
       class='text-lg text-neutral-100 underline decoration-dashed underline-offset-8'
     >
-      Skills
+      {title}
     </h3>
   </header>
 
@@ -15,7 +23,7 @@ import { skills } from "@/data/skills"
     class='flex flex-wrap gap-4 sm:flex-row dark:text-light'
   >
   <div class='flex flex-col gap-2'>
-    <h3 class="text-base text-white/90">Languages.</h3>
+    <h3 class="text-base text-white/90">{skillTtitles.languages.label}</h3>
     <ul class='text-sm'>
       {
         skills.languages.map((skill) => (
@@ -27,7 +35,7 @@ import { skills } from "@/data/skills"
     </ul>
   </div>
   <div class='flex flex-col gap-2'>
-    <h3 class="text-base text-white/90">Libraries.</h3>
+    <h3 class="text-base text-white/90">{skillTtitles.libraries.label}</h3>
     <ul class='text-sm'>
       {
         skills.libraries.map((skill) => (
@@ -39,7 +47,7 @@ import { skills } from "@/data/skills"
     </ul>
   </div>
   <div class='flex flex-col gap-2'>
-    <h3 class="text-base text-white/90">Frameworks.</h3>
+    <h3 class="text-base text-white/90">{skillTtitles.frameworks.label}</h3>
     <ul class='text-sm'>
       {
         skills.frameworks.map((skill) => (
@@ -51,7 +59,7 @@ import { skills } from "@/data/skills"
     </ul>
   </div>
   <div class='flex flex-col gap-2'>
-    <h3 class="text-base text-white/90">Database.</h3>
+    <h3 class="text-base text-white/90">{skillTtitles.dbs.label}</h3>
     <ul class='text-sm'>
       {
         skills.dbs.map((skill) => (
@@ -63,7 +71,7 @@ import { skills } from "@/data/skills"
     </ul>
   </div>
     <div class=''>
-      <h3 class="text-base text-white/90">ORM's.</h3>
+      <h3 class="text-base text-white/90">{skillTtitles.orms.label}</h3>
       <ul class='mt-3 text-sm'>
         {
           skills.orms.map((skill) => (
@@ -75,7 +83,7 @@ import { skills } from "@/data/skills"
       </ul>
     </div>
     <div class=''>
-        <h3 class="text-base text-white/90">Other.</h3>
+        <h3 class="text-base text-white/90">{skillTtitles.other.label}</h3>
         <ul class='mt-3 text-sm'>
           {
             skills.other.map((skill) => (

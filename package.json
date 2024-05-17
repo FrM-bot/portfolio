@@ -1,28 +1,31 @@
 {
   "name": "frm-bot-portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "biome format --write ./src",
+		"lint:check": "biome lint ./src",
+		"lint:apply": "biome check --apply ./src"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^5.0.0",
-    "@fontsource-variable/onest": "5.0.2",
-    "astro": "^3.0.10",
-    "astro-seo": "0.8.0",
-    "tailwindcss": "^3.3.3"
+    "@astrojs/tailwind": "5.1.0",
+    "@fontsource-variable/onest": "5.0.4",
+    "astro": "4.8.6",
+    "astro-seo": "0.8.3",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss": "3.4.3"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "6.6.0",
-    "eslint": "8.48.0",
-    "eslint-plugin-astro": "0.29.0",
-    "prettier": "3.0.3",
-    "prettier-plugin-astro": "0.12.0",
-    "prettier-plugin-tailwindcss": "0.5.4"
-  }
+    "@biomejs/biome": "1.7.3"
+  },
+  "exports": {
+    "./biome": "./biome.json"
+  },
+  "packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195"
 }

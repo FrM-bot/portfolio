@@ -1,0 +1,203 @@
+{
+	"SEO": {
+		"title": "Portafolio de Maciel Franco - Programador y Web developer",
+		"description": "Maciel Franco, creativo fullstack developer con más de 2 años de experiencia."
+	},
+	"Header": {
+		"title": "Maciel Franco",
+		"description": "Fullstack developer con más de 2 años de experiencia.",
+		"noindex": false,
+		"og": {
+			"title": "Portafolio de Maciel Franco - Programador y Web developer",
+			"type": "website",
+			"description": "Fullstack developer con más de 2 años de experiencia.",
+			"image": "/opengraph-image-es.png",
+			"alt": "Franco Maciel's portfolio"
+		}
+	},
+	"Presentation": {
+		"mail": "damianmaciel0@gmail.com",
+		"title": "Maciel Franco",
+		"profile": "https://avatars.githubusercontent.com/u/82059717?v=4",
+		"curriculum": {
+			"label": "Ver curriculum",
+			"link": "https://drive.google.com/file/d/1JKOCHCrcdn3vYBj0N9Sed2kaZWAIGVOW/view?usp=sharing"
+		},
+		"greeting": "Hola, soy",
+		"description": "*Fullstack developer* con más de *2 años* de experiencia web, enfocado en crear productos y soluciones de alta calidad. Actualmente trabajo con *Next.JS*, *Astro*, *SveltKit* y *TypeSript*.",
+		"socials": [
+			{
+				"label": "Linkedin",
+				"link": "https://www.linkedin.com/in/frm-bot"
+			},
+			{
+				"label": "Github",
+				"link": "https://github.com/FrM-bot"
+			}
+		]
+	},
+	"Experience": [
+		{
+			"position": "Front end developer (Remote)",
+			"location": {
+				"city": "Las Palmas",
+				"country": "España"
+			},
+			"company": "Synergiart SL",
+			"date": {
+				"from": "2024-02-01"
+			},
+			"work": [
+				"React | TypeScript | Tailwind CSS | Yup | Zustand | Material UI"
+			]
+		},
+		{
+			"position": "Junior fullstack engineer (Remoto)",
+			"location": {
+				"city": "Córdoba",
+				"country": "Argentina"
+			},
+			"company": "GoSiclall",
+			"date": {
+				"from": "2023-06-25"
+			},
+			"work": [
+				"Next.JS | TypeScript | Tailwind CSS | Zod | Zustand | Next Auth | Tanstack Query"
+			]
+		},
+		{
+			"position": "Junior backend developer (Remoto)",
+			"location": {
+				"city": "Córdoba",
+				"country": "Argentina"
+			},
+			"company": "GoSiclall",
+			"date": {
+				"from": "2023-05-26",
+				"to": "2023-06-25"
+			},
+			"work": ["Express | Node | JWT | MercadoPago | Prisma | MongoDB | Zod"]
+		}
+	],
+	"Projects": [
+		{
+			"title": "Weather App",
+			"techs": ["React"],
+			"link": "https://weather-app-lilac-zeta-45.vercel.app",
+			"github": "https://github.com/FrM-bot/weather-app",
+			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678314756/portfolio/fuo0c00bd3hdac3vrihe.png"
+		},
+		{
+			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378835/portfolio/muyikihebuiobed6gywu.png",
+			"title": "Wiki Dogs",
+			"link": "https://pi-dogs-client.vercel.app",
+			"techs": ["React", "Express", "Sequalize", "PostgreSQL"],
+			"github": "https://github.com/FrM-bot/Pi-Dogs-Client"
+		},
+		{
+			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378738/portfolio/k5qsgqzrdf3efuknkd2f.png",
+			"title": "Wallet",
+			"link": "https://henry-pf-client.vercel.app",
+			"techs": [
+				"React",
+				"Express",
+				"Prisma",
+				"PostgreSQL",
+				"Firebase",
+				"JWT",
+				"Tailwind"
+			],
+			"github": "https://github.com/facuperezbri/henry-pf-client"
+		},
+		{
+			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378654/portfolio/jv47uvtl1bhlklypophp.png",
+			"title": "Wiki anime",
+			"link": "https://wiki-anime-frm-bot.vercel.app",
+			"techs": ["SvelteKit", "Tailwind", "TypeScript"],
+			"github": "https://github.com/FrM-bot/anime-app",
+			"highlight": true,
+			"description": "Wiki donde puedes encontrar enormes cantidades de datos de tus favoritos anime y manga."
+		},
+		{
+			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678386163/portfolio/mkawwtw4jddwbjnmspoh.png",
+			"title": "Music Downloader",
+			"link": "https://music-downloader.onrender.com",
+			"techs": ["React", "Tailwind", "Esbuild"],
+			"github": "https://github.com/FrM-bot/music-downloader",
+			"description": "App donde puedes descargar audio .mp3 de youtube con la url."
+		},
+		{
+			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678315586/portfolio/qx6n1m0cgkfqbvxpvyvc.png",
+			"title": "Password Generator",
+			"link": "https://password-generator-o6yz.onrender.com",
+			"techs": [
+				"React",
+				"Tailwind",
+				"Vitest",
+				"Playwright",
+				"Github Actions",
+				"TypeScript"
+			],
+			"github": "https://github.com/FrM-bot/password-generator"
+		},
+		{
+			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378419/portfolio/qvflbdlqua5ltlubf6ib.png",
+			"title": "AI Image Generator",
+			"link": "https://ai-image-generation-jhrg.vercel.app",
+			"techs": [
+				"Next.JS",
+				"Tailwind",
+				"OpenAI API",
+				"TypeScript",
+				"Prisma",
+				"MongoDB"
+			],
+			"github": "https://github.com/FrM-bot/AI-Image-Generation"
+		},
+		{
+			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678384714/portfolio/nzdqi7cmcigrzvfpkefm.png",
+			"title": "Image Editor",
+			"link": "https://svelte-cloudinary-app-guif.vercel.app",
+			"techs": ["SvelteKit", "Tailwind", "TypeScript"],
+			"github": "https://github.com/FrM-bot/svelte-cloudinary-app",
+			"description": "Editor de imagen simple donde puedes aplicar varios tipos de filtros y optimizaciones."
+		}
+	],
+	"Skills": {
+		"languages": {
+			"label": "Lenguajes de programación."
+		},
+		"frameworks": {
+			"label": "Frameworks."
+		},
+		"libraries": {
+			"label": "Librerias."
+		},
+		"orms": {
+			"label": "ORM's."
+		},
+		"dbs": {
+			"label": "Base de datos."
+		},
+		"other": {
+			"label": "Otro."
+		}
+	},
+	"Contact": {
+		"title": "Contacto",
+		"message": "Envía un correo a *damianmaciel0@gmail.com* o a través de mis enlaces sociales."
+	},
+	"Translations": {
+		"words": {
+			"present": "Presente"
+		},
+		"sections": {
+			"title": {
+				"Experience": "Experiencia",
+				"Projects": "Proyectos",
+				"Skills": "Habilidades",
+				"Contact": "Contacto"
+			}
+		}
+	}
+}

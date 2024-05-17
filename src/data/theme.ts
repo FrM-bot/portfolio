@@ -1,23 +1,23 @@
-import type { TailwindColor } from "@/utils/types/tailwind";
+import type { TailwindColor } from '@/types/tailwind'
 
 type Theme = {
   colors: {
-    primary: TailwindColor;
+    primary: TailwindColor
     blur: {
-      top: TailwindColor;
-      bottom: TailwindColor;
-    };
-  };
-};
+      top: TailwindColor
+      bottom: TailwindColor
+    }
+  }
+}
 
 const theme: Theme = {
   colors: {
-    primary: "teal",
+    primary: 'teal',
     blur: {
-      top: "teal",
-      bottom: "pink",
+      top: 'teal',
+      bottom: 'pink',
     },
   },
-};
+}
 
-export default theme;
+export default theme

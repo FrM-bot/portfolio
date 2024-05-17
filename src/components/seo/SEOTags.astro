@@ -1,32 +1,33 @@
 ---
-import { SEO } from "astro-seo";
-import { SITE_URL } from "@/data/config";
-import type { HeadTags } from "@/utils/types/HeadTags";
+import { SEO } from 'astro-seo'
+import { SITE_URL } from '@/data/config'
+import type { HeadTags } from '@/types/HeadTags'
+import { getI18n } from '@/i18n'
 
-type Props = HeadTags;
+type Props = HeadTags
 
-const { title, description, noindex, og } = Astro.props;
+const { title, description, noindex } = Astro.props as Props
+const { currentLocale } = Astro
 
-const DEFAULT_TITLE_PAGE = "Franco Maciel's portfolio - Programmer and Web developer"
-const DEFAULT_DESCRIPTION_PAGE =
-  "Maciel Franco, a creative fullstack developer with over 2 years experience."
-const DEFAULT_URL_SITE = SITE_URL
+const i18n = getI18n({ lang: currentLocale })
+
+const og = i18n.Header.og
 
 const openGraph = {
-  title: title || og?.title || DEFAULT_TITLE_PAGE,
-  type: og?.type || "website",
-  image: og?.image || "/opengraph-image.png",
-  alt: og?.alt || "Franco Maciel's portfolio",
-  url: DEFAULT_URL_SITE,
-  description: og?.description || DEFAULT_DESCRIPTION_PAGE,
-};
+  title: og.title,
+  type: og.type,
+  image: og?.image,
+  alt: og?.alt,
+  description: og?.description,
+  url: SITE_URL,
+}
 ---
 
 <head>
   <SEO
     charset="UTF-8"
-    title={title || DEFAULT_TITLE_PAGE}
-    description={description || DEFAULT_DESCRIPTION_PAGE}
+    title={title}
+    description={description}
     noindex={noindex || false}
     openGraph={{
       basic: {
