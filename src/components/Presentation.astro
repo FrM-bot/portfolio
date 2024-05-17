@@ -1,14 +1,16 @@
 ---
-import SocialLinks from "./SocialLinks.astro"
-import { convertAsteriskToStrongTag } from "@/utils"
-import Link from "./ui/Link.astro"
-import { getI18n } from "@/i18n"
+import SocialLinks from './SocialLinks.astro'
+import { convertAsteriskToStrongTag } from '@/utils'
+import Link from './ui/Link.astro'
+import { getI18n } from '@/i18n'
 
 const { currentLocale } = Astro
 
 const i18n = getI18n({ lang: currentLocale })
 
 const presentation = i18n.Presentation
+
+const greeting = i18n.Presentation.greeting
 ---
 
 <article
@@ -20,8 +22,8 @@ const presentation = i18n.Presentation
         <picture class='self-center rounded-full border-b-2 border-primary/50 hover:border-primary duration-200 shadow-lg shadow-primary/5 relative'>
           <img class="rounded-full" width="180" height="180" src={presentation.profile} alt="githubProfile" />
         </picture>
-        <Link variant="text" href={presentation.curriculum} target='_blank'>
-          Download CV
+        <Link variant="text" href={presentation.curriculum.link} target='_blank' referer='noreferrer'>
+          {presentation.curriculum.label}
         </Link>
       </div>
     )
@@ -29,7 +31,7 @@ const presentation = i18n.Presentation
 
   <div class='flex flex-col gap-5'>
     <div class='flex flex-col'>
-      <p>Hi, I’m</p>
+      <p>{greeting}</p>
       <h1
         class='text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold text-transparent w-fit relative'
       >

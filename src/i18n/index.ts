@@ -7,7 +7,7 @@ export const Languages = {
 } as const
 
 export const getI18n = ({ lang }: { lang: string }) => {
-    if (lang === Languages.SPANISH) return Spanish
-    if (lang === Languages.ENGLISH) return English
-    return English
+  if (lang === Languages.SPANISH) return Spanish
+  if (lang === Languages.ENGLISH) return English
+  return English
 }

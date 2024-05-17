@@ -1,19 +1,18 @@
 ---
-// import { presentation } from "@/data/presentation"
-import Link from "./ui/Link.astro"
-import { Languages, getI18n } from "@/i18n"
+import Link from './ui/Link.astro'
+import { Languages, getI18n } from '@/i18n'
 
 const { currentLocale } = Astro
 
 const NavigationLinks = [
-{
-  label: Languages.ENGLISH,
-  href: '/'
-},
-{
-  label: Languages.SPANISH,
-  href: `/${Languages.SPANISH}`
-}
+  {
+    label: Languages.ENGLISH,
+    href: '/',
+  },
+  {
+    label: Languages.SPANISH,
+    href: `/${Languages.SPANISH}`,
+  },
 ]
 
 const i18n = getI18n({ lang: currentLocale })
@@ -21,21 +20,24 @@ const i18n = getI18n({ lang: currentLocale })
 const presentation = i18n.Presentation
 ---
 
-<header class="z-40 flex w-full items-center justify-between">
-  <Link target='_blank' variant="text" href={`mailto:${presentation.mail}`}
+<header class='z-40 flex w-full items-center justify-between'>
+  <Link target='_blank' variant='text' href={`mailto:${presentation.mail}`}
     >{presentation.mail}</Link
   >
-  <nav role="navigation">
-    <ul role="list" class="flex flex-row gap-2">
-        {
-          NavigationLinks.map((lang) => (
-      <li>
-            <Link variant="text" href={lang.href} lang={lang}>
+  <nav role='navigation'>
+    <ul role='list' class='flex flex-row gap-2'>
+      {
+        NavigationLinks.map((lang) => {
+          const isCurrent = lang.label === currentLocale
+          return (
+          <li class={isCurrent ? 'underline underline-offset-2' : ''}>
+            <Link variant='text' href={lang.href}>
               {lang.label.toLocaleUpperCase()}
             </Link>
-      </li>
-          )) 
-        }
+          </li>
+        )
+        })
+      }
     </ul>
   </nav>
 </header>

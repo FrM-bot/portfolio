@@ -1,6 +1,6 @@
 ---
-import { getI18n } from "@/i18n"
-import Link from "./ui/Link.astro"
+import { getI18n } from '@/i18n'
+import Link from './ui/Link.astro'
 
 const { currentLocale } = Astro
 
@@ -14,7 +14,7 @@ const presentation = i18n.Presentation
     presentation.socials.map((social, index) => (
       <>
         <li>
-          <Link variant="text" href={social.link}>{social.label}</Link>
+          <Link variant="text" href={social.link} target='_blank' referer='noreferrer'>{social.label}</Link>
         </li>
 
         {presentation.socials.length - 1 !== index && <li>|</li>}

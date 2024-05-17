@@ -1,14 +1,14 @@
 ---
-import type { Project } from "@/data/projects"
-import GithubIcon from "@/components/icons/Github.astro"
-import LinkIcon from "@/components/icons/Link.astro"
-import Link from "@/components/ui/Link.astro"
+import type { Project } from '@/data/projects'
+import GithubIcon from '@/components/icons/Github.astro'
+import LinkIcon from '@/components/icons/Link.astro'
+import Link from '@/components/ui/Link.astro'
 
 type Props = Project
 
 const { title, techs, link, github, image, highlight, description } = Astro.props as Props
 
-const formatTechs = (values: string[]) => values.toString().replaceAll(",", " • ")
+const formatTechs = (values: string[]) => values.toString().replaceAll(',', ' • ')
 ---
 <article class:list={[ highlight && 'md:[grid-row-start:span_2] [grid-row-start:span_1] sm:[grid-column-start:span_2]']} class='relative hover:shadow-lg rounded-xl group overflow-hidden hover:-translate-y-1 gap-3 bg-gradient-to-b from-neutral-600/10 dark:from-neutral-700/10 hover:from-neutral-700/30 dark:to-neutral-800/10 border border-neutral-700 p-3 transition-all duration-200 hover:border-neutral-400 md:flex-row md:items-center'>
     <div class='flex justify-between gap-4 md:flex-row items-center mb-2'>

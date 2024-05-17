@@ -1,7 +1,7 @@
 export type Experience = {
   position: string
   location: {
-    city: string,
+    city: string
     country: string
   }
   company: string
@@ -11,5 +11,3 @@ export type Experience = {
   }
   work: string[]
 }
-
-// export const experience: Experience[] = 

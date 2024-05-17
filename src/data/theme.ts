@@ -1,4 +1,4 @@
-import type { TailwindColor } from "@/types/tailwind"
+import type { TailwindColor } from '@/types/tailwind'
 
 type Theme = {
   colors: {
@@ -12,10 +12,10 @@ type Theme = {
 
 const theme: Theme = {
   colors: {
-    primary: "teal",
+    primary: 'teal',
     blur: {
-      top: "teal",
-      bottom: "pink",
+      top: 'teal',
+      bottom: 'pink',
     },
   },
 }

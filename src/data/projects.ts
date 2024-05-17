@@ -7,7 +7,3 @@ export type Project = {
   highlight?: boolean
   description?: string
 }
-
-// const projects: Project[] =
-
-// export default projects

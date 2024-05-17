@@ -3,7 +3,7 @@ type Social = {
   link: string
 }
 
-type Presentation = {
+export type Presentation = {
   mail: string
   title: string
   description: string
@@ -11,5 +11,3 @@ type Presentation = {
   socials: Social[]
   profile?: string
 }
-
-// export const presentation: Presentation = 
