@@ -1,8 +1,13 @@
 ---
-import projects from "@/data/projects";
-import ProjectCard from "./ProjectCard.astro";
+// import projects from "@/data/projects"
+import ProjectCard from "@/components/card/Proyect.astro"
+import { getI18n } from "@/i18n"
 
+const { currentLocale } = Astro
 
+const i18n = getI18n({ lang: currentLocale })
+
+const projects = i18n.Projects
 ---
 <article class='flex flex-col gap-6'>
   <header class='flex w-full flex-row justify-between gap-2'>

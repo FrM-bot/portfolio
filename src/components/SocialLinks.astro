@@ -1,6 +1,12 @@
 ---
-import Link from "./Link.astro"
-import presentation from "@/data/presentation"
+import { getI18n } from "@/i18n"
+import Link from "./ui/Link.astro"
+
+const { currentLocale } = Astro
+
+const i18n = getI18n({ lang: currentLocale })
+
+const presentation = i18n.Presentation
 ---
 
 <ul role='list' class='flex flex-row gap-1 text-base'>

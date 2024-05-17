@@ -1,6 +1,13 @@
 ---
-import experience from "@/data/experience"
-import { formatDate } from "@/utils/formatDate"
+// import { experience } from "@/data/experience"
+import { getI18n } from "@/i18n"
+import { formatDate } from "@/utils"
+
+const { currentLocale } = Astro
+
+const i18n = getI18n({ lang: currentLocale })
+
+const experience = i18n.Experience
 ---
 
 <article class='flex flex-col gap-4'>
@@ -22,7 +29,7 @@ import { formatDate } from "@/utils/formatDate"
             <div class='flex justify-between items-center flex-wrap'>
               <h3 class='text-xl font-semibold text-white/90'>{company}</h3>
               <p class='text-sm dark:text-gray'>
-                {formatDate({ date: date.from })} - { date?.to ? formatDate({ date: date.to }) : "Present"  }
+                {formatDate(new Date(date.from))} - { date?.to ? formatDate(new Date(date.to)) : "Present"  }
               </p>
             </div>
             <p class='text-base font-normal text-primary'>{position}</p>

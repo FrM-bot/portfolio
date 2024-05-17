@@ -1,5 +1,5 @@
 ---
-import { classNamesJoin } from "@/utils/classNamesJoin"
+import { cn } from "@/utils"
 import type { HTMLAttributes } from "astro/types"
 
 const VARIANTS = {
@@ -18,7 +18,7 @@ type Props = HTMLAttributes<"a"> & {
 
 const { variant = 'default', ...props } = Astro.props
 
-const className = classNamesJoin(VARIANTS[variant], props.class ?? '')
+const className = cn(VARIANTS[variant], props.class ?? '')
 ---
 
 <a

@@ -3,13 +3,13 @@ import "@/styles/tailwind.css"
 import "@/styles/fonts.css"
 import "@/styles/global.css"
 
-import Header from "@/components/Header.astro"
-import SEOTags from "@/components/seo/SEOTags.astro"
-import type { HeadTags } from "@/utils/types/HeadTags"
-
+import type { HeadTags } from "@/types"
 export type Props = HeadTags
 
-const headTags = Astro.props
+import Header from "@/components/Header.astro"
+import SEOTags from "@/components/seo/SEOTags.astro"
+
+const headTags = Astro.props as Props
 ---
 
 <!doct html>

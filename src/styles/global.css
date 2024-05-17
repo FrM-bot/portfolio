@@ -1,7 +1,8 @@
 body {
     font-family: 'Onest Variable', sans-serif;
 }
+
 ::selection {
-    background-color: white;
-    color: rgba(var(--secondary) / 0.9);
+    background-color: hsl(var(--primary-white));
+    color: hsl(var(--secondary) / 0.9);
 }

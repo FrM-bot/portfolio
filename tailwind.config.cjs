@@ -1,22 +1,17 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      fontFamily: {
-				sans: ['Quicksand', ...defaultTheme.fontFamily.sans]
-      },
       colors: {
-        primary: 'rgba(var(--primary) / <alpha-value>)',
-        secondary: 'rgba(var(--secondary) / <alpha-value>)',
-        tertiary: 'rgba(var(--tertiary) / <alpha-value>)',
-        'text-color': 'rgba(var(--text-color) / <alpha-value>)',
-        'dark-v1': 'rgba(var(--dark-v1) / <alpha-value>)',
-        'dark-v2': 'rgba(var(--dark-v2) / <alpha-value>)'
+        primary: 'hsl(var(--primary))',
+        secondary: 'hsl(var(--secondary))',
+        tertiary: 'hsl(var(--tertiary))',
+        'primary-white': 'hsl(var(--primary-white))',
+        'primary-dark': 'hsl(var(--primary-dark))',
+        'secondary-dark': 'hsl(var(--secondary-dark))',
       },
     },
   },
   plugins: []
-};
+}

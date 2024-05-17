@@ -1,21 +1,41 @@
 ---
-import presentation from "@/data/presentation"
-import Link from "./Link.astro"
-const cvUrl = 'https://drive.google.com/file/d/18Tq-5DXhSQh2QiOE1kPh6q_RUUHOF0jz/view?usp=drive_link'
+// import { presentation } from "@/data/presentation"
+import Link from "./ui/Link.astro"
+import { Languages, getI18n } from "@/i18n"
+
+const { currentLocale } = Astro
+
+const NavigationLinks = [
+{
+  label: Languages.ENGLISH,
+  href: '/'
+},
+{
+  label: Languages.SPANISH,
+  href: `/${Languages.SPANISH}`
+}
+]
+
+const i18n = getI18n({ lang: currentLocale })
+
+const presentation = i18n.Presentation
 ---
 
 <header class="z-40 flex w-full items-center justify-between">
-  <Link variant="text" href={`mailto:${presentation.mail}`}
+  <Link target='_blank' variant="text" href={`mailto:${presentation.mail}`}
     >{presentation.mail}</Link
   >
-
-  <!-- <nav role="navigation"> -->
+  <nav role="navigation">
     <ul role="list" class="flex flex-row gap-2">
+        {
+          NavigationLinks.map((lang) => (
       <li>
-        <Link variant="text" href={cvUrl} target='_blank'>
-          Download CV
-        </Link>
+            <Link variant="text" href={lang.href} lang={lang}>
+              {lang.label.toLocaleUpperCase()}
+            </Link>
       </li>
+          )) 
+        }
     </ul>
-  <!-- </nav> -->
+  </nav>
 </header>

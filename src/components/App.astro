@@ -1,0 +1,31 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import Experience from "@/components/Experience.astro"
+import Projects from "@/components/project/List.astro"
+import Contact from "@/components/Contact.astro"
+import Skills from "@/components/Skills.astro"
+import Presentation from "@/components/Presentation.astro"
+
+import type { HeadTags } from "@/types"
+import { getI18n } from "@/i18n"
+export type Props = HeadTags
+
+const headTags = Astro.props as Props
+
+const { currentLocale } = Astro
+
+const i18n = getI18n({ lang: currentLocale })
+
+const { title, description } = i18n.SEO
+
+---
+
+<Layout {...headTags} title={title} description={description}>
+  <main class='flex flex-col gap-12'>
+    <Presentation />
+    <Experience />
+    <Projects />
+    <Skills />
+    <Contact />
+  </main>
+</Layout>
