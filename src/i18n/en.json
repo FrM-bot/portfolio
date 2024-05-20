@@ -27,7 +27,7 @@
 		"description": "*Fullstack developer* with over *2 years* of web experience, focused on create high quality web products and solutions with great user experience. I am currently working with *Next.JS*, *Astro*, *SveltKit* and *TypeSript*.",
 		"socials": [
 			{
-				"label": "Linkedin",
+				"label": "LinkedIn",
 				"link": "https://www.linkedin.com/in/frm-bot"
 			},
 			{
@@ -124,7 +124,7 @@
 			"link": "https://music-downloader.onrender.com",
 			"techs": ["React", "Tailwind", "Esbuild"],
 			"github": "https://github.com/FrM-bot/music-downloader",
-			"description": "App where you can download audio .mp3 from youtube with the url."
+			"description": "App where you can download audio .mp3 from YouTube with the url."
 		},
 		{
 			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678315586/portfolio/qx6n1m0cgkfqbvxpvyvc.png",
@@ -184,7 +184,7 @@
 		}
 	},
 	"Contact": {
-		"message": "Email me at *damianmaciel0@gmail.com* or via my social links."
+		"message": "Email me at <a class='text-link' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> or via my social links."
 	},
 	"Translations": {
 		"words": {

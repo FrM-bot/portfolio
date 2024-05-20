@@ -9,6 +9,8 @@ const { currentLocale } = Astro
 const i18n = getI18n({ lang: currentLocale })
 
 const contact = i18n.Contact
+
+const title = i18n.Translations.sections.title.Contact
 ---
 
 <section class='flex flex-col gap-6'>
@@ -16,11 +18,11 @@ const contact = i18n.Contact
     <h3
       class='text-lg text-neutral-100 underline decoration-dashed underline-offset-8'
     >
-      {contact.title}
+      {title}
     </h3>
   </div>
-  <p
-  set:html={convertAsteriskToStrongTag(contact.message)}
+  <address
+  set:html={contact.message}
 
   />
     <SocialLinks />

@@ -16,3 +16,9 @@
     --primary-white: 0 0% 100%;
   }
 }
+
+@layer components {
+  .text-link {
+      @apply hover:[text-shadow:white_2px_-2px] dark:text-white/90 hover:text-white/30 duration-200 cursor-pointer;
+  }
+}
