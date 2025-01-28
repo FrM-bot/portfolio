@@ -1,202 +1,212 @@
 {
-	"SEO": {
-		"title": "Franco Maciel's portfolio - Programmer and Web developer",
-		"description": "Maciel Franco, a creative fullstack developer with over 2 years experience."
-	},
-	"Header": {
-		"title": "Maciel Franco",
-		"description": "Fullstack developer with over 2 years experience.",
-		"noindex": false,
-		"og": {
-			"title": "Franco Maciel's portfolio - Programmer and Web developer",
-			"type": "website",
-			"image": "/opengraph-image.png",
-			"alt": "Franco Maciel's portfolio",
-			"description": "Maciel Franco, a creative fullstack developer with over 2 years experience."
-		}
-	},
-	"Presentation": {
-		"mail": "damianmaciel0@gmail.com",
-		"title": "Maciel Franco",
-		"profile": "https://avatars.githubusercontent.com/u/82059717?v=4",
-		"curriculum": {
-			"label": "See curriculum",
-			"link": "https://drive.google.com/file/d/1JKOCHCrcdn3vYBj0N9Sed2kaZWAIGVOW/view?usp=sharing"
-		},
-		"greeting": "Hi, I’m",
-		"description": "*Fullstack developer* with over *2 years* of web experience, focused on create high quality web products and solutions with great user experience. I am currently working with *Next.JS*, *Astro*, *SveltKit* and *TypeSript*.",
-		"socials": [
-			{
-				"label": "LinkedIn",
-				"link": "https://www.linkedin.com/in/frm-bot"
-			},
-			{
-				"label": "Github",
-				"link": "https://github.com/FrM-bot"
-			}
-		]
-	},
-	"Experience": [
-		{
-			"position": "Front end developer (Remote)",
-			"location": {
-				"city": "Las Palmas",
-				"country": "España"
-			},
-			"company": "Synergiart SL",
-			"date": {
-				"from": "2024-02-01"
-			},
-			"work": [
-				"React | TypeScript | Tailwind CSS | Yup | Zustand | Material UI"
-			]
-		},
-		{
-			"position": "Junior fullstack engineer (Remote)",
-			"location": {
-				"city": "Córdoba",
-				"country": "Argentina"
-			},
-			"company": "GoSiclall",
-			"date": {
-				"from": "2023-06-25"
-			},
-			"work": [
-				"Next.JS | TypeScript | Tailwind CSS | Zod | Zustand | Next Auth | Tanstack Query"
-			]
-		},
-		{
-			"position": "Junior backend developer (Remote)",
-			"location": {
-				"city": "Córdoba",
-				"country": "Argentina"
-			},
-			"company": "GoSiclall",
-			"date": {
-				"from": "2023-05-26",
-				"to": "2023-06-25"
-			},
-			"work": ["Express | Node | JWT | MercadoPago | Prisma | MongoDB | Zod"]
-		}
-	],
-	"Projects": [
-		{
-			"title": "Weather App",
-			"techs": ["React"],
-			"link": "https://weather-app-lilac-zeta-45.vercel.app",
-			"github": "https://github.com/FrM-bot/weather-app",
-			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678314756/portfolio/fuo0c00bd3hdac3vrihe.png"
-		},
-		{
-			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378835/portfolio/muyikihebuiobed6gywu.png",
-			"title": "Wiki Dogs",
-			"link": "https://pi-dogs-client.vercel.app",
-			"techs": ["React", "Express", "Sequalize", "PostgreSQL"],
-			"github": "https://github.com/FrM-bot/Pi-Dogs-Client"
-		},
-		{
-			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378738/portfolio/k5qsgqzrdf3efuknkd2f.png",
-			"title": "Wallet",
-			"link": "https://henry-pf-client.vercel.app",
-			"techs": [
-				"React",
-				"Express",
-				"Prisma",
-				"PostgreSQL",
-				"Firebase",
-				"JWT",
-				"Tailwind"
-			],
-			"github": "https://github.com/facuperezbri/henry-pf-client"
-		},
-		{
-			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378654/portfolio/jv47uvtl1bhlklypophp.png",
-			"title": "Wiki anime",
-			"link": "https://wiki-anime-frm-bot.vercel.app",
-			"techs": ["SvelteKit", "Tailwind", "TypeScript"],
-			"github": "https://github.com/FrM-bot/anime-app",
-			"highlight": true,
-			"description": "Wiki where you can find enormous sort of data of your favorites anime and manga."
-		},
-		{
-			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678386163/portfolio/mkawwtw4jddwbjnmspoh.png",
-			"title": "Music Downloader",
-			"link": "https://music-downloader.onrender.com",
-			"techs": ["React", "Tailwind", "Esbuild"],
-			"github": "https://github.com/FrM-bot/music-downloader",
-			"description": "App where you can download audio .mp3 from YouTube with the url."
-		},
-		{
-			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678315586/portfolio/qx6n1m0cgkfqbvxpvyvc.png",
-			"title": "Password Generator",
-			"link": "https://password-generator-o6yz.onrender.com",
-			"techs": [
-				"React",
-				"Tailwind",
-				"Vitest",
-				"Playwright",
-				"Github Actions",
-				"TypeScript"
-			],
-			"github": "https://github.com/FrM-bot/password-generator"
-		},
-		{
-			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378419/portfolio/qvflbdlqua5ltlubf6ib.png",
-			"title": "AI Image Generator",
-			"link": "https://ai-image-generation-jhrg.vercel.app",
-			"techs": [
-				"Next.JS",
-				"Tailwind",
-				"OpenAI API",
-				"TypeScript",
-				"Prisma",
-				"MongoDB"
-			],
-			"github": "https://github.com/FrM-bot/AI-Image-Generation"
-		},
-		{
-			"image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678384714/portfolio/nzdqi7cmcigrzvfpkefm.png",
-			"title": "Image Editor",
-			"link": "https://svelte-cloudinary-app-guif.vercel.app",
-			"techs": ["SvelteKit", "Tailwind", "TypeScript"],
-			"github": "https://github.com/FrM-bot/svelte-cloudinary-app",
-			"description": "Simple image editor where you can apply various type of filters and optimizations."
-		}
-	],
-	"Skills": {
-		"languages": {
-			"label": "Programming languages."
-		},
-		"frameworks": {
-			"label": "Frameworks."
-		},
-		"libraries": {
-			"label": "Libraries."
-		},
-		"orms": {
-			"label": "ORM's."
-		},
-		"dbs": {
-			"label": "Database."
-		},
-		"other": {
-			"label": "Other."
-		}
-	},
-	"Contact": {
-		"message": "Email me at <a class='text-link' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> or via my social links."
-	},
-	"Translations": {
-		"words": {
-			"present": "Present"
-		},
-		"sections": {
-			"title": {
-				"Experience": "Experience",
-				"Projects": "Projects",
-				"Skills": "Skills",
-				"Contact": "Contact"
-			}
-		}
-	}
+  "SEO": {
+    "title": "Franco Maciel's portfolio - Web developer",
+    "description": "Maciel Franco, a creative fullstack developer with over 2 years experience."
+  },
+  "Header": {
+    "title": "Maciel Franco",
+    "description": "Fullstack developer with over 2 years experience.",
+    "noindex": false,
+    "og": {
+      "title": "Franco Maciel's portfolio - Programmer and Web developer",
+      "type": "website",
+      "image": "/opengraph-image-en.png",
+      "alt": "Franco Maciel's portfolio",
+      "description": "Maciel Franco, a creative fullstack developer with over 2 years experience."
+    }
+  },
+  "Presentation": {
+    "mail": "damianmaciel0@gmail.com",
+    "title": "Maciel Franco",
+    "profile": "https://avatars.githubusercontent.com/u/82059717?v=4",
+    "curriculum": {
+      "label": "See curriculum",
+      "link": "https://drive.google.com/file/d/1JKOCHCrcdn3vYBj0N9Sed2kaZWAIGVOW/view?usp=sharing"
+    },
+    "greeting": "Hi, I’m",
+    "description": "*Fullstack developer* with over *2 years* of web experience, focused on create high quality web products and solutions with great user experience. I am currently working with *Next.JS*, *Astro*, *SveltKit* and *TypeSript*.",
+    "socials": [
+      {
+        "label": "LinkedIn",
+        "link": "https://www.linkedin.com/in/frm-bot"
+      },
+      {
+        "label": "Github",
+        "link": "https://github.com/FrM-bot"
+      }
+    ]
+  },
+  "Experience": [
+    {
+      "position": "Frontend developer (Remote)",
+      "location": {
+        "country": "Spain"
+      },
+      "company": "Dazlabs",
+      "date": {
+        "from": "2024-06-01"
+      },
+      "work": [
+        "React | TypeScript | Tailwind CSS | Yup | Zustand | React Query | React Router"
+      ]
+    },
+    {
+      "position": "Front end developer (Remote)",
+      "location": {
+        "country": "Spain"
+      },
+      "company": "Gravitad",
+      "date": {
+        "from": "2024-02-01"
+      },
+      "work": [
+        "React | TypeScript | Yup | Zustand | Material UI | React Router"
+      ]
+    },
+    {
+      "position": "Junior fullstack engineer (Remote)",
+      "location": {
+        "country": "Argentina"
+      },
+      "company": "GoSocial",
+      "date": {
+        "from": "2023-06-25"
+      },
+      "work": [
+        "Next.JS | TypeScript | Tailwind CSS | Zod | Zustand | Next Auth | Tanstack Query"
+      ]
+    },
+    {
+      "position": "Junior backend developer (Remote)",
+      "location": {
+        "country": "Argentina"
+      },
+      "company": "GoSocial",
+      "date": {
+        "from": "2023-05-26",
+        "to": "2023-06-25"
+      },
+      "work": ["Express | Node | JWT | MercadoPago | Prisma | MongoDB | Zod"]
+    }
+  ],
+  "Projects": [
+    {
+      "title": "Weather App",
+      "techs": ["React"],
+      "link": "https://weather-app-lilac-zeta-45.vercel.app",
+      "github": "https://github.com/FrM-bot/weather-app",
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678314756/portfolio/fuo0c00bd3hdac3vrihe.png"
+    },
+    {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378835/portfolio/muyikihebuiobed6gywu.png",
+      "title": "Wiki Dogs",
+      "link": "https://pi-dogs-client.vercel.app",
+      "techs": ["React", "Express", "Sequalize", "PostgreSQL"],
+      "github": "https://github.com/FrM-bot/Pi-Dogs-Client"
+    },
+    {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378738/portfolio/k5qsgqzrdf3efuknkd2f.png",
+      "title": "Wallet",
+      "link": "https://henry-pf-client.vercel.app",
+      "techs": [
+        "React",
+        "Express",
+        "Prisma",
+        "PostgreSQL",
+        "Firebase",
+        "JWT",
+        "Tailwind"
+      ],
+      "github": "https://github.com/facuperezbri/henry-pf-client"
+    },
+    {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378654/portfolio/jv47uvtl1bhlklypophp.png",
+      "title": "Wiki anime",
+      "link": "https://wiki-anime-frm-bot.vercel.app",
+      "techs": ["SvelteKit", "Tailwind", "TypeScript"],
+      "github": "https://github.com/FrM-bot/anime-app",
+      "highlight": true,
+      "description": "Wiki where you can find enormous sort of data of your favorites anime and manga."
+    },
+    {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678386163/portfolio/mkawwtw4jddwbjnmspoh.png",
+      "title": "Music Downloader",
+      "link": "https://music-downloader.onrender.com",
+      "techs": ["React", "Tailwind", "Esbuild"],
+      "github": "https://github.com/FrM-bot/music-downloader",
+      "description": "App where you can download audio .mp3 from YouTube with the url."
+    },
+    {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678315586/portfolio/qx6n1m0cgkfqbvxpvyvc.png",
+      "title": "Password Generator",
+      "link": "https://password-generator-o6yz.onrender.com",
+      "techs": [
+        "React",
+        "Tailwind",
+        "Vitest",
+        "Playwright",
+        "Github Actions",
+        "TypeScript"
+      ],
+      "github": "https://github.com/FrM-bot/password-generator"
+    },
+    {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378419/portfolio/qvflbdlqua5ltlubf6ib.png",
+      "title": "AI Image Generator",
+      "link": "https://ai-image-generation-jhrg.vercel.app",
+      "techs": [
+        "Next.JS",
+        "Tailwind",
+        "OpenAI API",
+        "TypeScript",
+        "Prisma",
+        "MongoDB"
+      ],
+      "github": "https://github.com/FrM-bot/AI-Image-Generation"
+    },
+    {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678384714/portfolio/nzdqi7cmcigrzvfpkefm.png",
+      "title": "Image Editor",
+      "link": "https://svelte-cloudinary-app-guif.vercel.app",
+      "techs": ["SvelteKit", "Tailwind", "TypeScript"],
+      "github": "https://github.com/FrM-bot/svelte-cloudinary-app",
+      "description": "Simple image editor where you can apply various type of filters and optimizations."
+    }
+  ],
+  "Skills": {
+    "languages": {
+      "label": "Programming languages."
+    },
+    "frameworks": {
+      "label": "Frameworks."
+    },
+    "libraries": {
+      "label": "Libraries."
+    },
+    "orms": {
+      "label": "ORM's."
+    },
+    "dbs": {
+      "label": "Database."
+    },
+    "other": {
+      "label": "Other."
+    }
+  },
+  "Contact": {
+    "message": "Email me at <a class='text-link' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> or via my social links."
+  },
+  "Translations": {
+    "words": {
+      "present": "Present"
+    },
+    "sections": {
+      "title": {
+        "Experience": "Experience",
+        "Projects": "Projects",
+        "Skills": "Skills",
+        "Contact": "Contact"
+      }
+    }
+  }
 }

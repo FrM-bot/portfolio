@@ -1,8 +1,41 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    /* Colors */
+    --primary: 172 66% 50%;
+    --secondary: 333 71% 51%;
+    --tertiary: 216 8% 13%;
+    --primary-dark: 0 0% 6%;
+    --secondary-dark: 0 0% 8%;
+    --primary-white: 0 0% 100%;
+  }
+}
+
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
+  --color-primary: hsl(var(--primary));
+  --color-secondary: hsl(var(--secondary));
+  --color-tertiary: hsl(var(--tertiary));
+  --color-primary-white: hsl(var(--primary-white));
+  --color-primary-dark: hsl(var(--primary-dark));
+  --color-secondary-dark: hsl(var(--secondary-dark));
+}
+
+@layer components {
+  .text-link {
+    @apply cursor-pointer duration-200 hover:text-white/30 hover:[text-shadow:white_2px_-2px] dark:text-white/90;
+  }
+}
+
 body {
-    font-family: 'Onest Variable', sans-serif;
+  font-family: 'Onest Variable', sans-serif;
 }
 
 ::selection {
-    background-color: hsl(var(--primary-white));
-    color: hsl(var(--secondary) / 0.9);
+  background-color: hsl(var(--primary-white));
+  color: hsl(var(--secondary) / 0.9);
 }

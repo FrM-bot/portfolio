@@ -1,5 +1,5 @@
 ---
-import ProjectCard from '@/components/card/Proyect.astro'
+import ProjectCard from '@/components/card/Project.astro'
 import { getI18n } from '@/i18n'
 
 const { currentLocale } = Astro
@@ -10,15 +10,20 @@ const projects = i18n.Projects
 
 const title = i18n.Translations.sections.title.Projects
 ---
-<article class='flex flex-col gap-6'>
-  <header class='flex w-full flex-row justify-between gap-2'>
-    <h3 class='text-lg text-neutral-100 underline decoration-dashed underline-offset-8'>
+
+<article class="flex flex-col gap-6">
+  <header class="flex w-full flex-row justify-between gap-2">
+    <h3
+      class="text-lg text-neutral-100 underline decoration-dashed underline-offset-8"
+    >
       {title} ({projects.length})
     </h3>
   </header>
   {projects.length === 0 && <p>Oops, I must work^_^</p>}
 
-  <section class='grid sm:grid-cols-3 gap-4 md:auto-rows-[190px] auto-rows-[250px]'>
+  <section
+    class="grid auto-rows-[250px] gap-4 sm:grid-cols-3 md:auto-rows-[190px]"
+  >
     {
       projects.length !== 0 &&
         projects.map((project) => <ProjectCard {...project} />)

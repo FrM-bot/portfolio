@@ -1,8 +1,6 @@
 ---
-import Link from '@/components/ui/Link.astro'
 import SocialLinks from './SocialLinks.astro'
 import { getI18n } from '@/i18n'
-import { convertAsteriskToStrongTag } from '@/utils'
 
 const { currentLocale } = Astro
 
@@ -13,17 +11,14 @@ const contact = i18n.Contact
 const title = i18n.Translations.sections.title.Contact
 ---
 
-<section class='flex flex-col gap-6'>
-  <div class='flex w-full flex-row justify-between gap-2'>
+<section class="flex flex-col gap-6">
+  <div class="flex w-full flex-row justify-between gap-2">
     <h3
-      class='text-lg text-neutral-100 underline decoration-dashed underline-offset-8'
+      class="text-lg text-neutral-100 underline decoration-dashed underline-offset-8"
     >
       {title}
     </h3>
   </div>
-  <address
-  set:html={contact.message}
-
-  />
-    <SocialLinks />
+  <address set:html={contact.message} />
+  <SocialLinks />
 </section>

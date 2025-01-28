@@ -12,5 +12,6 @@ export const formatDate = (
     return new Intl.DateTimeFormat(locales, option).format(date)
   } catch (error) {
     console.error(error)
+    return ''
   }
 }

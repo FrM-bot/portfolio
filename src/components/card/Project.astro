@@ -1,0 +1,75 @@
+---
+import type { Project } from '@/data/projects'
+import GitHubIcon from '@/components/icons/GitHub.astro'
+import LinkIcon from '@/components/icons/Link.astro'
+import Link from '@/components/ui/Link.astro'
+
+type Props = Project
+
+const { title, techs, link, github, image, highlight, description } =
+  Astro.props as Props
+
+const formatTechs = (values: string[]) =>
+  values.toString().replaceAll(',', ' • ')
+---
+
+<article
+  class:list={[
+    highlight &&
+      '[grid-row-start:span_1] sm:[grid-column-start:span_2] md:[grid-row-start:span_2]',
+  ]}
+  class="group relative gap-3 overflow-hidden rounded-xl border border-neutral-700 bg-gradient-to-b from-neutral-600/10 p-3 transition-all duration-200 hover:-translate-y-1 hover:border-neutral-500 hover:from-neutral-700/30 hover:shadow-lg hover:shadow-neutral-500/10 md:flex-row md:items-center dark:from-neutral-700/10 dark:to-neutral-800/10"
+>
+  <div class="mb-2 flex items-center justify-between gap-4 md:flex-row">
+    <Link
+      variant="text"
+      class="flex overflow-clip text-left text-ellipsis duration-200 group-hover:translate-y-4 group-hover:opacity-0"
+      href={link}
+    >
+      {title}
+    </Link>
+    <div class="top-2 right-3 flex gap-2 group-hover:text-white">
+      <a
+        href={github}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="GitHub link"
+        class="dark:ondtext-white/70 grid place-content-center rounded-full bg-zinc-800/20 p-1 backdrop-blur-sm duration-200 hover:text-fuchsia-500 hover:shadow-lg md:p-2"
+      >
+        <GitHubIcon width={19} height={19} />
+      </a>
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Project link"
+        class="dark:ondtext-white/70 grid place-content-center rounded-full bg-zinc-800/20 p-1 backdrop-blur-sm duration-200 hover:text-cyan-500 hover:shadow-lg md:p-2"
+      >
+        <LinkIcon width={19} height={19} />
+      </a>
+    </div>
+  </div>
+  <div>
+    {
+      description && (
+        <p class="mb-2 line-clamp-4 text-xs duration-200 group-hover:translate-y-4 group-hover:opacity-0">
+          {description}
+        </p>
+      )
+    }
+    <p
+      class="text-xs duration-200 group-hover:translate-y-4 group-hover:opacity-0 dark:text-white/60"
+    >
+      {formatTechs(techs)}
+    </p>
+  </div>
+  <picture>
+    <img
+      loading="lazy"
+      src={image}
+      alt={title}
+      class="absolute inset-0 -z-[1] h-full w-full rounded-xl object-cover opacity-0 [box-shadow:inset_0px_0px_56px_26px_rgba(0,0,0,.4)] blur-[2px] transition-all duration-200 group-hover:opacity-100 group-hover:blur-none dark:[box-shadow:inset_0px_0px_56px_26px_rgba(0,0,0,.6)]"
+    />
+  </picture>
+  <!-- <div style=`background-image: url(${image});background-repeat: no-repeat;background-clip: content-box;background-size: cover;background-position: center;` class="top-0 rounded-xl left-0 w-full h-1 absolute -z-[1] group-hover:h-full duration-200 blur-[2px] group-hover:blur-none [box-shadow:inset_0px_0px_56px_26px_rgba(0,0,0,.4)] dark:[box-shadow:inset_0px_0px_56px_26px_rgba(0,0,0,.6)]" /> -->
+</article>

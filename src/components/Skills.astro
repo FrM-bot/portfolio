@@ -7,92 +7,108 @@ const { currentLocale } = Astro
 const i18n = getI18n({ lang: currentLocale })
 
 const title = i18n.Translations.sections.title.Skills
-const skillTtitles = i18n.Skills
+const skillTitles = i18n.Skills
 ---
 
-<article class='flex flex-col gap-6'>
-  <header class='flex w-full flex-row justify-between gap-4'>
+<article class="flex flex-col gap-6">
+  <header class="flex w-full flex-row justify-between gap-4">
     <h3
-      class='text-lg text-neutral-100 underline decoration-dashed underline-offset-8'
+      class="text-lg text-neutral-100 underline decoration-dashed underline-offset-8"
     >
       {title}
     </h3>
   </header>
 
-  <section
-    class='flex flex-wrap gap-4 sm:flex-row dark:text-light'
-  >
-  <div class='flex flex-col gap-2'>
-    <h3 class="text-base text-white/90">{skillTtitles.languages.label}</h3>
-    <ul class='text-sm'>
-      {
-        skills.languages.map((skill) => (
-          <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
-            <span class='text-primary/50 group-hover:text-primary pr-1'>✓</span> {skill}
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-  <div class='flex flex-col gap-2'>
-    <h3 class="text-base text-white/90">{skillTtitles.libraries.label}</h3>
-    <ul class='text-sm'>
-      {
-        skills.libraries.map((skill) => (
-          <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
-            <span class='text-primary/50 group-hover:text-primary pr-1'>✓</span> {skill}
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-  <div class='flex flex-col gap-2'>
-    <h3 class="text-base text-white/90">{skillTtitles.frameworks.label}</h3>
-    <ul class='text-sm'>
-      {
-        skills.frameworks.map((skill) => (
-          <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
-            <span class='text-primary/50 group-hover:text-primary pr-1'>✓</span> {skill}
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-  <div class='flex flex-col gap-2'>
-    <h3 class="text-base text-white/90">{skillTtitles.dbs.label}</h3>
-    <ul class='text-sm'>
-      {
-        skills.dbs.map((skill) => (
-          <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
-            <span class='text-primary/50 group-hover:text-primary pr-1'>✓</span> {skill}
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-    <div class=''>
-      <h3 class="text-base text-white/90">{skillTtitles.orms.label}</h3>
-      <ul class='mt-3 text-sm'>
+  <section class="dark:text-light flex flex-wrap gap-4 sm:flex-row">
+    <div class="flex flex-col gap-2">
+      <h3 class="text-base text-white/90">{skillTitles.languages.label}</h3>
+      <ul class="text-sm">
         {
-          skills.orms.map((skill) => (
-            <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
-              <span class='text-primary/50 group-hover:text-primary pr-1'>✓</span> {skill}
+          skills.languages.map((skill) => (
+            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
+              <span class="text-primary/50 group-hover:text-primary pr-1">
+                ✓
+              </span>{' '}
+              {skill}
             </li>
           ))
         }
       </ul>
     </div>
-    <div class=''>
-        <h3 class="text-base text-white/90">{skillTtitles.other.label}</h3>
-        <ul class='mt-3 text-sm'>
-          {
-            skills.other.map((skill) => (
-              <li class='dark:text-gray group text-sm hover:translate-x-1 duration-200 leading-6 hover:text-white'>
-                <span class='text-primary/50 group-hover:text-primary pr-1'>✓</span> {skill}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="text-base text-white/90">{skillTitles.libraries.label}</h3>
+      <ul class="text-sm">
+        {
+          skills.libraries.map((skill) => (
+            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
+              <span class="text-primary/50 group-hover:text-primary pr-1">
+                ✓
+              </span>{' '}
+              {skill}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="text-base text-white/90">{skillTitles.frameworks.label}</h3>
+      <ul class="text-sm">
+        {
+          skills.frameworks.map((skill) => (
+            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
+              <span class="text-primary/50 group-hover:text-primary pr-1">
+                ✓
+              </span>{' '}
+              {skill}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="text-base text-white/90">{skillTitles.dbs.label}</h3>
+      <ul class="text-sm">
+        {
+          skills.dbs.map((skill) => (
+            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
+              <span class="text-primary/50 group-hover:text-primary pr-1">
+                ✓
+              </span>{' '}
+              {skill}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="">
+      <h3 class="text-base text-white/90">{skillTitles.orms.label}</h3>
+      <ul class="mt-3 text-sm">
+        {
+          skills.orms.map((skill) => (
+            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
+              <span class="text-primary/50 group-hover:text-primary pr-1">
+                ✓
+              </span>{' '}
+              {skill}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="">
+      <h3 class="text-base text-white/90">{skillTitles.other.label}</h3>
+      <ul class="mt-3 text-sm">
+        {
+          skills.other.map((skill) => (
+            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
+              <span class="text-primary/50 group-hover:text-primary pr-1">
+                ✓
+              </span>{' '}
+              {skill}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </section>
 </article>

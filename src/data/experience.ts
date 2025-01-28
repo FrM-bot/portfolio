@@ -1,7 +1,6 @@
 export type Experience = {
   position: string
   location: {
-    city: string
     country: string
   }
   company: string

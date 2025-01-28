@@ -9,12 +9,14 @@ const i18n = getI18n({ lang: currentLocale })
 const presentation = i18n.Presentation
 ---
 
-<ul role='list' class='flex flex-row gap-1 text-base'>
+<ul role="list" class="flex flex-row gap-1 text-base">
   {
     presentation.socials.map((social, index) => (
       <>
         <li>
-          <Link variant="text" href={social.link} target='_blank' referer='noreferrer'>{social.label}</Link>
+          <Link variant="text" href={social.link} target="_blank">
+            {social.label}
+          </Link>
         </li>
 
         {presentation.socials.length - 1 !== index && <li>|</li>}
