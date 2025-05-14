@@ -24,7 +24,7 @@
       "link": "https://drive.google.com/file/d/1JKOCHCrcdn3vYBj0N9Sed2kaZWAIGVOW/view?usp=sharing"
     },
     "greeting": "Hi, I’m",
-    "description": "*Fullstack developer* with over *2 years* of web experience, focused on create high quality web products and solutions with great user experience. I am currently working with *Next.JS*, *Astro*, *SveltKit* and *TypeSript*.",
+    "description": "*Fullstack developer* with over *2 years* of web experience, focused on create high quality web products and solutions with great user experience. I am currently working with *Next.JS*, *Astro*, *React*, *Express*, *SveltKit* and *TypeSript*.",
     "socials": [
       {
         "label": "LinkedIn",
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "position": "Front end developer (Remote)",
+      "position": "Front end developer (Remote - Freelance)",
       "location": {
         "country": "Spain"
       },
@@ -64,13 +64,14 @@
       ]
     },
     {
-      "position": "Junior fullstack engineer (Remote)",
+      "position": "Junior fullstack engineer (Remote - Freelance)",
       "location": {
         "country": "Argentina"
       },
       "company": "GoSocial",
       "date": {
-        "from": "2023-06-25"
+        "from": "2023-06-25",
+        "to": "2023-09-5"
       },
       "work": [
         "Next.JS | TypeScript | Tailwind CSS | Zod | Zustand | Next Auth | Tanstack Query"
@@ -165,12 +166,28 @@
       "github": "https://github.com/FrM-bot/AI-Image-Generation"
     },
     {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/v1747254244/portfolio/wjvvnrcgrqdeitjits13.webp",
+      "title": "DevInc",
+      "link": "https://dev-inc.vercel.app/",
+      "techs": ["Astro", "Tailwind"],
+      "github": "https://github.com/FrM-bot/dev-inc",
+      "highlight": true
+    },
+    {
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678384714/portfolio/nzdqi7cmcigrzvfpkefm.png",
       "title": "Image Editor",
       "link": "https://svelte-cloudinary-app-guif.vercel.app",
       "techs": ["SvelteKit", "Tailwind", "TypeScript"],
       "github": "https://github.com/FrM-bot/svelte-cloudinary-app",
       "description": "Simple image editor where you can apply various type of filters and optimizations."
+    },
+    {
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/v1747254857/portfolio/ivkvmex9ixb0sr8lrdn3.webp",
+      "title": "ImportArg",
+      "link": "https://importarg.vercel.app/",
+      "techs": ["Next.js", "Tailwind", "Shadcn UI"],
+      "github": "https://github.com/FrM-bot/import-arg",
+      "highlight": true
     }
   ],
   "Skills": {
