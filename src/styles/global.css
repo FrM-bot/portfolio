@@ -1,41 +1,163 @@
 @import 'tailwindcss';
 
-@layer base {
-  :root {
-    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-    /* Colors */
-    --primary: 172 66% 50%;
-    --secondary: 333 71% 51%;
-    --tertiary: 216 8% 13%;
-    --primary-dark: 0 0% 6%;
-    --secondary-dark: 0 0% 8%;
-    --primary-white: 0 0% 100%;
-  }
+/* ── Light (default) ── */
+:root {
+  --bg: oklch(0.98 0.003 255);
+  --bg-subtle: oklch(0.95 0.004 255);
+  --text: oklch(0.16 0.01 258);
+  --text-muted: oklch(0.42 0.008 255);
+  --text-faint: oklch(0.6 0.006 255);
+  --accent: oklch(0.4 0.14 258);
+  --accent-subtle: oklch(0.4 0.14 258 / 0.1);
+  --border: oklch(0.84 0.006 255);
+  --border-subtle: oklch(0.91 0.004 255);
 }
 
-@theme {
-  --color-mint-500: oklch(0.72 0.11 178);
-  --color-primary: hsl(var(--primary));
-  --color-secondary: hsl(var(--secondary));
-  --color-tertiary: hsl(var(--tertiary));
-  --color-primary-white: hsl(var(--primary-white));
-  --color-primary-dark: hsl(var(--primary-dark));
-  --color-secondary-dark: hsl(var(--secondary-dark));
+/* ── Dark ── */
+[data-theme='dark'] {
+  --bg: oklch(0.09 0.006 258);
+  --bg-subtle: oklch(0.13 0.007 258);
+  --text: oklch(0.93 0.004 255);
+  --text-muted: oklch(0.65 0.007 255);
+  --text-faint: oklch(0.46 0.006 255);
+  --accent: oklch(0.65 0.14 258);
+  --accent-subtle: oklch(0.65 0.14 258 / 0.12);
+  --border: oklch(0.22 0.008 258);
+  --border-subtle: oklch(0.16 0.007 258);
 }
 
-@layer components {
-  .text-link {
-    @apply cursor-pointer duration-200 hover:text-white/30 hover:[text-shadow:white_2px_-2px] dark:text-white/90;
-  }
-}
-
+/* ── Base ── */
 body {
-  font-family: 'Onest Variable', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(0.9375rem, 0.25vw + 0.9rem, 1.0625rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 ::selection {
-  background-color: hsl(var(--primary-white));
-  color: hsl(var(--secondary) / 0.9);
+  background-color: var(--accent);
+  color: oklch(0.98 0.003 255);
+}
+
+/* ── Keyframes ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Scroll reveal ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Grain texture (theme-aware opacity) ── */
+.bg-grain {
+  opacity: 0.1;
+  background-image:
+    radial-gradient(circle at 20% 20%, var(--border) 0.7px, transparent 0.9px),
+    radial-gradient(
+      circle at 80% 30%,
+      var(--border-subtle) 0.6px,
+      transparent 0.85px
+    ),
+    radial-gradient(circle at 30% 75%, var(--border) 0.65px, transparent 0.9px),
+    radial-gradient(
+      circle at 70% 80%,
+      var(--border-subtle) 0.55px,
+      transparent 0.8px
+    );
+  background-size:
+    14px 14px,
+    19px 19px,
+    17px 17px,
+    23px 23px;
+  background-position:
+    0 0,
+    8px 6px,
+    3px 10px,
+    11px 2px;
+  mix-blend-mode: multiply;
+  mask-image: radial-gradient(
+    ellipse 85% 65% at 50% 0%,
+    #000 58%,
+    transparent 100%
+  );
+}
+
+[data-theme='dark'] .bg-grain {
+  opacity: 0.18;
+  mix-blend-mode: screen;
+}
+
+/* ── Global components ── */
+@layer components {
+  .text-link {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .text-link:hover {
+    opacity: 0.7;
+  }
+
+  .section-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .h-rule {
+    display: block;
+    height: 1px;
+    background-color: var(--border);
+    width: 100%;
+  }
 }

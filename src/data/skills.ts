@@ -10,7 +10,7 @@ export const skills = {
     'Playwright',
   ],
   libraries: ['React', 'Redux'],
-  orms: ['Prisma', 'Mongoose', 'Sequalize'],
+  orms: ['Prisma', 'Mongoose', 'Sequelize'],
   dbs: ['PostgreSQL', 'MongoDB'],
-  other: ['Docker', 'Git', 'VS code', 'Github Actions'],
+  other: ['Docker', 'Git', 'VS Code', 'Github Actions'],
 }

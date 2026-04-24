@@ -1,26 +1,46 @@
 ---
 import { getI18n } from '@/i18n'
-import Link from './ui/Link.astro'
 
 const { currentLocale } = Astro
-
 const i18n = getI18n({ lang: currentLocale })
-
-const presentation = i18n.Presentation
+const { socials } = i18n.Presentation
 ---
 
-<ul role="list" class="flex flex-row gap-1 text-base">
+<ul role="list" class="socials">
   {
-    presentation.socials.map((social, index) => (
-      <>
-        <li>
-          <Link variant="text" href={social.link} target="_blank">
-            {social.label}
-          </Link>
-        </li>
-
-        {presentation.socials.length - 1 !== index && <li>|</li>}
-      </>
+    socials.map((social) => (
+      <li>
+        <a
+          href={social.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          {social.label} ↗
+        </a>
+      </li>
     ))
   }
 </ul>
+
+<style>
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .social-link {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-faint);
+    transition: color 0.2s ease;
+    letter-spacing: 0.02em;
+  }
+  .social-link:hover {
+    color: var(--accent);
+  }
+</style>

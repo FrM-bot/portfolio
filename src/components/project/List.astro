@@ -3,30 +3,172 @@ import ProjectCard from '@/components/card/Project.astro'
 import { getI18n } from '@/i18n'
 
 const { currentLocale } = Astro
-
 const i18n = getI18n({ lang: currentLocale })
-
 const projects = i18n.Projects
-
 const title = i18n.Translations.sections.title.Projects
+
+const featured = projects.filter((p) => p.highlight)
+const regular = projects.filter((p) => !p.highlight)
+
+const formatTechs = (values: string[], max = 3) =>
+  values.slice(0, max).join(' · ') + (values.length > max ? ' …' : '')
 ---
 
-<article class="flex flex-col gap-6">
-  <header class="flex w-full flex-row justify-between gap-2">
-    <h3
-      class="text-lg text-neutral-100 underline decoration-dashed underline-offset-8"
-    >
-      {title} ({projects.length})
-    </h3>
+<article class="projects-section">
+  <header class="section-header">
+    <span class="section-label">{title}</span>
+    <span class="h-rule"></span>
   </header>
-  {projects.length === 0 && <p>Oops, I must work^_^</p>}
 
-  <section
-    class="grid auto-rows-[250px] gap-4 sm:grid-cols-3 md:auto-rows-[190px]"
-  >
-    {
-      projects.length !== 0 &&
-        projects.map((project) => <ProjectCard {...project} />)
-    }
-  </section>
+  {
+    featured.length > 0 && (
+      <div class="featured-grid">
+        {featured.map((project) => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    )
+  }
+
+  {
+    regular.length > 0 && (
+      <div class="regular-list">
+        {regular.map((project, i) => (
+          <div class="proj-row">
+            <span class="row-num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="row-title">{project.title}</span>
+            <span class="row-techs">{formatTechs(project.techs)}</span>
+            <div class="row-links">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="row-link"
+                  aria-label={`${project.title} on GitHub`}
+                >
+                  GH ↗
+                </a>
+              )}
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="row-link"
+                  aria-label={`Visit ${project.title}`}
+                >
+                  Visit ↗
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
 </article>
+
+<style>
+  .projects-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  /* Featured: 3-column grid, equal height rows */
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: var(--border);
+    outline: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Regular: numbered table rows */
+  .regular-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .proj-row {
+    display: grid;
+    grid-template-columns: 2rem 1fr 1fr auto;
+    align-items: baseline;
+    gap: 0 1rem;
+    padding: 0.625rem 0;
+    border-top: 1px solid var(--border-subtle);
+    transition: background-color 0.15s ease;
+  }
+
+  .proj-row:last-child {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  @media (max-width: 580px) {
+    .proj-row {
+      grid-template-columns: 2rem 1fr auto;
+    }
+    .row-techs {
+      display: none;
+    }
+  }
+
+  .row-num {
+    font-size: 0.625rem;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding-top: 0.1rem;
+  }
+
+  .row-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.15s ease;
+  }
+
+  .proj-row:hover .row-title {
+    color: var(--accent);
+  }
+
+  .row-techs {
+    font-size: 0.75rem;
+    color: var(--text-faint);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .row-links {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .row-link {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--text-faint);
+    letter-spacing: 0.03em;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+  }
+  .row-link:hover {
+    color: var(--accent);
+  }
+</style>

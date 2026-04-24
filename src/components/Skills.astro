@@ -3,112 +3,131 @@ import { skills } from '@/data/skills'
 import { getI18n } from '@/i18n'
 
 const { currentLocale } = Astro
-
 const i18n = getI18n({ lang: currentLocale })
-
 const title = i18n.Translations.sections.title.Skills
 const skillTitles = i18n.Skills
+
+const formatLabel = (label: string) => label.replace(/\.$/, '')
+
+const rows = [
+  { label: formatLabel(skillTitles.languages.label), items: skills.languages },
+  {
+    label: formatLabel(skillTitles.frameworks.label),
+    items: skills.frameworks,
+  },
+  { label: formatLabel(skillTitles.libraries.label), items: skills.libraries },
+  { label: formatLabel(skillTitles.orms.label), items: skills.orms },
+  { label: formatLabel(skillTitles.dbs.label), items: skills.dbs },
+  { label: formatLabel(skillTitles.other.label), items: skills.other },
+]
 ---
 
-<article class="flex flex-col gap-6">
-  <header class="flex w-full flex-row justify-between gap-4">
-    <h3
-      class="text-lg text-neutral-100 underline decoration-dashed underline-offset-8"
-    >
-      {title}
-    </h3>
+<article class="skills-section">
+  <header class="section-header">
+    <span class="section-label">{title}</span>
+    <span class="h-rule"></span>
   </header>
 
-  <section class="dark:text-light flex flex-wrap gap-4 sm:flex-row">
-    <div class="flex flex-col gap-2">
-      <h3 class="text-base text-white/90">{skillTitles.languages.label}</h3>
-      <ul class="text-sm">
-        {
-          skills.languages.map((skill) => (
-            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
-              <span class="text-primary/50 group-hover:text-primary pr-1">
-                ✓
-              </span>{' '}
-              {skill}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-base text-white/90">{skillTitles.libraries.label}</h3>
-      <ul class="text-sm">
-        {
-          skills.libraries.map((skill) => (
-            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
-              <span class="text-primary/50 group-hover:text-primary pr-1">
-                ✓
-              </span>{' '}
-              {skill}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-base text-white/90">{skillTitles.frameworks.label}</h3>
-      <ul class="text-sm">
-        {
-          skills.frameworks.map((skill) => (
-            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
-              <span class="text-primary/50 group-hover:text-primary pr-1">
-                ✓
-              </span>{' '}
-              {skill}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-base text-white/90">{skillTitles.dbs.label}</h3>
-      <ul class="text-sm">
-        {
-          skills.dbs.map((skill) => (
-            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
-              <span class="text-primary/50 group-hover:text-primary pr-1">
-                ✓
-              </span>{' '}
-              {skill}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div class="">
-      <h3 class="text-base text-white/90">{skillTitles.orms.label}</h3>
-      <ul class="mt-3 text-sm">
-        {
-          skills.orms.map((skill) => (
-            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
-              <span class="text-primary/50 group-hover:text-primary pr-1">
-                ✓
-              </span>{' '}
-              {skill}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div class="">
-      <h3 class="text-base text-white/90">{skillTitles.other.label}</h3>
-      <ul class="mt-3 text-sm">
-        {
-          skills.other.map((skill) => (
-            <li class="dark:text-gray group text-sm leading-6 duration-200 hover:translate-x-1 hover:text-white">
-              <span class="text-primary/50 group-hover:text-primary pr-1">
-                ✓
-              </span>{' '}
-              {skill}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
+  <dl class="skills-table">
+    {
+      rows.map(({ label, items }) => (
+        <div class="skills-row">
+          <dt class="skills-cat">{label}</dt>
+          <dd class="skills-list">
+            {items.map((skill, i) => (
+              <>
+                <span class="skill-item">{skill}</span>
+                {i < items.length - 1 && (
+                  <span class="skill-sep" aria-hidden="true">
+                    {' '}
+                    ·{' '}
+                  </span>
+                )}
+              </>
+            ))}
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
 </article>
+
+<style>
+  .skills-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .skills-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+  }
+
+  .skills-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 2.5rem;
+    align-items: start;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .skills-row:last-child {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  @media (max-width: 560px) {
+    .skills-row {
+      grid-template-columns: 1fr;
+      gap: 0.375rem 0;
+    }
+  }
+
+  .skills-cat {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+    padding-top: 0.2rem;
+  }
+
+  @media (max-width: 560px) {
+    .skills-cat {
+      padding-top: 0;
+    }
+  }
+
+  .skills-list {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .skill-item {
+    color: var(--text-muted);
+    transition: color 0.15s ease;
+    cursor: default;
+  }
+
+  .skill-item:hover {
+    color: var(--text);
+  }
+
+  .skill-sep {
+    color: var(--text-faint);
+    user-select: none;
+    pointer-events: none;
+  }
+</style>

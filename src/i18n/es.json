@@ -24,7 +24,8 @@
       "link": "https://drive.google.com/file/d/1JKOCHCrcdn3vYBj0N9Sed2kaZWAIGVOW/view?usp=sharing"
     },
     "greeting": "Hola, soy",
-    "description": "*Fullstack developer* con más de *2 años* de experiencia web. Enfocado en crear productos y soluciones de alta calidad. Actualmente trabajo con *Next.JS*, *Astro*, *React*, *Express*, *SveltKit* y *TypeSript*.",
+    "status": "Disponible para trabajar",
+    "description": "*Fullstack developer* con más de *2 años* de experiencia web. Enfocado en crear productos y soluciones de alta calidad. Actualmente trabajo con *Next.JS*, *Astro*, *React*, *Express*, *SvelteKit* y *TypeScript*.",
     "socials": [
       {
         "label": "LinkedIn",
@@ -87,17 +88,13 @@
         "from": "2023-05-26",
         "to": "2023-06-25"
       },
-      "work": [
-        "Express | Node | JWT | MercadoPago | Prisma | MongoDB | Zod"
-      ]
+      "work": ["Express | Node | JWT | MercadoPago | Prisma | MongoDB | Zod"]
     }
   ],
   "Projects": [
     {
       "title": "Weather App",
-      "techs": [
-        "React"
-      ],
+      "techs": ["React"],
       "link": "https://weather-app-lilac-zeta-45.vercel.app",
       "github": "https://github.com/FrM-bot/weather-app",
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678314756/portfolio/fuo0c00bd3hdac3vrihe.png"
@@ -106,12 +103,7 @@
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378835/portfolio/muyikihebuiobed6gywu.png",
       "title": "Wiki Dogs",
       "link": "https://pi-dogs-client.vercel.app",
-      "techs": [
-        "React",
-        "Express",
-        "Sequalize",
-        "PostgreSQL"
-      ],
+      "techs": ["React", "Express", "Sequelize", "PostgreSQL"],
       "github": "https://github.com/FrM-bot/Pi-Dogs-Client"
     },
     {
@@ -133,11 +125,7 @@
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378654/portfolio/jv47uvtl1bhlklypophp.png",
       "title": "Wiki anime",
       "link": "https://wiki-anime-frm-bot.vercel.app",
-      "techs": [
-        "SvelteKit",
-        "Tailwind",
-        "TypeScript"
-      ],
+      "techs": ["SvelteKit", "Tailwind", "TypeScript"],
       "github": "https://github.com/FrM-bot/anime-app",
       "highlight": true,
       "description": "Wiki donde puedes encontrar enormes cantidades de datos de tus favoritos anime y manga."
@@ -146,11 +134,7 @@
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678386163/portfolio/mkawwtw4jddwbjnmspoh.png",
       "title": "Music Downloader",
       "link": "https://music-downloader.onrender.com",
-      "techs": [
-        "React",
-        "Tailwind",
-        "Esbuild"
-      ],
+      "techs": ["React", "Tailwind", "Esbuild"],
       "github": "https://github.com/FrM-bot/music-downloader",
       "description": "App donde puedes descargar audio .mp3 de YouTube con la url."
     },
@@ -188,7 +172,8 @@
       "link": "https://dev-inc.vercel.app/",
       "techs": ["Astro", "Tailwind"],
       "github": "https://github.com/FrM-bot/dev-inc",
-      "highlight": true
+      "highlight": true,
+      "description": "Hub de recursos y landing comunitaria para desarrolladores, construido con Astro."
     },
     {
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678384714/portfolio/nzdqi7cmcigrzvfpkefm.png",
@@ -204,7 +189,8 @@
       "link": "https://importarg.vercel.app/",
       "techs": ["Next.js", "Tailwind", "Shadcn UI"],
       "github": "https://github.com/FrM-bot/import-arg",
-      "highlight": true
+      "highlight": true,
+      "description": "Herramienta para explorar y gestionar procedimientos de importación en Argentina."
     }
   ],
   "Skills": {
@@ -218,7 +204,7 @@
       "label": "Librerías."
     },
     "orms": {
-      "label": "ORM's."
+      "label": "ORMs."
     },
     "dbs": {
       "label": "Base de datos."
@@ -229,7 +215,7 @@
   },
   "Contact": {
     "title": "Contacto",
-    "message": "Envíame un correo a <a class='text-link' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> o a través de mis enlaces sociales."
+    "message": "Construyamos algo juntos. Escríbeme a <a class='text-link' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> — estoy abierto a nuevas oportunidades."
   },
   "Translations": {
     "words": {

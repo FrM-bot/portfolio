@@ -3,55 +3,223 @@ import { getI18n } from '@/i18n'
 import { formatDate } from '@/utils'
 
 const { currentLocale } = Astro
-
 const i18n = getI18n({ lang: currentLocale })
-
 const experience = i18n.Experience
-
-const presentTranslate = i18n.Translations.words.present
-
+const presentLabel = i18n.Translations.words.present
 const title = i18n.Translations.sections.title.Experience
+
+const formatWork = (work: string[]) =>
+  work.join(' · ').replace(/\s*\|\s*/g, ' · ')
 ---
 
-<article class="flex flex-col gap-4">
-  <header class="flex w-full flex-row justify-between gap-2">
-    <h3
-      class="text-lg text-neutral-100 underline decoration-dashed underline-offset-8"
-    >
-      {title}
-    </h3>
+<article class="exp-section">
+  <header class="section-header">
+    <span class="section-label">{title}</span>
+    <span class="h-rule"></span>
   </header>
 
-  <section
-    class="dark:text-light flex flex-col items-start justify-between sm:flex-row"
-  >
-    <div class="w-full">
-      {
-        experience.map(({ position, company, location, date, work }) => (
-          <div class="my-4 border-l border-neutral-700 bg-gradient-to-r from-zinc-800/40 via-zinc-700/10 to-transparent p-4 duration-200 hover:border-neutral-400">
-            <div class="flex flex-wrap items-center justify-between">
-              <h3 class="text-xl font-semibold text-white/90">{company}</h3>
-              <p class="dark:text-gray text-sm">
-                {formatDate(new Date(date.from), { locales: currentLocale })} -{' '}
+  <ol class="exp-list">
+    {
+      experience.map(({ position, company, location, date, work }, i) => (
+        <li class="exp-entry">
+          <div class="exp-rail" aria-hidden="true">
+            <span class="exp-index">{String(i + 1).padStart(2, '0')}</span>
+            <span class="exp-rule" />
+          </div>
+
+          <div class="exp-body">
+            <div class="exp-header">
+              <div class="exp-title-group">
+                <p class="exp-position">{position}</p>
+                <h3 class="exp-company">{company}</h3>
+              </div>
+
+              <span class="exp-date">
+                {formatDate(new Date(date.from), { locales: currentLocale })} —{' '}
                 {date?.to
                   ? formatDate(new Date(date.to), { locales: currentLocale })
-                  : presentTranslate}
-              </p>
+                  : presentLabel}
+              </span>
             </div>
-            <p class="text-primary text-base font-normal">{position}</p>
-            <p class="mt-1 text-sm">{location.country}</p>
-            <ul class="mt-3 text-sm">
-              {work.map((task) => (
-                <li class="dark:text-gray flex gap-1">
-                  {' '}
-                  <span class="text-primary">✓</span>
-                  {task}
-                </li>
-              ))}
-            </ul>
+
+            <p class="exp-meta">
+              <span class="exp-location">{location.country}</span>
+              {work.length > 0 && (
+                <span class="exp-techs">{formatWork(work)}</span>
+              )}
+            </p>
           </div>
-        ))
-      }
-    </div>
-  </section>
+        </li>
+      ))
+    }
+  </ol>
 </article>
+
+<style>
+  .exp-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .exp-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .exp-entry {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.1rem 0 1.35rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .exp-entry:first-child {
+    padding-top: 0;
+  }
+
+  .exp-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding-top: 0.15rem;
+  }
+
+  .exp-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 0;
+  }
+
+  .exp-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    background-color: var(--accent-subtle);
+    padding: 0.1rem 0.45rem;
+  }
+
+  .exp-rule {
+    display: block;
+    width: 1px;
+    flex: 1;
+    background-color: var(--border-subtle);
+  }
+
+  .exp-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 0.875rem 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .exp-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .exp-company {
+    font-family: 'Jost', sans-serif;
+    font-size: clamp(1.1rem, 0.35vw + 1rem, 1.3rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    line-height: 1.08;
+  }
+
+  .exp-date {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background-color: color-mix(in oklch, var(--bg-subtle) 86%, transparent);
+    border: 1px solid var(--border-subtle);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  .exp-position {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-faint);
+    line-height: 1.45;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .exp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem 1rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .exp-location {
+    color: var(--text);
+  }
+
+  .exp-techs {
+    color: var(--text-faint);
+    max-width: 62ch;
+  }
+
+  @media (max-width: 640px) {
+    .exp-entry {
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    .exp-rail {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 0;
+    }
+
+    .exp-rule {
+      width: auto;
+      height: 1px;
+    }
+
+    .exp-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .exp-date {
+      white-space: normal;
+    }
+  }
+</style>
