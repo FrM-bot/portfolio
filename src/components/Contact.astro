@@ -1,5 +1,6 @@
 ---
 import { getI18n } from '@/i18n'
+import SocialLinks from './SocialLinks.astro'
 
 const { currentLocale } = Astro
 const i18n = getI18n({ lang: currentLocale })
@@ -13,7 +14,12 @@ const title = i18n.Translations.sections.title.Contact
     <span class="h-rule"></span>
   </header>
 
-  <address class="contact-address" set:html={contact.message} />
+  <div class="contact-body">
+    <address class="contact-address" set:html={contact.message} />
+    <div class="contact-socials">
+      <SocialLinks />
+    </div>
+  </div>
 </section>
 
 <style>
@@ -29,10 +35,25 @@ const title = i18n.Translations.sections.title.Contact
     gap: 0.625rem;
   }
 
+  .contact-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
   .contact-address {
     font-style: normal;
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: var(--text-muted);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #737373;
+    max-width: 56ch;
+  }
+
+  .contact-address :global(.text-link) {
+    font-weight: 500;
+  }
+
+  .contact-socials {
+    padding-top: 0.25rem;
   }
 </style>

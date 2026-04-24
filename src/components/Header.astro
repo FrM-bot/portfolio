@@ -1,8 +1,6 @@
 ---
 import Link from './ui/Link.astro'
 import { Languages, getI18n } from '@/i18n'
-import Sun from './icons/Sun.astro'
-import Moon from './icons/Moon.astro'
 
 const { currentLocale } = Astro
 
@@ -22,78 +20,50 @@ const i18n = getI18n({ lang: currentLocale })
 const presentation = i18n.Presentation
 ---
 
-<header class="hdr z-40 flex w-full items-center justify-between">
+<header class="hdr flex w-full items-center justify-between">
   <Link target="_blank" variant="text" href={`mailto:${presentation.mail}`}
     >{presentation.mail}</Link
   >
   <nav role="navigation">
-    <ul role="list" class="flex flex-row items-center gap-3">
+    <ul role="list" class="flex flex-row items-center gap-2">
       {
         NavigationLinks.map((lang) => {
           const isCurrent = lang.label === currentLocale
           return (
-            <li class={isCurrent ? 'underline underline-offset-2' : ''}>
-              <Link variant="text" href={lang.href}>
+            <li>
+              <a
+                href={lang.href}
+                class={`lang-tab${isCurrent ? ' lang-tab--active' : ''}`}
+              >
                 {lang.label.toLocaleUpperCase()}
-              </Link>
+              </a>
             </li>
           )
         })
       }
-      <li>
-        <button id="theme-toggle" aria-label="Toggle theme" class="theme-btn">
-          <span class="icon-sun"><Sun width={16} height={16} /></span>
-          <span class="icon-moon"><Moon width={16} height={16} /></span>
-        </button>
-      </li>
     </ul>
   </nav>
 </header>
-
-<script>
-  const btn = document.getElementById('theme-toggle')
-
-  function sync() {
-    const dark = document.documentElement.dataset.theme === 'dark'
-    const sun = btn?.querySelector<HTMLElement>('.icon-sun')
-    const moon = btn?.querySelector<HTMLElement>('.icon-moon')
-    if (sun) sun.style.display = dark ? 'none' : 'flex'
-    if (moon) moon.style.display = dark ? 'flex' : 'none'
-  }
-
-  sync()
-
-  btn?.addEventListener('click', () => {
-    const next =
-      document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
-    document.documentElement.dataset.theme = next
-    localStorage.setItem('theme', next)
-    sync()
-  })
-</script>
 
 <style>
   .hdr {
     animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  .theme-btn {
-    display: flex;
+  .lang-tab {
+    display: inline-flex;
     align-items: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-muted);
-    padding: 0.25rem;
-    transition: color 0.2s ease;
-    line-height: 0;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #737373;
+    text-decoration: none;
   }
-  .theme-btn:hover {
-    color: var(--text);
-  }
-  .icon-sun,
-  .icon-moon {
-    display: flex;
-    align-items: center;
+
+  .lang-tab--active {
+    background-color: #e5e5e5;
+    color: #262626;
   }
 </style>

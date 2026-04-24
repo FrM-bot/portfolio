@@ -1,50 +1,32 @@
 @import 'tailwindcss';
 
-/* ── Light (default) ── */
 :root {
-  --bg: oklch(0.98 0.003 255);
-  --bg-subtle: oklch(0.95 0.004 255);
-  --text: oklch(0.16 0.01 258);
-  --text-muted: oklch(0.42 0.008 255);
-  --text-faint: oklch(0.6 0.006 255);
-  --accent: oklch(0.4 0.14 258);
-  --accent-subtle: oklch(0.4 0.14 258 / 0.1);
-  --border: oklch(0.84 0.006 255);
-  --border-subtle: oklch(0.91 0.004 255);
+  --bg: #ffffff;
+  --bg-subtle: #fafafa;
+  --text: #000000;
+  --text-secondary: #262626;
+  --text-muted: #737373;
+  --text-faint: #a3a3a3;
+  --border: #e5e5e5;
+  --border-strong: #d4d4d4;
 }
 
-/* ── Dark ── */
-[data-theme='dark'] {
-  --bg: oklch(0.09 0.006 258);
-  --bg-subtle: oklch(0.13 0.007 258);
-  --text: oklch(0.93 0.004 255);
-  --text-muted: oklch(0.65 0.007 255);
-  --text-faint: oklch(0.46 0.006 255);
-  --accent: oklch(0.65 0.14 258);
-  --accent-subtle: oklch(0.65 0.14 258 / 0.12);
-  --border: oklch(0.22 0.008 258);
-  --border-subtle: oklch(0.16 0.007 258);
-}
-
-/* ── Base ── */
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: 'Manrope', sans-serif;
-  font-size: clamp(0.9375rem, 0.25vw + 0.9rem, 1.0625rem);
-  line-height: 1.65;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI Emoji',
+    'Noto Color Emoji',
+    sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease;
 }
 
-::selection {
-  background-color: var(--accent);
-  color: oklch(0.98 0.003 255);
-}
-
-/* ── Keyframes ── */
+/* Page load animations */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -65,7 +47,7 @@ body {
   }
 }
 
-/* ── Scroll reveal ── */
+/* Scroll reveal */
 [data-reveal] {
   opacity: 0;
   transform: translateY(22px);
@@ -88,76 +70,86 @@ body {
   }
 }
 
-/* ── Focus visible ── */
+/* Focus ring — Ring Blue only for keyboard accessibility */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid rgba(59, 130, 246, 0.5);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 9999px;
 }
 
-/* ── Grain texture (theme-aware opacity) ── */
-.bg-grain {
-  opacity: 0.1;
-  background-image:
-    radial-gradient(circle at 20% 20%, var(--border) 0.7px, transparent 0.9px),
-    radial-gradient(
-      circle at 80% 30%,
-      var(--border-subtle) 0.6px,
-      transparent 0.85px
-    ),
-    radial-gradient(circle at 30% 75%, var(--border) 0.65px, transparent 0.9px),
-    radial-gradient(
-      circle at 70% 80%,
-      var(--border-subtle) 0.55px,
-      transparent 0.8px
-    );
-  background-size:
-    14px 14px,
-    19px 19px,
-    17px 17px,
-    23px 23px;
-  background-position:
-    0 0,
-    8px 6px,
-    3px 10px,
-    11px 2px;
-  mix-blend-mode: multiply;
-  mask-image: radial-gradient(
-    ellipse 85% 65% at 50% 0%,
-    #000 58%,
-    transparent 100%
-  );
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e5e5 #ffffff;
 }
 
-[data-theme='dark'] .bg-grain {
-  opacity: 0.18;
-  mix-blend-mode: screen;
+/* Status dot pulse */
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
 
-/* ── Global components ── */
+/* Sticky header */
+.hdr-outer {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.3s ease;
+}
+.hdr-outer.is-scrolled {
+  background-color: #ffffff;
+  border-bottom-color: #e5e5e5;
+}
+
 @layer components {
   .text-link {
-    color: var(--accent);
-    text-decoration: none;
-    transition: opacity 0.15s ease;
+    color: #000000;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #e5e5e5;
   }
   .text-link:hover {
-    opacity: 0.7;
+    text-decoration-color: #737373;
   }
 
   .section-label {
-    font-family: 'Jost', sans-serif;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      sans-serif;
     font-size: 0.6875rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: #737373;
   }
 
   .h-rule {
     display: block;
     height: 1px;
-    background-color: var(--border);
+    background-color: #e5e5e5;
     width: 100%;
   }
 }

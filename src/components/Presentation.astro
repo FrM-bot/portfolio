@@ -11,6 +11,7 @@ const i18n = getI18n({ lang: currentLocale })
 const presentation = i18n.Presentation
 
 const greeting = i18n.Presentation.greeting
+const status = i18n.Presentation.status
 ---
 
 <article
@@ -29,7 +30,7 @@ const greeting = i18n.Presentation.greeting
           />
         </picture>
         <Link
-          variant="text"
+          variant="rounded"
           href={presentation.curriculum.link}
           target="_blank"
         >
@@ -45,6 +46,15 @@ const greeting = i18n.Presentation.greeting
       <h1 class="pres-name">{presentation.title}</h1>
     </div>
 
+    {
+      status && (
+        <div class="status-badge">
+          <span class="status-dot" aria-hidden="true" />
+          <span>{status}</span>
+        </div>
+      )
+    }
+
     <h2
       class="pres-desc"
       set:html={convertAsteriskToStrongTag(presentation.description)}
@@ -59,19 +69,19 @@ const greeting = i18n.Presentation.greeting
 <style>
   .pres-greeting {
     font-size: 0.875rem;
-    color: var(--text-faint);
-    letter-spacing: 0.02em;
+    color: #a3a3a3;
     animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: 0.1s;
   }
 
   .pres-name {
-    font-family: 'Jost', sans-serif;
+    font-family:
+      -apple-system, 'SF Pro Rounded', system-ui, ui-sans-serif, sans-serif;
     font-size: clamp(3rem, 10vw + 0.5rem, 6.5rem);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.06;
     letter-spacing: -0.03em;
-    color: var(--text);
+    color: #000000;
     animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: 0.2s;
   }
@@ -79,14 +89,39 @@ const greeting = i18n.Presentation.greeting
   .pres-desc {
     max-width: 60ch;
     line-height: 1.7;
-    color: var(--text-muted);
+    color: #737373;
     animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: 0.35s;
   }
 
   .pres-desc :global(strong) {
-    color: var(--text);
-    font-weight: 600;
+    color: #000000;
+    font-weight: 500;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    background-color: #e5e5e5;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #262626;
+    letter-spacing: 0.01em;
+    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.28s;
+    width: fit-content;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #525252;
+    flex-shrink: 0;
+    animation: status-pulse 2.5s ease-in-out infinite;
   }
 
   .pres-socials {
@@ -103,12 +138,7 @@ const greeting = i18n.Presentation.greeting
     display: block;
     border-radius: 9999px;
     overflow: hidden;
-    border: 1px solid var(--border);
-    transition: border-color 0.2s ease;
-  }
-
-  .pres-avatar:hover {
-    border-color: var(--accent);
+    border: 1px solid #e5e5e5;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -116,7 +146,9 @@ const greeting = i18n.Presentation.greeting
     .pres-name,
     .pres-desc,
     .pres-socials,
-    .pres-avatar-wrap {
+    .pres-avatar-wrap,
+    .status-badge,
+    .status-dot {
       animation: none;
     }
   }

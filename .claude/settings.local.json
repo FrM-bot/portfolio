@@ -6,7 +6,8 @@
       "WebSearch",
       "WebFetch(domain:docs.astro.build)",
       "Bash(git restore *)",
-      "WebFetch(domain:www.operaneon.com)"
+      "WebFetch(domain:www.operaneon.com)",
+      "Bash(npm run *)"
     ]
   }
 }
