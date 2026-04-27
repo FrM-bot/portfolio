@@ -34,15 +34,6 @@
     "tailwindcss": "4.1.17",
     "vite": "8.0.10"
   },
-  "lint-staged": {
-    "*.{js,mjs,cjs,ts,mts,cts,tsx,astro,vue,svelte}": [
-      "oxlint --fix",
-      "oxfmt --write"
-    ],
-    "*.{json,css,md,mdx}": [
-      "oxfmt --write"
-    ]
-  },
   "engines": {
     "node": "22.x"
   },

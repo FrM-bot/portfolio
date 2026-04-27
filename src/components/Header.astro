@@ -1,5 +1,7 @@
 ---
 import Link from './ui/Link.astro'
+import Moon from './icons/Moon.astro'
+import Sun from './icons/Sun.astro'
 import { Languages, getI18n } from '@/i18n'
 
 const { currentLocale } = Astro
@@ -52,23 +54,36 @@ const presentation = i18n.Presentation
       </ul>
     </nav>
     <button
-      class="cursor-pointer border-none bg-transparent p-0 [font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.07em] text-[var(--text-faint)] transition-colors duration-200 hover:text-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
+      class="inline-flex min-h-8 min-w-8 cursor-pointer items-center justify-center border-none bg-transparent p-0 text-[var(--text-faint)] transition-colors duration-200 hover:text-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
       id="theme-toggle"
       type="button"
+      aria-label="Switch to dark theme"
     >
-      <span class="theme-label">DARK</span>
+      <span class="theme-icon-moon" aria-hidden="true">
+        <Moon width={18} height={18} />
+      </span>
+      <span class="theme-icon-sun hidden" aria-hidden="true">
+        <Sun width={18} height={18} />
+      </span>
     </button>
   </div>
 </header>
 
 <script>
   const toggle = document.getElementById('theme-toggle')
-  const label = toggle?.querySelector('.theme-label')
+  const moon = toggle?.querySelector('.theme-icon-moon')
+  const sun = toggle?.querySelector('.theme-icon-sun')
 
   const apply = (theme: string) => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
-    if (label) label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK'
+    const isDark = theme === 'dark'
+    moon?.classList.toggle('hidden', isDark)
+    sun?.classList.toggle('hidden', !isDark)
+    toggle?.setAttribute(
+      'aria-label',
+      isDark ? 'Switch to light theme' : 'Switch to dark theme',
+    )
   }
 
   apply(document.documentElement.getAttribute('data-theme') || 'light')
