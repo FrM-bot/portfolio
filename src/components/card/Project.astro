@@ -56,8 +56,8 @@ const formatTechs = (values: string[]) => values.join(' · ')
 
 <style>
   .proj-card {
-    background-color: #fafafa;
-    border: 1px solid #e5e5e5;
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border);
     border-radius: 12px;
     height: 100%;
     min-height: 200px;
@@ -81,31 +81,27 @@ const formatTechs = (values: string[]) => values.join(' · ')
   }
 
   .proj-title {
-    font-family:
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      sans-serif;
+    font-family: 'Jost', ui-sans-serif, system-ui, sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    color: #000000;
+    color: var(--text);
     line-height: 1.2;
     text-decoration: none;
   }
 
   .proj-title:hover {
-    color: #525252;
+    color: var(--text-muted);
   }
 
   .proj-techs {
     font-size: 0.6875rem;
-    color: #a3a3a3;
+    color: var(--text-faint);
     line-height: 1.5;
   }
 
   .proj-desc {
     font-size: 0.8125rem;
-    color: #737373;
+    color: var(--text-muted);
     line-height: 1.55;
     margin-top: 0.375rem;
   }
@@ -122,17 +118,17 @@ const formatTechs = (values: string[]) => values.join(' · ')
     align-items: center;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    border: 1px solid #e5e5e5;
-    background-color: #ffffff;
+    border: 1px solid var(--border);
+    background-color: var(--bg);
     font-size: 0.6875rem;
     font-weight: 500;
-    color: #262626;
+    color: var(--text-secondary);
     text-decoration: none;
     letter-spacing: 0.02em;
   }
 
   .proj-link:hover {
-    background-color: #e5e5e5;
-    border-color: #e5e5e5;
+    background-color: var(--border);
+    border-color: var(--border);
   }
 </style>
