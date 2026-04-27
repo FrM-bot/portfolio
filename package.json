@@ -1,7 +1,7 @@
 {
   "name": "frm-bot-portfolio",
-  "type": "module",
   "version": "2.0.0",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -9,9 +9,10 @@
     "preview": "astro preview",
     "check": "astro check",
     "astro": "astro",
-    "format": "npx prettier . --write",
-    "lint": "eslint \"src/**/*.{js,ts,astro}\"",
-    "lint:fix": "eslint \"src/**/*.{js,ts,astro}\" --fix",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint src",
+    "lint:fix": "oxlint --fix src",
     "prepare": "husky"
   },
   "dependencies": {
@@ -25,25 +26,20 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.2.4",
-    "@typescript-eslint/parser": "8.59.0",
-    "eslint": "10.2.1",
-    "eslint-plugin-astro": "1.7.0",
-    "eslint-plugin-jsx-a11y": "6.10.2",
     "husky": "9.1.7",
     "lint-staged": "16.4.0",
-    "prettier": "3.8.3",
-    "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.8.0",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
     "tailwind-merge": "3.5.0",
     "tailwindcss": "4.2.4"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,astro}": [
-      "eslint --fix",
-      "prettier --write"
+    "*.{js,mjs,cjs,ts,mts,cts,tsx,astro,vue,svelte}": [
+      "oxlint --fix",
+      "oxfmt --write"
     ],
-    "src/**/*.{json,css,md}": [
-      "prettier --write"
+    "*.{json,css,md,mdx}": [
+      "oxfmt --write"
     ]
   },
   "engines": {

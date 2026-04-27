@@ -47,9 +47,7 @@
       "date": {
         "from": "2024-06-01"
       },
-      "work": [
-        "React | TypeScript | Tailwind CSS | Yup | Zustand | React Query | React Router"
-      ]
+      "work": ["React | TypeScript | Tailwind CSS | Yup | Zustand | React Query | React Router"]
     },
     {
       "position": "Front end developer (Remote - Freelance)",
@@ -60,9 +58,7 @@
       "date": {
         "from": "2024-02-01"
       },
-      "work": [
-        "React | TypeScript | Yup | Zustand | Material UI | React Router"
-      ]
+      "work": ["React | TypeScript | Yup | Zustand | Material UI | React Router"]
     },
     {
       "position": "Junior fullstack engineer (Remote - Freelance)",
@@ -74,9 +70,7 @@
         "from": "2023-06-25",
         "to": "2023-09-5"
       },
-      "work": [
-        "Next.JS | TypeScript | Tailwind CSS | Zod | Zustand | Next Auth | Tanstack Query"
-      ]
+      "work": ["Next.JS | TypeScript | Tailwind CSS | Zod | Zustand | Next Auth | Tanstack Query"]
     },
     {
       "position": "Junior backend developer (Remote)",
@@ -110,15 +104,7 @@
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378738/portfolio/k5qsgqzrdf3efuknkd2f.png",
       "title": "Wallet",
       "link": "https://henry-pf-client.vercel.app",
-      "techs": [
-        "React",
-        "Express",
-        "Prisma",
-        "PostgreSQL",
-        "Firebase",
-        "JWT",
-        "Tailwind"
-      ],
+      "techs": ["React", "Express", "Prisma", "PostgreSQL", "Firebase", "JWT", "Tailwind"],
       "github": "https://github.com/facuperezbri/henry-pf-client"
     },
     {
@@ -142,28 +128,14 @@
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678315586/portfolio/qx6n1m0cgkfqbvxpvyvc.png",
       "title": "Password Generator",
       "link": "https://password-generator-o6yz.onrender.com",
-      "techs": [
-        "React",
-        "Tailwind",
-        "Vitest",
-        "Playwright",
-        "Github Actions",
-        "TypeScript"
-      ],
+      "techs": ["React", "Tailwind", "Vitest", "Playwright", "Github Actions", "TypeScript"],
       "github": "https://github.com/FrM-bot/password-generator"
     },
     {
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378419/portfolio/qvflbdlqua5ltlubf6ib.png",
       "title": "AI Image Generator",
       "link": "https://ai-image-generation-jhrg.vercel.app",
-      "techs": [
-        "Next.JS",
-        "Tailwind",
-        "OpenAI API",
-        "TypeScript",
-        "Prisma",
-        "MongoDB"
-      ],
+      "techs": ["Next.JS", "Tailwind", "OpenAI API", "TypeScript", "Prisma", "MongoDB"],
       "github": "https://github.com/FrM-bot/AI-Image-Generation"
     },
     {
