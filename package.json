@@ -17,12 +17,12 @@
   "dependencies": {
     "@astrojs/tailwind": "6.0.2",
     "@fontsource-variable/onest": "5.2.11",
-    "@fontsource/jost": "^5.2.8",
-    "@fontsource/manrope": "^5.2.8",
+    "@fontsource/jost": "5.2.8",
+    "@fontsource/manrope": "5.2.8",
     "astro": "6.1.9",
     "astro-seo": "1.1.0",
     "clsx": "2.1.1",
-    "zod": "^4.3.6"
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.2.4",
@@ -34,7 +34,7 @@
     "lint-staged": "^16.4.0",
     "prettier": "3.8.3",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.7.3",
+    "prettier-plugin-tailwindcss": "0.8.0",
     "tailwind-merge": "3.5.0",
     "tailwindcss": "4.2.4"
   },
@@ -47,5 +47,8 @@
     "src/**/*.{json,css,md}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
