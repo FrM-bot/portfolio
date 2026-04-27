@@ -1,32 +1,95 @@
 ---
 import ProjectCard from '@/components/card/Project.astro'
+import ExternalTiny from '@/components/icons/ExternalTiny.astro'
 import { getI18n } from '@/i18n'
 
 const { currentLocale } = Astro
-
 const i18n = getI18n({ lang: currentLocale })
-
 const projects = i18n.Projects
-
 const title = i18n.Translations.sections.title.Projects
+const links = i18n.Translations.links
+
+const featured = projects.filter((p) => p.highlight)
+const regular = projects.filter((p) => !p.highlight)
+
+const formatTechs = (values: string[], max = 3) =>
+  values.slice(0, max).join(' · ') + (values.length > max ? ' …' : '')
 ---
 
-<article class="flex flex-col gap-6">
-  <header class="flex w-full flex-row justify-between gap-2">
-    <h3
-      class="text-lg text-neutral-100 underline decoration-dashed underline-offset-8"
+<article class="flex flex-col gap-8">
+  <header class="flex flex-col gap-2.5">
+    <span
+      class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.09em] text-[var(--text-faint)] uppercase"
     >
-      {title} ({projects.length})
-    </h3>
+      {title}
+    </span>
+    <span class="block h-px w-full bg-[var(--border)]"></span>
   </header>
-  {projects.length === 0 && <p>Oops, I must work^_^</p>}
 
-  <section
-    class="grid auto-rows-[250px] gap-4 sm:grid-cols-3 md:auto-rows-[190px]"
-  >
-    {
-      projects.length !== 0 &&
-        projects.map((project) => <ProjectCard {...project} />)
-    }
-  </section>
+  {
+    featured.length > 0 && (
+      <div class="grid grid-cols-1 gap-4 min-[601px]:grid-cols-3 md:gap-5">
+        {featured.map((project) => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    )
+  }
+
+  {
+    regular.length > 0 && (
+      <div class="flex flex-col">
+        {regular.map((project, i) => (
+          <div class="grid grid-cols-[2rem_minmax(0,1fr)_auto] items-baseline gap-x-4 border-t border-[var(--border)] py-3 transition-colors duration-200 last:border-b hover:bg-[color-mix(in_oklch,var(--bg-subtle)_60%,transparent)] motion-reduce:transition-none min-[581px]:grid-cols-[2rem_minmax(0,1fr)_minmax(0,1fr)_auto]">
+            <span class="pt-[0.1rem] text-[0.75rem] font-medium tracking-[0.04em] text-[color-mix(in_oklab,var(--accent)_82%,var(--text-muted))] [font-variant-numeric:tabular-nums]">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="relative truncate text-[0.9375rem] font-medium text-[var(--text)] no-underline transition-colors duration-200 after:absolute after:right-0 after:bottom-[-2px] after:left-0 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--text)] after:transition-transform after:duration-250 hover:text-[var(--text-muted)] hover:after:scale-x-100"
+              >
+                {project.title}
+              </a>
+            ) : (
+              <span class="truncate text-[0.9375rem] font-medium text-[var(--text)]">
+                {project.title}
+              </span>
+            )}
+            <span class="hidden overflow-hidden text-[0.75rem] text-ellipsis whitespace-nowrap text-[var(--text-faint)] min-[581px]:block">
+              {formatTechs(project.techs)}
+            </span>
+            <div class="flex items-center gap-2">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group inline-flex items-center gap-1 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-2.5 py-[0.2rem] text-[0.75rem] font-medium tracking-[0.035em] whitespace-nowrap text-[var(--text-secondary)] no-underline transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_76%,transparent)] hover:bg-[color-mix(in_oklab,var(--border)_88%,transparent)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
+                  aria-label={`${links.openOnGithubAria}: ${project.title}`}
+                >
+                  <span>GH</span>
+                  <ExternalTiny class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
+                </a>
+              )}
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group inline-flex items-center gap-1 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-2.5 py-[0.2rem] text-[0.75rem] font-medium tracking-[0.035em] whitespace-nowrap text-[var(--text-secondary)] no-underline transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_76%,transparent)] hover:bg-[color-mix(in_oklab,var(--border)_88%,transparent)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
+                  aria-label={`${links.visitProjectAria}: ${project.title}`}
+                >
+                  <span>{links.visit}</span>
+                  <ExternalTiny class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
 </article>

@@ -24,14 +24,15 @@
       "link": "https://drive.google.com/file/d/1JKOCHCrcdn3vYBj0N9Sed2kaZWAIGVOW/view?usp=sharing"
     },
     "greeting": "Hi, I’m",
-    "description": "*Fullstack developer* with over *2 years* of web experience, focused on create high quality web products and solutions with great user experience. I am currently working with *Next.JS*, *Astro*, *React*, *Express*, *SveltKit* and *TypeSript*.",
+    "status": "Open to work",
+    "description": "*Fullstack developer* with over *2 years* of web experience, focused on creating high quality web products and solutions with great user experience. I am currently working with *Next.JS*, *Astro*, *React*, *Express*, *SvelteKit* and *TypeScript*.",
     "socials": [
       {
         "label": "LinkedIn",
         "link": "https://www.linkedin.com/in/frm-bot"
       },
       {
-        "label": "Github",
+        "label": "GitHub",
         "link": "https://github.com/FrM-bot"
       }
     ]
@@ -102,7 +103,7 @@
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378835/portfolio/muyikihebuiobed6gywu.png",
       "title": "Wiki Dogs",
       "link": "https://pi-dogs-client.vercel.app",
-      "techs": ["React", "Express", "Sequalize", "PostgreSQL"],
+      "techs": ["React", "Express", "Sequelize", "PostgreSQL"],
       "github": "https://github.com/FrM-bot/Pi-Dogs-Client"
     },
     {
@@ -171,7 +172,8 @@
       "link": "https://dev-inc.vercel.app/",
       "techs": ["Astro", "Tailwind"],
       "github": "https://github.com/FrM-bot/dev-inc",
-      "highlight": true
+      "highlight": true,
+      "description": "Developer resources hub and community landing, built with Astro."
     },
     {
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678384714/portfolio/nzdqi7cmcigrzvfpkefm.png",
@@ -187,7 +189,8 @@
       "link": "https://importarg.vercel.app/",
       "techs": ["Next.js", "Tailwind", "Shadcn UI"],
       "github": "https://github.com/FrM-bot/import-arg",
-      "highlight": true
+      "highlight": true,
+      "description": "Tool for exploring and managing Argentine import procedures."
     }
   ],
   "Skills": {
@@ -201,7 +204,7 @@
       "label": "Libraries."
     },
     "orms": {
-      "label": "ORM's."
+      "label": "ORMs."
     },
     "dbs": {
       "label": "Database."
@@ -211,7 +214,7 @@
     }
   },
   "Contact": {
-    "message": "Email me at <a class='text-link' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> or via my social links."
+    "message": "Let's build something together. Reach me at <a class='text-[var(--text)] underline underline-offset-[3px] decoration-[var(--border)] hover:decoration-[var(--text-muted)]' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> — I'm open to new opportunities."
   },
   "Translations": {
     "words": {
@@ -224,6 +227,11 @@
         "Skills": "Skills",
         "Contact": "Contact"
       }
+    },
+    "links": {
+      "visit": "Visit",
+      "visitProjectAria": "Visit project",
+      "openOnGithubAria": "Open on GitHub"
     }
   }
 }

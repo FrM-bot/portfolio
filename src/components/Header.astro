@@ -20,24 +20,62 @@ const i18n = getI18n({ lang: currentLocale })
 const presentation = i18n.Presentation
 ---
 
-<header class="z-40 flex w-full items-center justify-between">
+<header
+  class="flex w-full animate-[fade-in_.5s_cubic-bezier(0.16,1,0.3,1)_both] items-center justify-between rounded-[0.875rem] border border-[color-mix(in_oklab,var(--border)_78%,transparent)] bg-[color-mix(in_oklab,var(--bg)_74%,transparent)] px-3 py-2 shadow-[0_8px_22px_color-mix(in_oklab,var(--bg)_78%,transparent)] backdrop-blur-sm transition-colors duration-300"
+>
   <Link target="_blank" variant="text" href={`mailto:${presentation.mail}`}
     >{presentation.mail}</Link
   >
-  <nav role="navigation">
-    <ul role="list" class="flex flex-row gap-2">
-      {
-        NavigationLinks.map((lang) => {
-          const isCurrent = lang.label === currentLocale
-          return (
-            <li class={isCurrent ? 'underline underline-offset-2' : ''}>
-              <Link variant="text" href={lang.href}>
-                {lang.label.toLocaleUpperCase()}
-              </Link>
-            </li>
-          )
-        })
-      }
-    </ul>
-  </nav>
+  <div class="flex items-center gap-6">
+    <nav>
+      <ul role="list" class="flex flex-row items-center gap-4">
+        {
+          NavigationLinks.map((lang) => {
+            const isCurrent = lang.label === currentLocale
+            return (
+              <li>
+                <a
+                  href={lang.href}
+                  aria-current={isCurrent ? 'page' : undefined}
+                  class={`[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.07em] no-underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)] ${
+                    isCurrent
+                      ? 'text-[var(--text)]'
+                      : 'text-[var(--text-faint)] hover:text-[var(--text-muted)]'
+                  }`}
+                >
+                  {lang.label.toLocaleUpperCase()}
+                </a>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </nav>
+    <button
+      class="cursor-pointer border-none bg-transparent p-0 [font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.07em] text-[var(--text-faint)] transition-colors duration-200 hover:text-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
+      id="theme-toggle"
+      type="button"
+    >
+      <span class="theme-label">DARK</span>
+    </button>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('theme-toggle')
+  const label = toggle?.querySelector('.theme-label')
+
+  const apply = (theme: string) => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+    if (label) label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK'
+  }
+
+  apply(document.documentElement.getAttribute('data-theme') || 'light')
+
+  toggle?.addEventListener('click', () => {
+    const current =
+      document.documentElement.getAttribute('data-theme') || 'light'
+    apply(current === 'dark' ? 'light' : 'dark')
+  })
+</script>

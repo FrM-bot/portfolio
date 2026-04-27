@@ -14,21 +14,45 @@ const headTags = Astro.props as Props
 <html lang="en">
   <SEOTags {...headTags} />
 
-  <body
-    class="bg-zinc-900 text-sm tracking-wide text-neutral-900 dark:text-neutral-400"
-  >
-    <div class="inset-0 h-full w-full">
-      <div
-        class="absolute -z-[1] h-full w-full bg-[radial-gradient(rgb(35_35_35)_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
-      >
+  <body>
+    <div
+      class="js-header-shell sticky top-0 z-40 w-full border-b border-transparent bg-transparent pt-6 pb-4 transition-colors duration-300"
+    >
+      <div class="mx-auto max-w-[872px] px-4 sm:px-10">
+        <Header />
       </div>
     </div>
 
     <div
-      class="mx-auto flex max-w-[872px] flex-col gap-9 px-4 py-8 sm:px-10 md:gap-20 md:py-16"
+      class="mx-auto flex max-w-[872px] flex-col gap-10 px-4 pt-10 pb-8 sm:px-10 md:gap-20 md:pb-16"
     >
-      <Header />
       <slot />
     </div>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible')
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      )
+      document
+        .querySelectorAll('[data-reveal]')
+        .forEach((el) => observer.observe(el))
+
+      const headerShell = document.querySelector('.js-header-shell')
+      const onScroll = () => {
+        const isScrolled = window.scrollY > 20
+        headerShell?.classList.toggle('bg-[var(--bg)]', isScrolled)
+        headerShell?.classList.toggle('border-[var(--border)]', isScrolled)
+      }
+      window.addEventListener('scroll', onScroll, { passive: true })
+      onScroll()
+    </script>
   </body>
 </html>

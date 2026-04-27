@@ -1,41 +1,126 @@
 @import 'tailwindcss';
 
-@layer base {
-  :root {
-    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-    /* Colors */
-    --primary: 172 66% 50%;
-    --secondary: 333 71% 51%;
-    --tertiary: 216 8% 13%;
-    --primary-dark: 0 0% 6%;
-    --secondary-dark: 0 0% 8%;
-    --primary-white: 0 0% 100%;
-  }
+:root {
+  --bg: oklch(0.98 0.005 80);
+  --bg-subtle: oklch(0.96 0.006 80);
+  --text: oklch(0.19 0.022 60);
+  --text-secondary: oklch(0.31 0.02 60);
+  --text-muted: oklch(0.52 0.015 62);
+  --text-faint: oklch(0.66 0.012 64);
+  --border: oklch(0.9 0.01 82);
+  --border-strong: oklch(0.82 0.014 78);
+  --accent: oklch(0.55 0.14 62);
 }
 
-@theme {
-  --color-mint-500: oklch(0.72 0.11 178);
-  --color-primary: hsl(var(--primary));
-  --color-secondary: hsl(var(--secondary));
-  --color-tertiary: hsl(var(--tertiary));
-  --color-primary-white: hsl(var(--primary-white));
-  --color-primary-dark: hsl(var(--primary-dark));
-  --color-secondary-dark: hsl(var(--secondary-dark));
-}
-
-@layer components {
-  .text-link {
-    @apply cursor-pointer duration-200 hover:text-white/30 hover:[text-shadow:white_2px_-2px] dark:text-white/90;
-  }
+[data-theme='dark'] {
+  --bg: oklch(0.14 0.012 58);
+  --bg-subtle: oklch(0.18 0.013 58);
+  --text: oklch(0.93 0.016 82);
+  --text-secondary: oklch(0.84 0.014 82);
+  --text-muted: oklch(0.65 0.012 78);
+  --text-faint: oklch(0.5 0.01 74);
+  --border: oklch(0.29 0.012 62);
+  --border-strong: oklch(0.39 0.014 62);
+  --accent: oklch(0.72 0.15 70);
 }
 
 body {
-  font-family: 'Onest Variable', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family:
+    'Manrope',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI Emoji',
+    'Noto Color Emoji',
+    sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-kerning: normal;
+  font-feature-settings:
+    'liga' 1,
+    'kern' 1;
+  -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background-color: hsl(var(--primary-white));
-  color: hsl(var(--secondary) / 0.9);
+/* Page load animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scroll reveal */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid oklch(0.55 0.14 258 / 0.5);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--bg);
+}
+
+/* Status dot pulse */
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }

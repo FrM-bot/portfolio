@@ -24,6 +24,12 @@ const openGraph = {
 ---
 
 <head>
+  <script is:inline>
+    ;(function () {
+      const t = localStorage.getItem('theme')
+      if (t) document.documentElement.setAttribute('data-theme', t)
+    })()
+  </script>
   <SEO
     charset="UTF-8"
     title={title}

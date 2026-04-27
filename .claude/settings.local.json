@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm add *)",
+      "Bash(pnpm check *)",
+      "WebSearch",
+      "WebFetch(domain:docs.astro.build)",
+      "Bash(git restore *)",
+      "WebFetch(domain:www.operaneon.com)",
+      "Bash(npm run *)"
+    ]
+  }
+}
