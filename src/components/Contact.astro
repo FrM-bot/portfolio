@@ -8,52 +8,23 @@ const contact = i18n.Contact
 const title = i18n.Translations.sections.title.Contact
 ---
 
-<section class="contact-section">
-  <header class="section-header">
-    <span class="section-label">{title}</span>
-    <span class="h-rule"></span>
+<section class="flex flex-col gap-6">
+  <header class="flex flex-col gap-2.5">
+    <span
+      class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.1em] text-[var(--text-faint)] uppercase"
+    >
+      {title}
+    </span>
+    <span class="block h-px w-full bg-[var(--border)]"></span>
   </header>
 
-  <div class="contact-body">
-    <address class="contact-address" set:html={contact.message} />
-    <div class="contact-socials">
+  <div class="flex flex-col gap-6">
+    <address
+      class="max-w-[56ch] text-[1.0625rem] leading-7 text-[var(--text-muted)] not-italic [&_a]:font-medium"
+      set:html={contact.message}
+    />
+    <div class="pt-1">
       <SocialLinks />
     </div>
   </div>
 </section>
-
-<style>
-  .contact-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .section-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-
-  .contact-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .contact-address {
-    font-style: normal;
-    font-size: 1.0625rem;
-    line-height: 1.75;
-    color: var(--text-muted);
-    max-width: 56ch;
-  }
-
-  .contact-address :global(.text-link) {
-    font-weight: 500;
-  }
-
-  .contact-socials {
-    padding-top: 0.25rem;
-  }
-</style>

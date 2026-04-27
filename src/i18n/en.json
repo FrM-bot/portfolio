@@ -214,7 +214,7 @@
     }
   },
   "Contact": {
-    "message": "Let's build something together. Reach me at <a class='text-link' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> — I'm open to new opportunities."
+    "message": "Let's build something together. Reach me at <a class='text-[var(--text)] underline underline-offset-[3px] decoration-[var(--border)] hover:decoration-[var(--text-muted)]' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> — I'm open to new opportunities."
   },
   "Translations": {
     "words": {

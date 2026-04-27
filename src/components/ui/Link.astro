@@ -2,11 +2,15 @@
 import { cn } from '@/utils'
 import type { HTMLAttributes } from 'astro/types'
 
+const TEXT_LINK_BASE =
+  "[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.04em] text-[var(--text-muted)] no-underline transition-colors duration-200 hover:text-[var(--text)]"
+
 const VARIANTS = {
-  default: 'link-default',
-  text: 'link-text',
-  gradient: 'link-text',
-  rounded: 'link-rounded',
+  default: TEXT_LINK_BASE,
+  text: TEXT_LINK_BASE,
+  gradient: TEXT_LINK_BASE,
+  rounded:
+    'inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-1.5 text-[0.8125rem] font-medium text-[var(--text-secondary)] no-underline transition-colors duration-200 hover:border-[var(--border)] hover:bg-[var(--border)]',
 }
 
 type Props = HTMLAttributes<'a'> & {
@@ -21,48 +25,3 @@ const className = cn(VARIANTS[variant], props.class ?? '')
 <a href={props.href} class={className} {...props}>
   <slot />
 </a>
-
-<style>
-  .link-default {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-family: 'Jost', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    transition: color 0.2s ease;
-  }
-  .link-default:hover {
-    color: var(--text);
-  }
-
-  .link-text {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-family: 'Jost', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    transition: color 0.2s ease;
-  }
-  .link-text:hover {
-    color: var(--text);
-  }
-
-  .link-rounded {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.375rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 9999px;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    background-color: var(--bg-subtle);
-  }
-  .link-rounded:hover {
-    background-color: var(--border);
-    border-color: var(--border);
-  }
-</style>

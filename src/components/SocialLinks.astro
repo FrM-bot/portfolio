@@ -6,7 +6,7 @@ const i18n = getI18n({ lang: currentLocale })
 const { socials } = i18n.Presentation
 ---
 
-<ul role="list" class="socials">
+<ul role="list" class="m-0 flex list-none flex-wrap gap-2 p-0">
   {
     socials.map((social) => (
       <li>
@@ -14,7 +14,7 @@ const { socials } = i18n.Presentation
           href={social.link}
           target="_blank"
           rel="noopener noreferrer"
-          class="social-link"
+          class="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3.5 py-1.5 text-[0.8125rem] font-medium tracking-[0.01em] text-[var(--text-secondary)] no-underline transition-colors duration-200 hover:border-[var(--border)] hover:bg-[var(--border)]"
         >
           {social.label} ↗
         </a>
@@ -22,33 +22,3 @@ const { socials } = i18n.Presentation
     ))
   }
 </ul>
-
-<style>
-  .socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .social-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.375rem 0.875rem;
-    border-radius: 9999px;
-    border: 1px solid var(--border);
-    background-color: var(--bg-subtle);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    letter-spacing: 0.01em;
-  }
-
-  .social-link:hover {
-    background-color: var(--border);
-    border-color: var(--border);
-  }
-</style>

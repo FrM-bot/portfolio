@@ -12,29 +12,42 @@ const formatWork = (work: string[]) =>
   work.join(' · ').replace(/\s*\|\s*/g, ' · ')
 ---
 
-<article class="exp-section">
-  <header class="section-header">
-    <span class="section-label">{title}</span>
-    <span class="h-rule"></span>
+<article class="flex flex-col gap-8">
+  <header class="flex flex-col gap-2.5">
+    <span
+      class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.1em] text-[var(--text-faint)] uppercase"
+    >
+      {title}
+    </span>
+    <span class="block h-px w-full bg-[var(--border)]"></span>
   </header>
 
-  <ol class="exp-list">
+  <ol class="m-0 flex list-none flex-col gap-4 p-0">
     {
       experience.map(({ position, company, location, date, work }, i) => (
-        <li class="exp-entry">
-          <div class="exp-rail" aria-hidden="true">
-            <span class="exp-index">{String(i + 1).padStart(2, '0')}</span>
-            <span class="exp-rule" />
+        <li class="-mx-3 grid grid-cols-1 gap-3 border-b border-[var(--border)] px-3 pt-4 pb-[1.35rem] first:pt-0 sm:mx-0 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-4 sm:px-0">
+          <div
+            class="flex flex-row items-center gap-3 pt-0 sm:flex-col sm:items-start sm:gap-[0.65rem] sm:pt-[0.15rem]"
+            aria-hidden="true"
+          >
+            <span class="inline-flex min-h-6 items-center justify-center text-[0.625rem] font-normal tracking-[0.06em] text-[var(--accent)] [font-variant-numeric:tabular-nums]">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <span class="block h-px w-full flex-1 bg-[var(--border)] sm:h-auto sm:w-px" />
           </div>
 
-          <div class="exp-body">
-            <div class="exp-header">
-              <div class="exp-title-group">
-                <p class="exp-position">{position}</p>
-                <h3 class="exp-company">{company}</h3>
+          <div class="flex min-w-0 flex-col gap-[0.8rem]">
+            <div class="flex flex-col items-start justify-between gap-[0.875rem] sm:flex-row sm:flex-wrap sm:gap-x-5">
+              <div class="flex min-w-0 flex-col gap-[0.15rem]">
+                <p class="text-xs leading-[1.45] font-medium tracking-[0.08em] text-[var(--text-faint)] uppercase">
+                  {position}
+                </p>
+                <h3 class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.1rem,0.35vw+1rem,1.3rem)] leading-[1.08] font-medium text-[var(--text)]">
+                  {company}
+                </h3>
               </div>
 
-              <span class="exp-date">
+              <span class="inline-flex shrink-0 items-center rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3.5 py-[0.35rem] text-[0.6875rem] font-medium whitespace-normal text-[var(--text-muted)] [font-variant-numeric:tabular-nums] sm:whitespace-nowrap">
                 {formatDate(new Date(date.from), { locales: currentLocale })} —{' '}
                 {date?.to
                   ? formatDate(new Date(date.to), { locales: currentLocale })
@@ -42,10 +55,12 @@ const formatWork = (work: string[]) =>
               </span>
             </div>
 
-            <p class="exp-meta">
-              <span class="exp-location">{location.country}</span>
+            <p class="flex flex-wrap items-center gap-x-4 gap-y-[0.65rem] text-sm leading-[1.65] text-[var(--text-muted)]">
+              <span class="text-[var(--text)]">{location.country}</span>
               {work.length > 0 && (
-                <span class="exp-techs">{formatWork(work)}</span>
+                <span class="max-w-[62ch] text-[var(--text-faint)]">
+                  {formatWork(work)}
+                </span>
               )}
             </p>
           </div>
@@ -54,167 +69,3 @@ const formatWork = (work: string[]) =>
     }
   </ol>
 </article>
-
-<style>
-  .exp-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .section-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-
-  .exp-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .exp-entry {
-    display: grid;
-    grid-template-columns: 3rem minmax(0, 1fr);
-    gap: 1rem;
-    padding: 1.1rem 0.75rem 1.35rem;
-    margin: 0 -0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .exp-entry:first-child {
-    padding-top: 0;
-  }
-
-  .exp-rail {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65rem;
-    padding-top: 0.15rem;
-  }
-
-  .exp-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    min-width: 0;
-  }
-
-  .exp-index {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 1.5rem;
-    font-size: 0.625rem;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .exp-rule {
-    display: block;
-    width: 1px;
-    flex: 1;
-    background-color: var(--border);
-  }
-
-  .exp-header {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 0.875rem 1.25rem;
-    flex-wrap: wrap;
-  }
-
-  .exp-title-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    min-width: 0;
-  }
-
-  .exp-company {
-    font-family: 'Jost', ui-sans-serif, system-ui, sans-serif;
-    font-size: clamp(1.1rem, 0.35vw + 1rem, 1.3rem);
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.08;
-  }
-
-  .exp-date {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.35rem 0.875rem;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    background-color: var(--bg-subtle);
-    border: 1px solid var(--border);
-    border-radius: 9999px;
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-    flex-shrink: 0;
-  }
-
-  .exp-position {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-faint);
-    line-height: 1.45;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .exp-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.65rem 1rem;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  .exp-location {
-    color: var(--text);
-  }
-
-  .exp-techs {
-    color: var(--text-faint);
-    max-width: 62ch;
-  }
-
-  @media (max-width: 640px) {
-    .exp-entry {
-      grid-template-columns: 1fr;
-      gap: 0.9rem;
-    }
-
-    .exp-rail {
-      flex-direction: row;
-      align-items: center;
-      gap: 0.75rem;
-      padding-top: 0;
-    }
-
-    .exp-rule {
-      width: auto;
-      height: 1px;
-    }
-
-    .exp-header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .exp-date {
-      white-space: normal;
-    }
-  }
-</style>

@@ -8,29 +8,39 @@ const { title, techs, link, github, description } = Astro.props as Props
 const formatTechs = (values: string[]) => values.join(' · ')
 ---
 
-<article class="proj-card">
-  <div class="proj-content">
-    <div class="proj-top">
+<article
+  class="flex h-full min-h-[200px] flex-col rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)]"
+>
+  <div class="flex h-full flex-col justify-between gap-6 p-6">
+    <div class="flex flex-col gap-1.5">
       <a
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        class="proj-title"
+        class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-base leading-[1.2] font-medium text-[var(--text)] no-underline transition-colors duration-200 hover:text-[var(--text-muted)]"
       >
         {title}
       </a>
-      <p class="proj-techs">{formatTechs(techs)}</p>
-      {description && <p class="proj-desc">{description}</p>}
+      <p class="text-[0.6875rem] leading-[1.5] text-[var(--text-faint)]">
+        {formatTechs(techs)}
+      </p>
+      {
+        description && (
+          <p class="mt-1.5 text-[0.8125rem] leading-[1.55] text-[var(--text-muted)]">
+            {description}
+          </p>
+        )
+      }
     </div>
 
-    <div class="proj-links">
+    <div class="flex flex-wrap items-center gap-2">
       {
         github && (
           <a
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            class="proj-link"
+            class="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-[0.6875rem] font-medium tracking-[0.02em] text-[var(--text-secondary)] no-underline transition-colors duration-200 hover:border-[var(--border)] hover:bg-[var(--border)]"
             aria-label={`${title} on GitHub`}
           >
             GitHub ↗
@@ -43,7 +53,7 @@ const formatTechs = (values: string[]) => values.join(' · ')
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            class="proj-link"
+            class="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-[0.6875rem] font-medium tracking-[0.02em] text-[var(--text-secondary)] no-underline transition-colors duration-200 hover:border-[var(--border)] hover:bg-[var(--border)]"
             aria-label={`Visit ${title}`}
           >
             Visit ↗
@@ -53,82 +63,3 @@ const formatTechs = (values: string[]) => values.join(' · ')
     </div>
   </div>
 </article>
-
-<style>
-  .proj-card {
-    background-color: var(--bg-subtle);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    height: 100%;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .proj-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 1.5rem;
-    gap: 1.5rem;
-  }
-
-  .proj-top {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-  }
-
-  .proj-title {
-    font-family: 'Jost', ui-sans-serif, system-ui, sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.2;
-    text-decoration: none;
-  }
-
-  .proj-title:hover {
-    color: var(--text-muted);
-  }
-
-  .proj-techs {
-    font-size: 0.6875rem;
-    color: var(--text-faint);
-    line-height: 1.5;
-  }
-
-  .proj-desc {
-    font-size: 0.8125rem;
-    color: var(--text-muted);
-    line-height: 1.55;
-    margin-top: 0.375rem;
-  }
-
-  .proj-links {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .proj-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    border: 1px solid var(--border);
-    background-color: var(--bg);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-  }
-
-  .proj-link:hover {
-    background-color: var(--border);
-    border-color: var(--border);
-  }
-</style>

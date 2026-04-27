@@ -20,11 +20,13 @@ const i18n = getI18n({ lang: currentLocale })
 const presentation = i18n.Presentation
 ---
 
-<header class="hdr flex w-full items-center justify-between">
+<header
+  class="flex w-full [animation:fade-in_.5s_cubic-bezier(0.16,1,0.3,1)_both] items-center justify-between"
+>
   <Link target="_blank" variant="text" href={`mailto:${presentation.mail}`}
     >{presentation.mail}</Link
   >
-  <div class="hdr-right">
+  <div class="flex items-center gap-6">
     <nav>
       <ul role="list" class="flex flex-row items-center gap-4">
         {
@@ -35,7 +37,11 @@ const presentation = i18n.Presentation
                 <a
                   href={lang.href}
                   aria-current={isCurrent ? 'page' : undefined}
-                  class={`lang-tab${isCurrent ? ' lang-tab--active' : ''}`}
+                  class={`[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.08em] no-underline transition-colors duration-200 ${
+                    isCurrent
+                      ? 'text-[var(--text)]'
+                      : 'text-[var(--text-faint)] hover:text-[var(--text-muted)]'
+                  }`}
                 >
                   {lang.label.toLocaleUpperCase()}
                 </a>
@@ -45,7 +51,11 @@ const presentation = i18n.Presentation
         }
       </ul>
     </nav>
-    <button class="theme-toggle" id="theme-toggle" type="button">
+    <button
+      class="cursor-pointer border-none bg-transparent p-0 [font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.08em] text-[var(--text-faint)] transition-colors duration-200 hover:text-[var(--text-muted)]"
+      id="theme-toggle"
+      type="button"
+    >
       <span class="theme-label">DARK</span>
     </button>
   </div>
@@ -69,50 +79,3 @@ const presentation = i18n.Presentation
     apply(current === 'dark' ? 'light' : 'dark')
   })
 </script>
-
-<style>
-  .hdr {
-    animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .hdr-right {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .lang-tab {
-    font-family: 'Jost', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--text-faint);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .lang-tab:hover {
-    color: var(--text-muted);
-  }
-
-  .lang-tab--active {
-    color: var(--text);
-  }
-
-  .theme-toggle {
-    font-family: 'Jost', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--text-faint);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: color 0.2s ease;
-  }
-
-  .theme-toggle:hover {
-    color: var(--text-muted);
-  }
-</style>

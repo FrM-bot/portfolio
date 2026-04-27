@@ -215,7 +215,7 @@
   },
   "Contact": {
     "title": "Contacto",
-    "message": "Construyamos algo juntos. Escríbeme a <a class='text-link' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> — estoy abierto a nuevas oportunidades."
+    "message": "Construyamos algo juntos. Escríbeme a <a class='text-[var(--text)] underline underline-offset-[3px] decoration-[var(--border)] hover:decoration-[var(--text-muted)]' href=\"mailto:damianmaciel0@gmail.com\">damianmaciel0@gmail.com</a> — estoy abierto a nuevas oportunidades."
   },
   "Translations": {
     "words": {
