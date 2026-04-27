@@ -1,15 +1,20 @@
 ---
 import type { Project } from '@/data/projects'
+import ExternalTiny from '@/components/icons/ExternalTiny.astro'
+import { getI18n } from '@/i18n'
 
 type Props = Project
 
 const { title, techs, link, github, description } = Astro.props as Props
+const { currentLocale } = Astro
+const i18n = getI18n({ lang: currentLocale })
+const links = i18n.Translations.links
 
 const formatTechs = (values: string[]) => values.join(' · ')
 ---
 
 <article
-  class="flex h-full min-h-[200px] flex-col rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)]"
+  class="flex h-full min-h-[200px] flex-col rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] transition duration-250 hover:border-[color-mix(in_oklab,var(--border-strong)_78%,transparent)]"
 >
   <div class="flex h-full flex-col justify-between gap-6 p-6">
     <div class="flex flex-col gap-1.5">
@@ -21,12 +26,12 @@ const formatTechs = (values: string[]) => values.join(' · ')
       >
         {title}
       </a>
-      <p class="text-[0.6875rem] leading-[1.5] text-[var(--text-faint)]">
+      <p class="text-[0.75rem] leading-[1.55] text-[var(--text-faint)]">
         {formatTechs(techs)}
       </p>
       {
         description && (
-          <p class="mt-1.5 text-[0.8125rem] leading-[1.55] text-[var(--text-muted)]">
+          <p class="mt-1.5 text-[0.875rem] leading-[1.6] text-[var(--text-muted)]">
             {description}
           </p>
         )
@@ -40,10 +45,11 @@ const formatTechs = (values: string[]) => values.join(' · ')
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-[0.6875rem] font-medium tracking-[0.02em] text-[var(--text-secondary)] no-underline transition-colors duration-200 hover:border-[var(--border)] hover:bg-[var(--border)]"
-            aria-label={`${title} on GitHub`}
+            class="group inline-flex items-center gap-1 rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-[0.75rem] font-medium tracking-[0.035em] text-[var(--text-secondary)] no-underline transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_78%,transparent)] hover:bg-[color-mix(in_oklab,var(--border)_86%,transparent)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
+            aria-label={`${links.openOnGithubAria}: ${title}`}
           >
-            GitHub ↗
+            <span>GitHub</span>
+            <ExternalTiny class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
           </a>
         )
       }
@@ -53,10 +59,11 @@ const formatTechs = (values: string[]) => values.join(' · ')
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-[0.6875rem] font-medium tracking-[0.02em] text-[var(--text-secondary)] no-underline transition-colors duration-200 hover:border-[var(--border)] hover:bg-[var(--border)]"
-            aria-label={`Visit ${title}`}
+            class="group inline-flex items-center gap-1 rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-[0.75rem] font-medium tracking-[0.035em] text-[var(--text-secondary)] no-underline transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_78%,transparent)] hover:bg-[color-mix(in_oklab,var(--border)_86%,transparent)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
+            aria-label={`${links.visitProjectAria}: ${title}`}
           >
-            Visit ↗
+            <span>{links.visit}</span>
+            <ExternalTiny class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
           </a>
         )
       }

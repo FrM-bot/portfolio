@@ -20,7 +20,7 @@
     "title": "Maciel Franco",
     "profile": "https://avatars.githubusercontent.com/u/82059717?v=4",
     "curriculum": {
-      "label": "Ver curriculum",
+      "label": "Ver currículum",
       "link": "https://drive.google.com/file/d/1JKOCHCrcdn3vYBj0N9Sed2kaZWAIGVOW/view?usp=sharing"
     },
     "greeting": "Hola, soy",
@@ -32,7 +32,7 @@
         "link": "https://www.linkedin.com/in/frm-bot"
       },
       {
-        "label": "Github",
+        "label": "GitHub",
         "link": "https://github.com/FrM-bot"
       }
     ]
@@ -228,6 +228,11 @@
         "Skills": "Habilidades",
         "Contact": "Contacto"
       }
+    },
+    "links": {
+      "visit": "Visitar",
+      "visitProjectAria": "Visitar proyecto",
+      "openOnGithubAria": "Abrir en GitHub"
     }
   }
 }

@@ -15,14 +15,14 @@ const status = i18n.Presentation.status
 ---
 
 <article
-  class="flex flex-col gap-8 md:flex-row-reverse md:justify-end lg:gap-16"
+  class="flex flex-col gap-10 md:flex-row-reverse md:items-start md:justify-end lg:gap-16"
 >
   {
     presentation.profile && (
       <div class="flex h-full [animation:fade-up_.7s_cubic-bezier(0.16,1,0.3,1)_both] flex-col items-center gap-3 [animation-delay:.15s] motion-reduce:animate-none">
-        <picture class="block overflow-hidden rounded-full border border-[var(--border)]">
+        <picture class="block overflow-hidden rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] p-1">
           <img
-            class="rounded-full"
+            class="rounded-full saturate-[0.92]"
             width="180"
             height="180"
             src={presentation.profile}
@@ -40,7 +40,7 @@ const status = i18n.Presentation.status
     )
   }
 
-  <div class="flex flex-col gap-5">
+  <div class="flex max-w-[68ch] flex-col gap-6">
     <div class="flex flex-col gap-1">
       <p
         class="[animation:fade-up_.6s_cubic-bezier(0.16,1,0.3,1)_both] text-sm text-[var(--text-faint)] [animation-delay:.1s] motion-reduce:animate-none"
@@ -67,7 +67,7 @@ const status = i18n.Presentation.status
     }
 
     <h2
-      class="max-w-[60ch] [animation:fade-up_.7s_cubic-bezier(0.16,1,0.3,1)_both] leading-[1.7] text-[var(--text-muted)] [animation-delay:.35s] motion-reduce:animate-none [&_strong]:font-medium [&_strong]:text-[var(--text)]"
+      class="max-w-[65ch] [animation:fade-up_.7s_cubic-bezier(0.16,1,0.3,1)_both] text-[1.03125rem] leading-[1.72] text-[var(--text-muted)] [animation-delay:.35s] motion-reduce:animate-none [&_strong]:font-medium [&_strong]:text-[var(--text)]"
       set:html={convertAsteriskToStrongTag(presentation.description)}
     />
 

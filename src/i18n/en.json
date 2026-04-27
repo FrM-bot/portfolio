@@ -32,7 +32,7 @@
         "link": "https://www.linkedin.com/in/frm-bot"
       },
       {
-        "label": "Github",
+        "label": "GitHub",
         "link": "https://github.com/FrM-bot"
       }
     ]
@@ -227,6 +227,11 @@
         "Skills": "Skills",
         "Contact": "Contact"
       }
+    },
+    "links": {
+      "visit": "Visit",
+      "visitProjectAria": "Visit project",
+      "openOnGithubAria": "Open on GitHub"
     }
   }
 }

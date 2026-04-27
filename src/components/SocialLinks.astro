@@ -1,5 +1,6 @@
 ---
 import { getI18n } from '@/i18n'
+import ExternalTiny from './icons/ExternalTiny.astro'
 
 const { currentLocale } = Astro
 const i18n = getI18n({ lang: currentLocale })
@@ -14,9 +15,10 @@ const { socials } = i18n.Presentation
           href={social.link}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3.5 py-1.5 text-[0.8125rem] font-medium tracking-[0.01em] text-[var(--text-secondary)] no-underline transition-colors duration-200 hover:border-[var(--border)] hover:bg-[var(--border)]"
+          class="group inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3.5 py-1.5 text-[0.875rem] font-medium tracking-[0.015em] text-[var(--text-secondary)] no-underline transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_78%,transparent)] hover:bg-[color-mix(in_oklab,var(--border)_86%,transparent)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
         >
-          {social.label} ↗
+          <span>{social.label}</span>
+          <ExternalTiny class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
         </a>
       </li>
     ))

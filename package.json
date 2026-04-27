@@ -17,6 +17,8 @@
   "dependencies": {
     "@astrojs/tailwind": "6.0.2",
     "@fontsource-variable/onest": "5.2.11",
+    "@fontsource/jost": "^5.2.8",
+    "@fontsource/manrope": "^5.2.8",
     "astro": "6.1.9",
     "astro-seo": "1.1.0",
     "clsx": "2.1.1",

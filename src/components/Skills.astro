@@ -22,10 +22,10 @@ const rows = [
 ]
 ---
 
-<article class="flex flex-col gap-2">
+<article class="flex flex-col gap-3">
   <header class="flex flex-col gap-2.5">
     <span
-      class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.1em] text-[var(--text-faint)] uppercase"
+      class="font-['Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-widest text-(--text-faint) uppercase"
     >
       {title}
     </span>
@@ -33,27 +33,19 @@ const rows = [
 
   <dl class="m-0 flex flex-col gap-0">
     {
-      rows.map(({ label, items }) => (
-        <div class="grid grid-cols-1 items-start gap-y-1.5 border-t border-[var(--border)] py-3 last:border-b min-[561px]:grid-cols-[auto_minmax(0,1fr)] min-[561px]:gap-x-10 min-[561px]:gap-y-0">
-          <dt class="pt-0 [font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.1em] whitespace-nowrap text-[var(--text-muted)] uppercase min-[561px]:pt-[0.2rem]">
+      rows.map(({ label, items }, rowIndex) => (
+        <div
+          class="group first:border-t-none grid [animation:fade-up_.55s_cubic-bezier(0.16,1,0.3,1)_both] grid-cols-1 items-start gap-y-2 border-t border-(--border) py-3 transition duration-200 last:border-b hover:bg-[color-mix(in_oklch,var(--bg-subtle)_60%,transparent)] motion-reduce:animate-none motion-reduce:transition-none min-[561px]:grid-cols-[auto_minmax(0,1fr)] min-[561px]:gap-x-10 min-[561px]:gap-y-0"
+          style={`animation-delay: ${0.08 * rowIndex}s`}
+        >
+          <dt class="pt-0 font-['Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-widest whitespace-nowrap text-(--text-muted) uppercase transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none min-[561px]:pt-[0.2rem]">
             {label}
           </dt>
-          <dd class="m-0 text-[0.9375rem] leading-[1.65]">
-            {items.map((skill, i) => (
-              <>
-                <span class="cursor-default text-[var(--text-secondary)]">
-                  {skill}
-                </span>
-                {i < items.length - 1 && (
-                  <span
-                    class="pointer-events-none text-[var(--text-faint)] select-none"
-                    aria-hidden="true"
-                  >
-                    {' '}
-                    ·{' '}
-                  </span>
-                )}
-              </>
+          <dd class="m-0 flex flex-wrap items-center gap-1.5 text-[0.875rem] leading-[1.55]">
+            {items.map((skill) => (
+              <span class="inline-flex cursor-default items-center rounded-full border border-transparent bg-transparent px-2 py-0.5 text-(--text-secondary) transition duration-200 hover:border-(--border) hover:bg-(--bg-subtle) hover:text-(--text) motion-reduce:transition-none">
+                {skill}
+              </span>
             ))}
           </dd>
         </div>

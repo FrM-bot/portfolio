@@ -21,7 +21,7 @@ const presentation = i18n.Presentation
 ---
 
 <header
-  class="flex w-full [animation:fade-in_.5s_cubic-bezier(0.16,1,0.3,1)_both] items-center justify-between"
+  class="flex w-full animate-[fade-in_.5s_cubic-bezier(0.16,1,0.3,1)_both] items-center justify-between rounded-[0.875rem] border border-[color-mix(in_oklab,var(--border)_78%,transparent)] bg-[color-mix(in_oklab,var(--bg)_74%,transparent)] px-3 py-2 shadow-[0_8px_22px_color-mix(in_oklab,var(--bg)_78%,transparent)] backdrop-blur-sm transition-colors duration-300"
 >
   <Link target="_blank" variant="text" href={`mailto:${presentation.mail}`}
     >{presentation.mail}</Link
@@ -37,7 +37,7 @@ const presentation = i18n.Presentation
                 <a
                   href={lang.href}
                   aria-current={isCurrent ? 'page' : undefined}
-                  class={`[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.08em] no-underline transition-colors duration-200 ${
+                  class={`[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.07em] no-underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)] ${
                     isCurrent
                       ? 'text-[var(--text)]'
                       : 'text-[var(--text-faint)] hover:text-[var(--text-muted)]'
@@ -52,7 +52,7 @@ const presentation = i18n.Presentation
       </ul>
     </nav>
     <button
-      class="cursor-pointer border-none bg-transparent p-0 [font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.08em] text-[var(--text-faint)] transition-colors duration-200 hover:text-[var(--text-muted)]"
+      class="cursor-pointer border-none bg-transparent p-0 [font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.07em] text-[var(--text-faint)] transition-colors duration-200 hover:text-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
       id="theme-toggle"
       type="button"
     >

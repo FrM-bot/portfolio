@@ -3,14 +3,14 @@ import { cn } from '@/utils'
 import type { HTMLAttributes } from 'astro/types'
 
 const TEXT_LINK_BASE =
-  "[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.04em] text-[var(--text-muted)] no-underline transition-colors duration-200 hover:text-[var(--text)]"
+  "relative inline-flex items-center [font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.04em] text-[var(--text-muted)] no-underline transition-colors duration-200 after:absolute after:right-0 after:bottom-[-2px] after:left-0 after:h-px after:origin-left after:scale-x-0 after:bg-[color-mix(in_oklab,var(--text)_80%,transparent)] after:transition-transform after:duration-250 hover:text-[var(--text-secondary)] hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_oklab,var(--accent)_45%,transparent)] active:text-[var(--text)]"
 
 const VARIANTS = {
   default: TEXT_LINK_BASE,
   text: TEXT_LINK_BASE,
   gradient: TEXT_LINK_BASE,
   rounded:
-    'inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-1.5 text-[0.8125rem] font-medium text-[var(--text-secondary)] no-underline transition-colors duration-200 hover:border-[var(--border)] hover:bg-[var(--border)]',
+    'inline-flex items-center rounded-full border border-[color-mix(in_oklab,var(--border)_86%,transparent)] bg-[color-mix(in_oklab,var(--bg-subtle)_80%,transparent)] px-4 py-1.5 text-[0.875rem] font-medium text-[var(--text-secondary)] no-underline shadow-[0_1px_0_color-mix(in_oklab,var(--bg)_22%,transparent)] transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_78%,transparent)] hover:bg-[color-mix(in_oklab,var(--bg-subtle)_92%,var(--border))] hover:text-[var(--text)] active:translate-y-0 active:scale-[0.995] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_oklab,var(--accent)_45%,transparent)] motion-reduce:active:scale-100',
 }
 
 type Props = HTMLAttributes<'a'> & {

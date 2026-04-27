@@ -8,22 +8,24 @@ const contact = i18n.Contact
 const title = i18n.Translations.sections.title.Contact
 ---
 
-<section class="flex flex-col gap-6">
+<section class="flex flex-col gap-8">
   <header class="flex flex-col gap-2.5">
     <span
-      class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.6875rem] font-medium tracking-[0.1em] text-[var(--text-faint)] uppercase"
+      class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.09em] text-[var(--text-faint)] uppercase"
     >
       {title}
     </span>
     <span class="block h-px w-full bg-[var(--border)]"></span>
   </header>
 
-  <div class="flex flex-col gap-6">
+  <div class="relative flex flex-col gap-7">
     <address
-      class="max-w-[56ch] text-[1.0625rem] leading-7 text-[var(--text-muted)] not-italic [&_a]:font-medium"
+      class="max-w-[60ch] animate-[fade-up_.65s_cubic-bezier(0.16,1,0.3,1)_both] text-[1.05rem] leading-[1.85] text-[var(--text-muted)] not-italic [animation-delay:.06s] motion-reduce:animate-none [&_a]:inline-flex [&_a]:items-center [&_a]:font-medium [&_a]:transition-colors [&_a]:duration-200 [&_a]:hover:text-[var(--text)]"
       set:html={contact.message}
     />
-    <div class="pt-1">
+    <div
+      class="animate-[fade-up_.65s_cubic-bezier(0.16,1,0.3,1)_both] border-t border-[var(--border)] pt-5 [animation-delay:.14s] motion-reduce:animate-none"
+    >
       <SocialLinks />
     </div>
   </div>
