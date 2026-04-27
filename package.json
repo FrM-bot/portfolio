@@ -25,13 +25,14 @@
     "zod": "4.3.6"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "4.2.4",
+    "@tailwindcss/vite": "4.1.17",
     "husky": "9.1.7",
     "lint-staged": "16.4.0",
-    "oxfmt": "^0.47.0",
-    "oxlint": "^1.62.0",
+    "oxfmt": "0.47.0",
+    "oxlint": "1.62.0",
     "tailwind-merge": "3.5.0",
-    "tailwindcss": "4.2.4"
+    "tailwindcss": "4.1.17",
+    "vite": "8.0.10"
   },
   "lint-staged": {
     "*.{js,mjs,cjs,ts,mts,cts,tsx,astro,vue,svelte}": [
