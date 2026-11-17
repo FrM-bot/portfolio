@@ -19,23 +19,24 @@
     "@fontsource-variable/onest": "5.2.11",
     "@fontsource/jost": "5.2.8",
     "@fontsource/manrope": "5.2.8",
-    "astro": "6.1.9",
+    "astro": "7.4.12",
     "astro-seo": "1.1.0",
     "clsx": "2.1.1",
+    "gsap": "^3.15.1",
     "zod": "4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.1.17",
     "husky": "9.1.7",
-    "lint-staged": "16.4.0",
-    "oxfmt": "0.47.0",
+    "lint-staged": "17.6.1",
+    "oxfmt": "0.79.0",
     "oxlint": "1.62.0",
     "tailwind-merge": "3.5.0",
     "tailwindcss": "4.1.17",
     "vite": "8.0.10"
   },
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d"
 }

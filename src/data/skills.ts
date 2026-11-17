@@ -1,8 +1,6 @@
 export const skills = {
-  languages: ['JavaScript', 'TypeScript', 'Python', 'C#'],
-  frameworks: ['Next.JS', 'Tailwind', 'Astro', 'Express', 'Vitest', 'SvelteKit', 'Playwright'],
-  libraries: ['React', 'Redux'],
-  orms: ['Prisma', 'Mongoose', 'Sequelize'],
-  dbs: ['PostgreSQL', 'MongoDB'],
-  other: ['Docker', 'Git', 'VS Code', 'Github Actions'],
+  frontend: ['TypeScript', 'React', 'Next.js', 'TanStack Start', 'Zustand', 'Tailwind CSS'],
+  backendData: ['Node.js', 'NestJS', 'Express.js', 'Drizzle ORM', 'PostgreSQL'],
+  devops: ['Git', 'GitHub Actions', 'Docker'],
+  cloudServices: ['Google Cloud Run', 'Cloudflare Workers', 'Cloudflare R2', 'Neon'],
 }

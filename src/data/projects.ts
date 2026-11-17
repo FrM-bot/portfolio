@@ -1,9 +1,16 @@
+export type ProjectLink = {
+  href: string
+  label: string
+}
+
 export type Project = {
   title: string
   techs: string[]
-  link: string
-  github: string
-  image: string
+  links: ProjectLink[]
+  link?: string
+  dashboard?: string
+  github?: string
+  image?: string
   highlight?: boolean
   description?: string
 }

@@ -8,24 +8,21 @@ const contact = i18n.Contact
 const title = i18n.Translations.sections.title.Contact
 ---
 
-<section class="flex flex-col gap-8">
-  <header class="flex flex-col gap-2.5">
-    <span
-      class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.09em] text-[var(--text-faint)] uppercase"
-    >
+<section class="flex flex-col gap-[clamp(1.4rem,2.6vw,2.25rem)]">
+  <header class="flex flex-col gap-[0.85rem]">
+    <span data-section-label class="flex items-center gap-[0.7rem] font-display text-[0.7rem] leading-[1.3] font-semibold tracking-[0.16em] text-foreground-muted uppercase before:text-[0.8rem] before:text-accent before:content-['✦']">
       {title}
     </span>
-    <span class="block h-px w-full bg-[var(--border)]"></span>
+    <span class="block h-px w-full bg-line"></span>
   </header>
 
-  <div class="relative flex flex-col gap-7">
+  <div class="grid grid-cols-1 items-end gap-5 phone:grid-cols-[minmax(0,1fr)_auto] phone:gap-8">
     <address
-      class="max-w-[60ch] animate-[fade-up_.65s_cubic-bezier(0.16,1,0.3,1)_both] text-[1.05rem] leading-[1.85] text-[var(--text-muted)] not-italic [animation-delay:.06s] motion-reduce:animate-none [&_a]:inline-flex [&_a]:items-center [&_a]:font-medium [&_a]:transition-colors [&_a]:duration-200 [&_a]:hover:text-[var(--text)]"
+      data-stagger-item
+      class="m-0 max-w-[60ch] font-editorial text-[clamp(1.5rem,3.2vw,2.6rem)] leading-[1.25] text-foreground-secondary italic"
       set:html={contact.message}
     />
-    <div
-      class="animate-[fade-up_.65s_cubic-bezier(0.16,1,0.3,1)_both] border-t border-[var(--border)] pt-5 [animation-delay:.14s] motion-reduce:animate-none"
-    >
+    <div data-stagger-item>
       <SocialLinks />
     </div>
   </div>

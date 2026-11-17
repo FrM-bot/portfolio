@@ -15,24 +15,26 @@ const status = i18n.Presentation.status
 ---
 
 <article
-  class="flex flex-col gap-10 md:flex-row-reverse md:items-start md:justify-end lg:gap-16"
+  data-intro
+  class="col-span-full grid grid-cols-1 items-stretch gap-[clamp(1.5rem,5vw,5rem)] overflow-hidden rounded-panel border border-line bg-surface p-[clamp(1.25rem,3vw,2.25rem)] transition-[border-color,background-color] duration-300 [grid-template-areas:'copy'_'portrait'] phone:min-h-[380px] phone:[grid-template-columns:minmax(0,1fr)_minmax(190px,0.34fr)] phone:[grid-template-areas:'copy_portrait']"
 >
   {
     presentation.profile && (
-      <div class="flex h-full [animation:fade-up_.7s_cubic-bezier(0.16,1,0.3,1)_both] flex-col items-center gap-3 [animation-delay:.15s] motion-reduce:animate-none">
-        <picture class="block overflow-hidden rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] p-1">
+      <div data-intro-item class="flex min-w-0 flex-col items-center justify-center gap-4 [grid-area:portrait]">
+        <picture class="block w-full max-w-[15rem] overflow-hidden rounded-2xl border border-line bg-surface-raised max-phone:w-[min(100%,13rem)]">
           <img
-            class="rounded-full saturate-[0.92]"
             width="180"
             height="180"
             src={presentation.profile}
             alt="GitHub profile"
+            class="block aspect-square w-full object-cover [filter:saturate(0.72)_sepia(0.14)]"
           />
         </picture>
         <Link
           variant="rounded"
           href={presentation.curriculum.link}
           target="_blank"
+          class="w-fit !border-line-strong !rounded-full !bg-transparent !px-3.5 !py-[0.55rem] !text-[0.65rem] !font-display !font-semibold !tracking-[0.12em] !text-foreground-secondary !uppercase hover:!border-accent hover:!bg-accent hover:!text-accent-ink"
         >
           {presentation.curriculum.label}
         </Link>
@@ -40,25 +42,21 @@ const status = i18n.Presentation.status
     )
   }
 
-  <div class="flex max-w-[68ch] flex-col gap-6">
+  <div class="flex min-w-0 flex-col items-start justify-center gap-[clamp(1rem,2vw,1.5rem)] [grid-area:copy]">
     <div class="flex flex-col gap-1">
-      <p
-        class="[animation:fade-up_.6s_cubic-bezier(0.16,1,0.3,1)_both] text-sm text-[var(--text-faint)] [animation-delay:.1s] motion-reduce:animate-none"
-      >
+      <p data-intro-item class="font-editorial text-[clamp(1rem,1.5vw,1.3rem)] font-normal text-accent italic">
         {greeting}
       </p>
-      <h1
-        class="[animation:fade-up_.7s_cubic-bezier(0.16,1,0.3,1)_both] [font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[clamp(3rem,10vw+0.5rem,6.5rem)] leading-[1.06] font-extrabold tracking-[-0.03em] text-[var(--text)] [animation-delay:.2s] motion-reduce:animate-none"
-      >
-        {presentation.title}
+      <h1 class="m-0 max-w-[10ch] overflow-hidden font-display text-[clamp(3.8rem,9vw,7.6rem)] leading-[0.86] font-bold tracking-[-0.075em] text-foreground text-wrap-balance">
+        <span data-intro-title class="inline-block">{presentation.title}</span>
       </h1>
     </div>
 
     {
       status && (
-        <div class="inline-flex w-fit [animation:fade-up_.6s_cubic-bezier(0.16,1,0.3,1)_both] items-center gap-2 rounded-full bg-[var(--border)] px-3.5 py-1.5 text-xs font-medium tracking-[0.01em] text-[var(--text-secondary)] [animation-delay:.28s] motion-reduce:animate-none">
+        <div data-intro-item class="inline-flex items-center gap-2.5 text-[0.7rem] font-semibold tracking-[0.11em] text-foreground-muted uppercase">
           <span
-            class="h-1.5 w-1.5 shrink-0 [animation:status-pulse_2.5s_ease-in-out_infinite] rounded-full bg-[var(--accent)] motion-reduce:animate-none"
+            class="size-[0.42rem] rounded-full bg-accent shadow-[0_0_0_0.25rem_color-mix(in_oklab,var(--accent)_12%,transparent)] [animation:status-pulse_2.5s_ease-in-out_infinite] motion-reduce:animate-none"
             aria-hidden="true"
           />
           <span>{status}</span>
@@ -67,13 +65,12 @@ const status = i18n.Presentation.status
     }
 
     <h2
-      class="max-w-[65ch] [animation:fade-up_.7s_cubic-bezier(0.16,1,0.3,1)_both] text-[1.03125rem] leading-[1.72] text-[var(--text-muted)] [animation-delay:.35s] motion-reduce:animate-none [&_strong]:font-medium [&_strong]:text-[var(--text)]"
+      data-intro-item
+      class="m-0 max-w-[58ch] text-[clamp(0.96rem,1vw,1.08rem)] leading-[1.75] text-foreground-secondary [&_strong]:font-semibold [&_strong]:text-foreground"
       set:html={convertAsteriskToStrongTag(presentation.description)}
     />
 
-    <div
-      class="[animation:fade-up_.6s_cubic-bezier(0.16,1,0.3,1)_both] [animation-delay:.48s] motion-reduce:animate-none"
-    >
+    <div data-intro-item>
       <SocialLinks />
     </div>
   </div>

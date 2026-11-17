@@ -22,15 +22,13 @@ const i18n = getI18n({ lang: currentLocale })
 const presentation = i18n.Presentation
 ---
 
-<header
-  class="flex w-full animate-[fade-in_.5s_cubic-bezier(0.16,1,0.3,1)_both] items-center justify-between rounded-[0.875rem] border border-[color-mix(in_oklab,var(--border)_78%,transparent)] bg-[color-mix(in_oklab,var(--bg)_74%,transparent)] px-3 py-2 shadow-[0_8px_22px_color-mix(in_oklab,var(--bg)_78%,transparent)] backdrop-blur-sm transition-colors duration-300"
->
+<header class="flex w-full items-center justify-between gap-3">
   <Link target="_blank" variant="text" href={`mailto:${presentation.mail}`}
     >{presentation.mail}</Link
   >
-  <div class="flex items-center gap-6">
+  <div class="flex items-center gap-[clamp(0.65rem,3vw,2.25rem)]">
     <nav>
-      <ul role="list" class="flex flex-row items-center gap-4">
+      <ul role="list" class="m-0 flex flex-row items-center gap-[0.85rem] p-0 max-[420px]:gap-[0.55rem]">
         {
           NavigationLinks.map((lang) => {
             const isCurrent = lang.label === currentLocale
@@ -39,10 +37,10 @@ const presentation = i18n.Presentation
                 <a
                   href={lang.href}
                   aria-current={isCurrent ? 'page' : undefined}
-                  class={`[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.07em] no-underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)] ${
+                  class={`font-display text-[0.68rem] font-semibold tracking-[0.12em] text-current no-underline uppercase transition-colors duration-[180ms] max-[420px]:text-[0.61rem] ${
                     isCurrent
-                      ? 'text-[var(--text)]'
-                      : 'text-[var(--text-faint)] hover:text-[var(--text-muted)]'
+                      ? 'text-foreground'
+                      : 'text-foreground-faint hover:text-foreground-muted'
                   }`}
                 >
                   {lang.label.toLocaleUpperCase()}
@@ -54,15 +52,15 @@ const presentation = i18n.Presentation
       </ul>
     </nav>
     <button
-      class="inline-flex min-h-8 min-w-8 cursor-pointer items-center justify-center border-none bg-transparent p-0 text-[var(--text-faint)] transition-colors duration-200 hover:text-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
+      class="inline-grid size-[2.4rem] place-items-center rounded-full border border-line bg-transparent text-foreground-secondary transition-[color,border-color,background-color] duration-[180ms] hover:border-line-strong hover:bg-surface-raised hover:text-accent"
       id="theme-toggle"
       type="button"
-      aria-label="Switch to dark theme"
+      aria-label="Switch to light theme"
     >
-      <span class="theme-icon-moon" aria-hidden="true">
+      <span class="theme-icon-moon hidden" aria-hidden="true">
         <Moon width={18} height={18} />
       </span>
-      <span class="theme-icon-sun hidden" aria-hidden="true">
+      <span class="theme-icon-sun" aria-hidden="true">
         <Sun width={18} height={18} />
       </span>
     </button>
@@ -86,11 +84,11 @@ const presentation = i18n.Presentation
     )
   }
 
-  apply(document.documentElement.getAttribute('data-theme') || 'light')
+  apply(document.documentElement.getAttribute('data-theme') || 'dark')
 
   toggle?.addEventListener('click', () => {
     const current =
-      document.documentElement.getAttribute('data-theme') || 'light'
+      document.documentElement.getAttribute('data-theme') || 'dark'
     apply(current === 'dark' ? 'light' : 'dark')
   })
 </script>

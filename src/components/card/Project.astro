@@ -1,72 +1,57 @@
 ---
 import type { Project } from '@/data/projects'
 import ExternalTiny from '@/components/icons/ExternalTiny.astro'
-import { getI18n } from '@/i18n'
 
 type Props = Project
 
-const { title, techs, link, github, description } = Astro.props as Props
-const { currentLocale } = Astro
-const i18n = getI18n({ lang: currentLocale })
-const links = i18n.Translations.links
+const { title, techs, link, links, description } = Astro.props as Props
+const TitleTag = link ? 'a' : 'span'
 
 const formatTechs = (values: string[]) => values.join(' · ')
 ---
 
 <article
-  class="flex h-full min-h-[200px] flex-col rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] transition duration-250 hover:border-[color-mix(in_oklab,var(--border-strong)_78%,transparent)]"
+  data-stagger-item
+  class="flex min-h-64 min-w-0 flex-col justify-between gap-[1.4rem] rounded-card border border-line bg-surface p-[clamp(1rem,2vw,1.45rem)] transition-[border-color,background-color,transform] duration-[220ms] hover:-translate-y-[3px] hover:border-line-strong hover:bg-surface-raised max-[620px]:min-h-[13rem]"
 >
-  <div class="flex h-full flex-col justify-between gap-6 p-6">
-    <div class="flex flex-col gap-1.5">
-      <a
+  <div class="flex h-full flex-col justify-between gap-6">
+    <div class="flex flex-col gap-[0.55rem]">
+      <TitleTag
         href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-base leading-[1.2] font-medium text-[var(--text)] no-underline transition-colors duration-200 hover:text-[var(--text-muted)]"
+        target={link ? '_blank' : undefined}
+        rel={link ? 'noopener noreferrer' : undefined}
+        class:list={[
+          'font-display text-[clamp(1.15rem,1.7vw,1.55rem)] leading-[1.05] font-semibold tracking-[-0.04em] text-foreground no-underline',
+          link && 'transition-colors hover:text-accent'
+        ]}
       >
         {title}
-      </a>
-      <p class="text-[0.75rem] leading-[1.55] text-[var(--text-faint)]">
+      </TitleTag>
+      <p class="m-0 text-[0.66rem] leading-[1.6] font-semibold tracking-[0.08em] text-foreground-faint uppercase">
         {formatTechs(techs)}
       </p>
       {
         description && (
-          <p class="mt-1.5 text-[0.875rem] leading-[1.6] text-[var(--text-muted)]">
+          <p class="mt-1 mb-0 text-[0.82rem] leading-[1.65] text-foreground-muted">
             {description}
           </p>
         )
       }
     </div>
 
-    <div class="flex flex-wrap items-center gap-2">
-      {
-        github && (
-          <a
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group inline-flex items-center gap-1 rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-[0.75rem] font-medium tracking-[0.035em] text-[var(--text-secondary)] no-underline transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_78%,transparent)] hover:bg-[color-mix(in_oklab,var(--border)_86%,transparent)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
-            aria-label={`${links.openOnGithubAria}: ${title}`}
-          >
-            <span>GitHub</span>
-            <ExternalTiny class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
-          </a>
-        )
-      }
-      {
-        link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group inline-flex items-center gap-1 rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-[0.75rem] font-medium tracking-[0.035em] text-[var(--text-secondary)] no-underline transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_78%,transparent)] hover:bg-[color-mix(in_oklab,var(--border)_86%,transparent)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
-            aria-label={`${links.visitProjectAria}: ${title}`}
-          >
-            <span>{links.visit}</span>
-            <ExternalTiny class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
-          </a>
-        )
-      }
+    <div class="flex flex-wrap gap-[0.45rem]">
+      {links.map(({ href, label }) => (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex min-h-8 items-center gap-[0.35rem] rounded-full border border-line bg-transparent px-[0.7rem] py-[0.35rem] font-display text-[0.63rem] font-semibold tracking-[0.1em] text-foreground-secondary no-underline uppercase transition-[color,border-color,background-color] duration-[180ms] hover:border-accent hover:bg-accent hover:text-accent-ink"
+          aria-label={`${label}: ${title}`}
+        >
+          <span>{label}</span>
+          <ExternalTiny class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
+        </a>
+      ))}
     </div>
   </div>
 </article>

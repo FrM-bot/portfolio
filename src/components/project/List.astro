@@ -16,19 +16,17 @@ const formatTechs = (values: string[], max = 3) =>
   values.slice(0, max).join(' · ') + (values.length > max ? ' …' : '')
 ---
 
-<article class="flex flex-col gap-8">
-  <header class="flex flex-col gap-2.5">
-    <span
-      class="[font-family:'Jost',ui-sans-serif,system-ui,sans-serif] text-[0.75rem] font-medium tracking-[0.09em] text-[var(--text-faint)] uppercase"
-    >
+<article class="flex flex-col gap-[clamp(1.4rem,2.6vw,2.25rem)]">
+  <header class="flex flex-col gap-[0.85rem]">
+    <span data-section-label class="flex items-center gap-[0.7rem] font-display text-[0.7rem] leading-[1.3] font-semibold tracking-[0.16em] text-foreground-muted uppercase before:text-[0.8rem] before:text-accent before:content-['✦']">
       {title}
     </span>
-    <span class="block h-px w-full bg-[var(--border)]"></span>
+    <span data-section-line class="block h-px w-full origin-left bg-line"></span>
   </header>
 
   {
     featured.length > 0 && (
-      <div class="grid grid-cols-1 gap-4 min-[601px]:grid-cols-3 md:gap-5">
+      <div class="grid grid-cols-1 gap-[0.85rem] phone:grid-cols-2 wide:grid-cols-3">
         {featured.map((project) => (
           <ProjectCard {...project} />
         ))}
@@ -38,10 +36,10 @@ const formatTechs = (values: string[], max = 3) =>
 
   {
     regular.length > 0 && (
-      <div class="flex flex-col">
+      <div class="mt-4 flex flex-col">
         {regular.map((project, i) => (
-          <div class="grid grid-cols-[2rem_minmax(0,1fr)_auto] items-baseline gap-x-4 border-t border-[var(--border)] py-3 transition-colors duration-200 last:border-b hover:bg-[color-mix(in_oklch,var(--bg-subtle)_60%,transparent)] motion-reduce:transition-none min-[581px]:grid-cols-[2rem_minmax(0,1fr)_minmax(0,1fr)_auto]">
-            <span class="pt-[0.1rem] text-[0.75rem] font-medium tracking-[0.04em] text-[color-mix(in_oklab,var(--accent)_82%,var(--text-muted))] [font-variant-numeric:tabular-nums]">
+          <div data-stagger-item class="grid grid-cols-[1.5rem_minmax(0,1fr)_auto] items-center gap-[0.45rem] border-t border-line px-[0.15rem] py-[0.9rem] phone:grid-cols-[2rem_minmax(0,1fr)_auto] phone:gap-3 tablet:grid-cols-[2rem_minmax(0,1fr)_minmax(0,1fr)_auto] tablet:gap-3 last:border-b">
+            <span class="font-editorial text-[0.85rem] text-accent italic">
               {String(i + 1).padStart(2, '0')}
             </span>
             {project.link ? (
@@ -49,16 +47,16 @@ const formatTechs = (values: string[], max = 3) =>
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="relative truncate text-[0.9375rem] font-medium text-[var(--text)] no-underline transition-colors duration-200 after:absolute after:right-0 after:bottom-[-2px] after:left-0 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--text)] after:transition-transform after:duration-250 hover:text-[var(--text-muted)] hover:after:scale-x-100"
+                class="overflow-hidden text-ellipsis text-[0.88rem] font-semibold whitespace-nowrap text-foreground no-underline transition-colors hover:text-accent"
               >
                 {project.title}
               </a>
             ) : (
-              <span class="truncate text-[0.9375rem] font-medium text-[var(--text)]">
+              <span class="overflow-hidden text-ellipsis text-[0.88rem] font-semibold whitespace-nowrap text-foreground">
                 {project.title}
               </span>
             )}
-            <span class="hidden overflow-hidden text-[0.75rem] text-ellipsis whitespace-nowrap text-[var(--text-faint)] min-[581px]:block">
+            <span class="hidden overflow-hidden text-ellipsis text-[0.65rem] tracking-[0.07em] whitespace-nowrap text-foreground-faint uppercase tablet:block">
               {formatTechs(project.techs)}
             </span>
             <div class="flex items-center gap-2">
@@ -67,7 +65,7 @@ const formatTechs = (values: string[], max = 3) =>
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group inline-flex items-center gap-1 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-2.5 py-[0.2rem] text-[0.75rem] font-medium tracking-[0.035em] whitespace-nowrap text-[var(--text-secondary)] no-underline transition duration-200 hover:border-[color-mix(in_oklab,var(--border-strong)_76%,transparent)] hover:bg-[color-mix(in_oklab,var(--border)_88%,transparent)] hover:text-[var(--text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.55_0.14_258/0.42)]"
+                  class="group inline-flex items-center gap-1 rounded-full border border-line bg-surface px-2.5 py-[0.2rem] text-[0.75rem] font-medium tracking-[0.035em] whitespace-nowrap text-foreground-secondary no-underline transition duration-200 hover:border-line-strong hover:bg-surface-raised hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent/50"
                   aria-label={`${links.openOnGithubAria}: ${project.title}`}
                 >
                   <span>GH</span>

@@ -39,77 +39,57 @@
   },
   "Experience": [
     {
-      "position": "Front end developer (Remote)",
+      "position": "Ingeniero Full Stack",
       "location": {
-        "country": "España"
+        "country": "Argentina"
       },
-      "company": "Dazlabs",
+      "company": "Wollen Labs",
       "date": {
-        "from": "2024-06-01"
+        "from": "2025-12-01"
       },
-      "work": ["React | TypeScript | Tailwind CSS | Yup | Zustand | React Query | React Router"]
+      "work": [
+        "Desarrollé una biblioteca multimedia centralizada para gestionar imágenes y videos, con permisos por usuario, país y región, integrada en varios módulos.",
+        "Diseñé APIs REST con Node.js, NestJS y Strapi, autenticación JWT y tokens de renovación; trabajé con PostgreSQL y SQLite."
+      ]
     },
     {
-      "position": "Frontend developer (Remote)",
+      "position": "Desarrollador Frontend freelance",
       "location": {
-        "country": "España"
+        "country": "Argentina"
       },
       "company": "Gravitad",
       "date": {
-        "from": "2024-02-01"
+        "from": "2024-02-01",
+        "to": "2025-06-30"
       },
-      "work": ["React | TypeScript | Yup | Zustand | Material UI | React Router"]
+      "work": [
+        "Desarrollé interfaces adaptables con React y Material UI; gestioné el estado de la aplicación con TypeScript y Zustand."
+      ]
     },
     {
-      "position": "Junior fullstack engineer (Remoto - Freelance)",
+      "position": "Desarrollador Backend y Full Stack",
       "location": {
         "country": "Argentina"
       },
       "company": "GoSocial",
       "date": {
-        "from": "2023-06-25",
-        "to": "2023-09-5"
+        "from": "2023-05-01",
+        "to": "2023-10-31"
       },
-      "work": ["Next.JS | TypeScript | Tailwind CSS | Zod | Zustand | Next Auth | Tanstack Query"]
-    },
-    {
-      "position": "Junior backend developer (Remoto - Freelance)",
-      "location": {
-        "country": "Argentina"
-      },
-      "company": "GoSocial",
-      "date": {
-        "from": "2023-05-26",
-        "to": "2023-06-25"
-      },
-      "work": ["Express | Node | JWT | MercadoPago | Prisma | MongoDB | Zod"]
+      "work": [
+        "Diseñé la base de datos e integré pagos con Mercado Pago y almacenamiento de archivos en Cloudflare R2 mediante el SDK de Amazon S3.",
+        "Desarrollé funcionalidades frontend con Next.js y Tailwind CSS y backend con Node.js y Express, usando TypeScript."
+      ]
     }
   ],
   "Projects": [
     {
-      "title": "Weather App",
-      "techs": ["React"],
-      "link": "https://weather-app-lilac-zeta-45.vercel.app",
-      "github": "https://github.com/FrM-bot/weather-app",
-      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678314756/portfolio/fuo0c00bd3hdac3vrihe.png"
-    },
-    {
-      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378835/portfolio/muyikihebuiobed6gywu.png",
-      "title": "Wiki Dogs",
-      "link": "https://pi-dogs-client.vercel.app",
-      "techs": ["React", "Express", "Sequelize", "PostgreSQL"],
-      "github": "https://github.com/FrM-bot/Pi-Dogs-Client"
-    },
-    {
-      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378738/portfolio/k5qsgqzrdf3efuknkd2f.png",
-      "title": "Wallet",
-      "link": "https://henry-pf-client.vercel.app",
-      "techs": ["React", "Express", "Prisma", "PostgreSQL", "Firebase", "JWT", "Tailwind"],
-      "github": "https://github.com/facuperezbri/henry-pf-client"
-    },
-    {
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378654/portfolio/jv47uvtl1bhlklypophp.png",
       "title": "Wiki anime",
+      "links": [
+        { "href": "https://github.com/FrM-bot/anime-app", "label": "GitHub" },
+        { "href": "https://wiki-anime-frm-bot.vercel.app", "label": "Visitar" }
+      ],
       "link": "https://wiki-anime-frm-bot.vercel.app",
       "techs": ["SvelteKit", "Tailwind", "TypeScript"],
       "github": "https://github.com/FrM-bot/anime-app",
@@ -117,30 +97,12 @@
       "description": "Wiki donde puedes encontrar enormes cantidades de datos de tus favoritos anime y manga."
     },
     {
-      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678386163/portfolio/mkawwtw4jddwbjnmspoh.png",
-      "title": "Music Downloader",
-      "link": "https://music-downloader.onrender.com",
-      "techs": ["React", "Tailwind", "Esbuild"],
-      "github": "https://github.com/FrM-bot/music-downloader",
-      "description": "App donde puedes descargar audio .mp3 de YouTube con la url."
-    },
-    {
-      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678315586/portfolio/qx6n1m0cgkfqbvxpvyvc.png",
-      "title": "Password Generator",
-      "link": "https://password-generator-o6yz.onrender.com",
-      "techs": ["React", "Tailwind", "Vitest", "Playwright", "Github Actions", "TypeScript"],
-      "github": "https://github.com/FrM-bot/password-generator"
-    },
-    {
-      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678378419/portfolio/qvflbdlqua5ltlubf6ib.png",
-      "title": "AI Image Generator",
-      "link": "https://ai-image-generation-jhrg.vercel.app",
-      "techs": ["Next.JS", "Tailwind", "OpenAI API", "TypeScript", "Prisma", "MongoDB"],
-      "github": "https://github.com/FrM-bot/AI-Image-Generation"
-    },
-    {
       "image": "https://res.cloudinary.com/dxkry5nri/image/upload/v1747254244/portfolio/wjvvnrcgrqdeitjits13.webp",
       "title": "DevInc",
+      "links": [
+        { "href": "https://github.com/FrM-bot/dev-inc", "label": "GitHub" },
+        { "href": "https://dev-inc.vercel.app/", "label": "Visitar" }
+      ],
       "link": "https://dev-inc.vercel.app/",
       "techs": ["Astro", "Tailwind"],
       "github": "https://github.com/FrM-bot/dev-inc",
@@ -148,41 +110,41 @@
       "description": "Hub de recursos y landing comunitaria para desarrolladores, construido con Astro."
     },
     {
-      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678384714/portfolio/nzdqi7cmcigrzvfpkefm.png",
-      "title": "Image Editor",
-      "link": "https://svelte-cloudinary-app-guif.vercel.app",
-      "techs": ["SvelteKit", "Tailwind", "TypeScript"],
-      "github": "https://github.com/FrM-bot/svelte-cloudinary-app",
-      "description": "Simple image editor where you can apply various type of filters and optimizations."
+      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/f_webp/w_720/v1678315586/portfolio/qx6n1m0cgkfqbvxpvyvc.png",
+      "title": "Password Generator",
+      "links": [
+        { "href": "https://github.com/FrM-bot/password-generator", "label": "GitHub" },
+        { "href": "https://password-generator-o6yz.onrender.com", "label": "Visitar" }
+      ],
+      "link": "https://password-generator-o6yz.onrender.com",
+      "techs": ["React", "Tailwind", "Vitest", "Playwright", "Github Actions", "TypeScript"],
+      "github": "https://github.com/FrM-bot/password-generator"
     },
     {
-      "image": "https://res.cloudinary.com/dxkry5nri/image/upload/v1747254857/portfolio/ivkvmex9ixb0sr8lrdn3.webp",
-      "title": "ImportArg",
-      "link": "https://importarg.vercel.app/",
-      "techs": ["Next.js", "Tailwind", "Shadcn UI"],
-      "github": "https://github.com/FrM-bot/import-arg",
+      "title": "Lumina",
+      "links": [
+        { "href": "https://lumina-events.com/", "label": "Visitar" },
+        { "href": "https://dash.lumina-events.com/", "label": "Abrir panel" }
+      ],
+      "link": "https://lumina-events.com/",
+      "dashboard": "https://dash.lumina-events.com/",
+      "techs": ["TypeScript", "PostgreSQL"],
       "highlight": true,
-      "description": "Herramienta para explorar y gestionar procedimientos de importación en Argentina."
+      "description": "Plataforma para vender entradas y gestionar eventos."
     }
   ],
   "Skills": {
-    "languages": {
-      "label": "Lenguajes de programación."
+    "frontend": {
+      "label": "Frontend"
     },
-    "frameworks": {
-      "label": "Frameworks."
+    "backendData": {
+      "label": "Backend y datos"
     },
-    "libraries": {
-      "label": "Librerías."
+    "devops": {
+      "label": "DevOps y CI/CD"
     },
-    "orms": {
-      "label": "ORMs."
-    },
-    "dbs": {
-      "label": "Base de datos."
-    },
-    "other": {
-      "label": "Otro."
+    "cloudServices": {
+      "label": "Servicios en la nube"
     }
   },
   "Contact": {
@@ -204,6 +166,7 @@
     "links": {
       "visit": "Visitar",
       "visitProjectAria": "Visitar proyecto",
+      "openDashboard": "Abrir panel",
       "openOnGithubAria": "Abrir en GitHub"
     }
   }
